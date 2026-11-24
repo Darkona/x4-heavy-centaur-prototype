@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components>
+  <component name="shield_arg_l_hcp_internal_01" class="shieldgenerator">
+    <connections>
+      <connection name="con_shieldgen_01" tags="component large shield hcp_shield" />
+    </connections>
+    <properties>
+      <recharge />
+    </properties>
+  </component>
+</components>

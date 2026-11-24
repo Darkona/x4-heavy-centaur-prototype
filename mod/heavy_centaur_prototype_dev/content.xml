@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<content id="heavy_centaur_prototype_dev" name="Heavy Centaur Prototype Dev" description="Development helpers for the Heavy Centaur Prototype: the bench loadout, a crew for the bench ship and a test derelict next to the player. Needs x4-shiptest; not for players." author="Darkona" version="110" date="2026-11-24" save="0" sync="false" enabled="true">
+  <dependency version="900" />
+  <dependency id="heavy_centaur_prototype" optional="false" name="Heavy Centaur Prototype" />
+</content>

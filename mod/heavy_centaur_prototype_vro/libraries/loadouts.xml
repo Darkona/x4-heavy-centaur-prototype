@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//loadouts/loadout[@id='hcp_bench']/ammunition/ammunition[@macro='missile_gen_s_guided_01_mk1_macro']/@macro">missile_guided_light_mk1_macro</replace>
+  <replace sel="//loadouts/loadout[@id='hcp_bench']/ammunition/ammunition[@macro='missile_gen_s_smart_01_mk1_macro']/@macro">missile_smart_light_mk1_macro</replace>
+  <replace sel="//loadouts/loadout[@id='hcp_bench']/ammunition/ammunition[@macro='missile_gen_s_heatseeker_01_mk1_macro']/@macro">missile_heatseeker_light_mk1_macro</replace>
+  <replace sel="//loadouts/loadout[@id='hcp_bench']/ammunition/ammunition[@macro='missile_gen_s_swarm_01_mk1_macro']/@macro">missile_swarm_light_mk1_macro</replace>
+  <replace sel="//loadouts/loadout[@id='hcp_bench']/ammunition/ammunition[@macro='missile_gen_s_torpedo_01_mk1_macro']/@macro">missile_torpedo_light_mk1_macro</replace>
+  <remove sel="//loadouts/loadout[@id='hcp_bench']/ammunition/ammunition[@macro='missile_gen_s_emp_01_mk1_macro']" />
+</diff>

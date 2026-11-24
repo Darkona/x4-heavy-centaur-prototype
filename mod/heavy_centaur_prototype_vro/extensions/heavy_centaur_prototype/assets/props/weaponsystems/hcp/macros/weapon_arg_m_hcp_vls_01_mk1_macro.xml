@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="/macros/macro/properties/ammunition/@tags">mtorpedo</replace>
+  <replace sel="/macros/macro/properties/bullet/@class">missile_torpedo_light_mk1_macro</replace>
+  <add sel="/macros/macro/properties/bullet" pos="after">
+    <reload />
+  </add>
+  <replace sel="/macros/macro/properties/storage/@capacity">4</replace>
+</diff>

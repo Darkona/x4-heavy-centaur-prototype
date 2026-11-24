@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="ship_arg_l_hcp_01_a_macro" class="ship_m">
+    <component ref="ship_arg_l_hcp_01" />
+    <properties>
+      <identification name="{1931170,1}" basename="{1931170,4}" makerrace="argon" description="{1931170,2}" shortvariation="{1931170,3}" icon="ship_l_fight_01" />
+      <software>
+        <software ware="software_dockmk2" default="1" compatible="1" />
+        <software ware="software_flightassistmk1" default="1" />
+        <software ware="software_scannerlongrangemk1" default="1" />
+        <software ware="software_scannerlongrangemk2" compatible="1" />
+        <software ware="software_scannerobjectmk1" default="1" />
+        <software ware="software_scannerobjectmk2" compatible="1" />
+        <software ware="software_targetmk1" default="1" />
+        <software ware="software_trademk1" compatible="1" />
+      </software>
+      <jerk>
+        <forward accel="0.25" decel="0.8" ratio="3" />
+        <forward_boost accel="0.3" ratio="3" />
+        <forward_travel accel="0.5" decel="0.9" ratio="3" />
+        <strafe value="0.5" />
+        <angular value="0.4" />
+      </jerk>
+      <explosiondamage value="500" shield="3000" />
+      <storage missile="120" unit="12" countermeasure="30" deployable="10" />
+      <hull max="42000" />
+      <secrecy level="2" />
+      <docksize tag="dock_l" />
+      <purpose primary="fight" />
+      <people capacity="18" />
+      <sounds>
+        <shipdetail ref="shipdetail_ship_l_01" />
+      </sounds>
+      <physics mass="48">
+        <inertia pitch="17" yaw="17" roll="9" />
+        <drag forward="28.62" reverse="92.6" horizontal="28.62" vertical="28.62" pitch="55" yaw="55" roll="45" />
+        <accfactors reverse="0.85" horizontal="1.2" vertical="1.2" />
+      </physics>
+      <thruster tags="large" />
+      <ship type="frigate" />
+      <modifiers>
+        <weapon heat="0.8" />
+      </modifiers>
+    </properties>
+    <connections>
+      <connection ref="con_cockpit">
+        <macro ref="bridge_arg_l_01_macro" connection="con_cockpit" />
+      </connection>
+      <connection ref="con_shipstorage_s_01">
+        <macro ref="shipstorage_gen_s_two_macro" connection="object" />
+      </connection>
+      <connection ref="con_shipstorage_xs_01">
+        <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
+      </connection>
+      <connection ref="con_dockarea_arg_s_ship_01">
+        <macro ref="dockarea_arg_s_ship_01_macro" connection="Connection01" />
+      </connection>
+      <connection ref="con_dock_xs">
+        <macro ref="dock_gen_xs_ship_01_macro" connection="Connection_component" />
+      </connection>
+      <connection ref="con_storage01">
+        <macro ref="storage_arg_l_hcp_01_macro" connection="ShipConnection" />
+      </connection>
+    </connections>
+  </macro>
+</macros>

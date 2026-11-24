@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/language">
+    <page id="1931170" title="Heavy Centaur Prototype" descr="Heavy Centaur Prototype" voice="no">
+      <t id="1">(Prototipo de Centauro Pesado){20111,1501} de {20101,12801} {20111,5211}</t>
+      <t id="2">Construido en los últimos años del Conflicto Terran, el Prototipo de Centauro Pesado fue el banco de pruebas de la Federación Argon para un Centauro más pesado: un hangar, una batería frontal de cañones medianos y un anillo de torretas en un solo casco veloz. OTAS, el contratista de defensa en buenos términos con la Federación, le instaló un núcleo de escudo oculto en el armazón y una batería de celdas de lanzamiento vertical para torpedos, y lo puso a prueba en unas instalaciones de Sol de Agujero Negro, lejos de sus astilleros y cerca de la frontera xenon. El coste resultó excesivo, y las naves de serie salieron recortadas mientras el prototipo se quedaba en el astillero. Cuando las Puertas de Salto se cerraron, las instalaciones quedaron aisladas y OTAS quebró. La nave quedó atrás. Desde entonces se la ha encontrado a la deriva, con los registros borrados y un Kestrel teladi todavía amarrado en su hangar.</t>
+      <t id="3">PCP</t>
+      <t id="4">Prototipo de Centauro Pesado</t>
+      <t id="101">Celda de lanzamiento vertical PCP</t>
+      <t id="102">Una celda de misiles enterrada, hecha solo para el Prototipo de Centauro Pesado. Va en los silos del cuello bajo compuertas blindadas y la dispara el piloto como cualquier lanzamisiles: se fija un blanco, se dispara, y el torpedo o el misil guiado sale de la nave en vertical y luego gira hacia el blanco fijado. Acepta torpedos y misiles guiados, no misiles sin guía, y no cabe en ninguna otra nave.</t>
+      <t id="103">LV PCP</t>
+      <t id="104">Celda de lanzamiento vertical PCP</t>
+      <t id="201">Generador de escudo interno PCP Mk1</t>
+      <t id="202">Un generador de escudo metido en el corazón del Prototipo de Centauro Pesado, sin emisor en el casco. Levanta el escudo de casco que cubre toda la nave, así que no hay un generador sobre la cubierta que un disparo pueda tumbar. No cabe en ninguna otra nave y nadie lo vende: con su plano se puede construir en un muelle de equipamiento propio.</t>
+      <t id="203">Esc int PCP Mk1</t>
+      <t id="204">Generador de escudo interno PCP</t>
+      <t id="205">Generador de escudo interno PCP Mk2</t>
+      <t id="206">Esc int PCP Mk2</t>
+    </page>
+  </add>
+</diff>

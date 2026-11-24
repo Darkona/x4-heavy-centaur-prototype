@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mdscript name="HcpVlsHatches" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
+  <cues>
+    <cue name="Watch" checkinterval="3s">
+      <conditions>
+        <check_value value="player.occupiedship and player.occupiedship.macro == macro.ship_arg_l_hcp_01_a_macro" />
+      </conditions>
+      <actions>
+        <set_value name="$ship" exact="player.occupiedship" />
+        <set_value name="$open" exact="false" />
+        <set_value name="$lastlaunch" exact="0s" />
+      </actions>
+      <cues>
+        <cue name="Launched" instantiate="true">
+          <conditions>
+            <event_object_launched_missile object="$ship" />
+          </conditions>
+          <actions>
+            <set_value name="$lastlaunch" exact="player.age" />
+            <do_if value="not $open">
+              <trigger_animation object="$ship" trigger="activate_turret_hatch" immediate="true" />
+              <set_value name="$open" exact="true" />
+            </do_if>
+          </actions>
+        </cue>
+        <cue name="CloseAfterLaunch" instantiate="true" checkinterval="1s">
+          <conditions>
+            <check_value value="$open and player.age gt $lastlaunch + 4s" />
+          </conditions>
+          <actions>
+            <trigger_animation object="$ship" trigger="deactivate_turret_hatch" />
+            <set_value name="$open" exact="false" />
+          </actions>
+        </cue>
+        <cue name="Left" checkinterval="3s">
+          <conditions>
+            <check_value value="not $ship.exists or player.occupiedship != $ship" />
+          </conditions>
+          <actions>
+            <do_if value="$ship.exists and $open">
+              <trigger_animation object="$ship" trigger="deactivate_turret_hatch" />
+            </do_if>
+            <reset_cue cue="Watch" />
+          </actions>
+        </cue>
+      </cues>
+    </cue>
+  </cues>
+</mdscript>

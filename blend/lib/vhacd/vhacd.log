@@ -1,0 +1,152 @@
+Maximum convex hulls set to:128
+Maximum hull vertices set to:32
+Voxel Resolution set to:1000000
+Asynchronous mode enabled
+Saving the output convex hulls as a series of wavefront OBJ files.
+Press the SPACEBAR to cancel convex decomposition before it has completed.
+
+[COMPUTE_BOUNDS_OF_INPUT_MESH            ] : 0% : 0% : ComputingBounds[COMPUTE_BOUNDS_OF_INPUT_MESH            ] : 0% : 100% : ComputingBounds
+[CREATE_RAYCAST_MESH                     ] : 20% : 0% : Building RaycastMesh[CREATE_RAYCAST_MESH                     ] : 20% : 100% : RaycastMesh completed
+[VOXELIZING_INPUT_MESH                   ] : 30% : 0% : Voxelizing Input Mesh[VOXELIZING_INPUT_MESH                   ] : 30% : 100% : Voxelization complete
+[BUILD_INITIAL_CONVEX_HULL               ] : 40% : 0% : Build initial ConvexHull[BUILD_INITIAL_CONVEX_HULL               ] : 40% : 100% : Initial ConvexHull complete
+[PERFORMING_DECOMPOSITION                ] : 50% : 0% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 0% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 1% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 3% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 12% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 47% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 141% : Performing recursive decomposition of convex hulls
+[INITIALIZING_CONVEX_HULLS_FOR_MERGING   ] : 60% : 0% : Initializing ConvexHulls[INITIALIZING_CONVEX_HULLS_FOR_MERGING   ] : 60% : 100% : ConvexHull initialization complete
+[COMPUTING_COST_MATRIX                   ] : 70% : 0% : Computing Hull Merge Cost Matrix[COMPUTING_COST_MATRIX                   ] : 70% : 100% : Finished cost matrix
+[MERGING_CONVEX_HULLS                    ] : 80% : 37% : Merging Convex Hulls[MERGING_CONVEX_HULLS                    ] : 80% : 85% : Merging Convex Hulls
+[FINALIZING_RESULTS                      ] : 90% : 0% : Finalizing results[FINALIZING_RESULTS                      ] : 90% : 100% : Finalized results complete
+Skipped 32709 degenerate triangles
+Convex Decomposition took 1.46421 seconds
+Merging Convex Hulls took 0.25736 seconds
+Computing the Cost Matrix took 0.31868 seconds
+VHACD::Complete
+Computing Convex Decomposition took 2.39528 seconds
+Saving:part_main000.obj
+Saving:part_main001.obj
+Saving:part_main002.obj
+Saving:part_main003.obj
+Saving:part_main004.obj
+Saving:part_main005.obj
+Saving:part_main006.obj
+Saving:part_main007.obj
+Saving:part_main008.obj
+Saving:part_main009.obj
+Saving:part_main010.obj
+Saving:part_main011.obj
+Saving:part_main012.obj
+Saving:part_main013.obj
+Saving:part_main014.obj
+Saving:part_main015.obj
+Saving:part_main016.obj
+Saving:part_main017.obj
+Saving:part_main018.obj
+Saving:part_main019.obj
+Saving:part_main020.obj
+Saving:part_main021.obj
+Saving:part_main022.obj
+Saving:part_main023.obj
+Saving:part_main024.obj
+Saving:part_main025.obj
+Saving:part_main026.obj
+Saving:part_main027.obj
+Saving:part_main028.obj
+Saving:part_main029.obj
+Saving:part_main030.obj
+Saving:part_main031.obj
+Saving:part_main032.obj
+Saving:part_main033.obj
+Saving:part_main034.obj
+Saving:part_main035.obj
+Saving:part_main036.obj
+Saving:part_main037.obj
+Saving:part_main038.obj
+Saving:part_main039.obj
+Saving:part_main040.obj
+Saving:part_main041.obj
+Saving:part_main042.obj
+Saving:part_main043.obj
+Saving:part_main044.obj
+Saving:part_main045.obj
+Saving:part_main046.obj
+Saving:part_main047.obj
+Saving:part_main048.obj
+Saving:part_main049.obj
+Saving:part_main050.obj
+Saving:part_main051.obj
+Saving:part_main052.obj
+Saving:part_main053.obj
+Saving:part_main054.obj
+Saving:part_main055.obj
+Saving:part_main056.obj
+Saving:part_main057.obj
+Saving:part_main058.obj
+Saving:part_main059.obj
+Saving:part_main060.obj
+Saving:part_main061.obj
+Saving:part_main062.obj
+Saving:part_main063.obj
+Saving:part_main064.obj
+Saving:part_main065.obj
+Saving:part_main066.obj
+Saving:part_main067.obj
+Saving:part_main068.obj
+Saving:part_main069.obj
+Saving:part_main070.obj
+Saving:part_main071.obj
+Saving:part_main072.obj
+Saving:part_main073.obj
+Saving:part_main074.obj
+Saving:part_main075.obj
+Saving:part_main076.obj
+Saving:part_main077.obj
+Saving:part_main078.obj
+Saving:part_main079.obj
+Saving:part_main080.obj
+Saving:part_main081.obj
+Saving:part_main082.obj
+Saving:part_main083.obj
+Saving:part_main084.obj
+Saving:part_main085.obj
+Saving:part_main086.obj
+Saving:part_main087.obj
+Saving:part_main088.obj
+Saving:part_main089.obj
+Saving:part_main090.obj
+Saving:part_main091.obj
+Saving:part_main092.obj
+Saving:part_main093.obj
+Saving:part_main094.obj
+Saving:part_main095.obj
+Saving:part_main096.obj
+Saving:part_main097.obj
+Saving:part_main098.obj
+Saving:part_main099.obj
+Saving:part_main100.obj
+Saving:part_main101.obj
+Saving:part_main102.obj
+Saving:part_main103.obj
+Saving:part_main104.obj
+Saving:part_main105.obj
+Saving:part_main106.obj
+Saving:part_main107.obj
+Saving:part_main108.obj
+Saving:part_main109.obj
+Saving:part_main110.obj
+Saving:part_main111.obj
+Saving:part_main112.obj
+Saving:part_main113.obj
+Saving:part_main114.obj
+Saving:part_main115.obj
+Saving:part_main116.obj
+Saving:part_main117.obj
+Saving:part_main118.obj
+Saving:part_main119.obj
+Saving:part_main120.obj
+Saving:part_main121.obj
+Saving:part_main122.obj
+Saving:part_main123.obj
+Saving:part_main124.obj
+Saving:part_main125.obj
+Saving:part_main126.obj
+Saving:part_main127.obj
+Saving Convex Decomposition results of 128 convex hulls to 'decomp.obj'
+Saving convex hull results to a single file 'decomp.stl'

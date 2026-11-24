@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="weapon_arg_m_hcp_vls_01_mk1_macro" class="missilelauncher">
+    <component ref="weapon_arg_m_hcp_vls_01_mk1" />
+    <properties>
+      <identification name="{1931170,101}" basename="{1931170,104}" shortname="{1931170,103}" makerrace="argon" description="{1931170,102}" mk="1" />
+      <ammunition tags="torpedo smalltorpedo" />
+      <bullet class="missile_gen_s_torpedo_01_mk1_macro" />
+      <storage capacity="10" />
+      <hull integrated="1" />
+    </properties>
+  </macro>
+</macros>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="/macros/macro/properties/hull/@max">78000</replace>
+  <replace sel="/macros/macro/properties/explosiondamage/@value">1350</replace>
+  <replace sel="/macros/macro/properties/storage/@missile">164</replace>
+  <replace sel="/macros/macro/properties/storage/@unit">18</replace>
+  <replace sel="/macros/macro/properties/physics/@mass">58</replace>
+  <replace sel="/macros/macro/properties/physics/inertia/@pitch">18.2</replace>
+  <replace sel="/macros/macro/properties/physics/inertia/@yaw">18.2</replace>
+  <replace sel="/macros/macro/properties/physics/inertia/@roll">9.7</replace>
+  <replace sel="/macros/macro/properties/physics/drag/@forward">23.46</replace>
+  <replace sel="/macros/macro/properties/physics/drag/@reverse">87.7</replace>
+  <replace sel="/macros/macro/properties/physics/drag/@horizontal">43.7</replace>
+  <replace sel="/macros/macro/properties/physics/drag/@vertical">43.7</replace>
+  <replace sel="/macros/macro/properties/physics/drag/@pitch">77.7</replace>
+  <replace sel="/macros/macro/properties/physics/drag/@yaw">100.9</replace>
+  <replace sel="/macros/macro/properties/physics/drag/@roll">60.7</replace>
+</diff>

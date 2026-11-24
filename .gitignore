@@ -1,0 +1,8 @@
+/source/
+*.blend
+*.blend1
+/publish/
+/stale/
+/hwtest/
+/notes/
+__pycache__/

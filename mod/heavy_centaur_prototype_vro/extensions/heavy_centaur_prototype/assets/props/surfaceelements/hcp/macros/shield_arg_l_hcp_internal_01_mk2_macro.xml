@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="/macros/macro/properties/recharge/@max">48300</replace>
+  <replace sel="/macros/macro/properties/recharge/@rate">241</replace>
+  <replace sel="/macros/macro/properties/recharge/@delay">10</replace>
+  <replace sel="/macros/macro/properties/hull/@max">25000</replace>
+</diff>

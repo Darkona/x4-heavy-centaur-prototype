@@ -1,0 +1,649 @@
+[
+ {
+  "kind": "omni",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 255,
+   "g": 0,
+   "b": 0,
+   "intensity": 1,
+   "range": 6,
+   "shadowrange": 6
+  },
+  "anim": [
+   [
+    1,
+    0
+   ],
+   [
+    30,
+    0
+   ],
+   [
+    31,
+    1
+   ],
+   [
+    35,
+    1
+   ],
+   [
+    36,
+    0
+   ],
+   [
+    60,
+    0
+   ]
+  ],
+  "size": null,
+  "quat": null,
+  "name": "hcp_beacon_bottom_glow",
+  "position": [
+   0.0,
+   -34.46,
+   -50.0
+  ]
+ },
+ {
+  "kind": "omni",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 255,
+   "g": 0,
+   "b": 0,
+   "intensity": 1,
+   "range": 6,
+   "shadowrange": 6
+  },
+  "anim": [
+   [
+    1,
+    0
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    6,
+    1
+   ],
+   [
+    7,
+    0
+   ],
+   [
+    60,
+    0
+   ]
+  ],
+  "size": null,
+  "quat": null,
+  "name": "hcp_beacon_top_glow",
+  "position": [
+   0.0,
+   34.15,
+   -89.0
+  ]
+ },
+ {
+  "kind": "omni",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 188,
+   "g": 245,
+   "b": 255,
+   "intensity": 0.8,
+   "range": 40,
+   "shadowrange": 40
+  },
+  "anim": null,
+  "size": null,
+  "quat": null,
+  "name": "hcp_flood_belly_port",
+  "position": [
+   -28.0,
+   -42.0,
+   -50.0
+  ]
+ },
+ {
+  "kind": "omni",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 188,
+   "g": 245,
+   "b": 255,
+   "intensity": 0.8,
+   "range": 40,
+   "shadowrange": 40
+  },
+  "anim": null,
+  "size": null,
+  "quat": null,
+  "name": "hcp_flood_belly_starboard",
+  "position": [
+   28.0,
+   -42.0,
+   -50.0
+  ]
+ },
+ {
+  "kind": "box",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 181,
+   "g": 221,
+   "b": 249,
+   "intensity": 0.7
+  },
+  "anim": null,
+  "size": [
+   40,
+   16,
+   16
+  ],
+  "quat": [
+   0.5,
+   -0.5,
+   -0.5,
+   -0.5
+  ],
+  "name": "hcp_flood_bulb_port",
+  "position": [
+   -20.0,
+   -14.0,
+   88.0
+  ]
+ },
+ {
+  "kind": "box",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 181,
+   "g": 221,
+   "b": 249,
+   "intensity": 0.7
+  },
+  "anim": null,
+  "size": [
+   40,
+   16,
+   16
+  ],
+  "quat": [
+   0.5,
+   -0.5,
+   -0.5,
+   -0.5
+  ],
+  "name": "hcp_flood_bulb_starboard",
+  "position": [
+   20.0,
+   -14.0,
+   88.0
+  ]
+ },
+ {
+  "kind": "box",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 181,
+   "g": 221,
+   "b": 249,
+   "intensity": 0.7
+  },
+  "anim": null,
+  "size": [
+   70,
+   16,
+   16
+  ],
+  "quat": [
+   0.5,
+   -0.5,
+   -0.5,
+   -0.5
+  ],
+  "name": "hcp_flood_neck",
+  "position": [
+   0.0,
+   6.0,
+   18.0
+  ]
+ },
+ {
+  "kind": "box",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 181,
+   "g": 221,
+   "b": 249,
+   "intensity": 0.7
+  },
+  "anim": null,
+  "size": [
+   50,
+   16,
+   16
+  ],
+  "quat": [
+   0.5,
+   -0.5,
+   -0.5,
+   -0.5
+  ],
+  "name": "hcp_flood_tower_port",
+  "position": [
+   -9.0,
+   22.0,
+   -82.0
+  ]
+ },
+ {
+  "kind": "box",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 181,
+   "g": 221,
+   "b": 249,
+   "intensity": 0.7
+  },
+  "anim": null,
+  "size": [
+   50,
+   16,
+   16
+  ],
+  "quat": [
+   0.5,
+   -0.5,
+   -0.5,
+   -0.5
+  ],
+  "name": "hcp_flood_tower_starboard",
+  "position": [
+   9.0,
+   22.0,
+   -82.0
+  ]
+ },
+ {
+  "kind": "box",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 181,
+   "g": 221,
+   "b": 249,
+   "intensity": 0.7
+  },
+  "anim": null,
+  "size": [
+   40,
+   16,
+   16
+  ],
+  "quat": [
+   0.5,
+   -0.5,
+   -0.5,
+   -0.5
+  ],
+  "name": "hcp_flood_wing_port",
+  "position": [
+   -38.0,
+   -6.0,
+   -45.0
+  ]
+ },
+ {
+  "kind": "box",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 181,
+   "g": 221,
+   "b": 249,
+   "intensity": 0.7
+  },
+  "anim": null,
+  "size": [
+   40,
+   16,
+   16
+  ],
+  "quat": [
+   0.5,
+   -0.5,
+   -0.5,
+   -0.5
+  ],
+  "name": "hcp_flood_wing_starboard",
+  "position": [
+   38.0,
+   -6.0,
+   -45.0
+  ]
+ },
+ {
+  "kind": "spot",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 153,
+   "g": 206,
+   "b": 255,
+   "intensity": 0.5,
+   "range": 150,
+   "shadowrange": 150,
+   "angle": 40,
+   "gradientindex": 2,
+   "lenseffect": "none"
+  },
+  "anim": null,
+  "size": null,
+  "quat": [
+   -0.7071068,
+   0,
+   0,
+   0.7071068
+  ],
+  "name": "hcp_headlight_01",
+  "position": [
+   -1.38,
+   -5.45,
+   120.11
+  ]
+ },
+ {
+  "kind": "spot",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 153,
+   "g": 206,
+   "b": 255,
+   "intensity": 0.5,
+   "range": 150,
+   "shadowrange": 150,
+   "angle": 40,
+   "gradientindex": 2,
+   "lenseffect": "none"
+  },
+  "anim": null,
+  "size": null,
+  "quat": [
+   -0.7071068,
+   0,
+   0,
+   0.7071068
+  ],
+  "name": "hcp_headlight_02",
+  "position": [
+   1.38,
+   -5.45,
+   120.11
+  ]
+ },
+ {
+  "kind": "spot",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 153,
+   "g": 206,
+   "b": 255,
+   "intensity": 0.5,
+   "range": 150,
+   "shadowrange": 150,
+   "angle": 40,
+   "gradientindex": 2,
+   "lenseffect": "none"
+  },
+  "anim": null,
+  "size": null,
+  "quat": [
+   -0.7071068,
+   0,
+   0,
+   0.7071068
+  ],
+  "name": "hcp_headlight_03",
+  "position": [
+   -2.52,
+   -9.57,
+   119.97
+  ]
+ },
+ {
+  "kind": "spot",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 153,
+   "g": 206,
+   "b": 255,
+   "intensity": 0.5,
+   "range": 150,
+   "shadowrange": 150,
+   "angle": 40,
+   "gradientindex": 2,
+   "lenseffect": "none"
+  },
+  "anim": null,
+  "size": null,
+  "quat": [
+   -0.7071068,
+   0,
+   0,
+   0.7071068
+  ],
+  "name": "hcp_headlight_04",
+  "position": [
+   2.52,
+   -9.57,
+   119.97
+  ]
+ },
+ {
+  "kind": "spot",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 153,
+   "g": 206,
+   "b": 255,
+   "intensity": 0.5,
+   "range": 150,
+   "shadowrange": 150,
+   "angle": 40,
+   "gradientindex": 2,
+   "lenseffect": "none"
+  },
+  "anim": null,
+  "size": null,
+  "quat": [
+   -0.7071068,
+   0,
+   0,
+   0.7071068
+  ],
+  "name": "hcp_headlight_05",
+  "position": [
+   -3.41,
+   -14.38,
+   119.81
+  ]
+ },
+ {
+  "kind": "spot",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 153,
+   "g": 206,
+   "b": 255,
+   "intensity": 0.5,
+   "range": 150,
+   "shadowrange": 150,
+   "angle": 40,
+   "gradientindex": 2,
+   "lenseffect": "none"
+  },
+  "anim": null,
+  "size": null,
+  "quat": [
+   -0.7071068,
+   0,
+   0,
+   0.7071068
+  ],
+  "name": "hcp_headlight_06",
+  "position": [
+   3.41,
+   -14.38,
+   119.81
+  ]
+ },
+ {
+  "kind": "omni",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 1,
+   "r": 255,
+   "g": 255,
+   "b": 255,
+   "intensity": 1,
+   "range": 6,
+   "shadowrange": 6
+  },
+  "anim": null,
+  "size": null,
+  "quat": null,
+  "name": "hcp_lamp_dock_xs",
+  "position": [
+   23.9,
+   -15.4,
+   0.0
+  ]
+ },
+ {
+  "kind": "omni",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 255,
+   "g": 0,
+   "b": 0,
+   "intensity": 1,
+   "range": 3,
+   "shadowrange": 3
+  },
+  "anim": null,
+  "size": null,
+  "quat": null,
+  "name": "hcp_nav_port_glow",
+  "position": [
+   -53.3,
+   -19.49,
+   -30.64
+  ]
+ },
+ {
+  "kind": "omni",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 0,
+   "g": 255,
+   "b": 0,
+   "intensity": 1,
+   "range": 3,
+   "shadowrange": 3
+  },
+  "anim": null,
+  "size": null,
+  "quat": null,
+  "name": "hcp_nav_starboard_glow",
+  "position": [
+   53.3,
+   -19.49,
+   -30.64
+  ]
+ },
+ {
+  "kind": "omni",
+  "attrs": {
+   "shadow": 0,
+   "specularintensity": 1,
+   "lighteffect": 1,
+   "trigger": 0,
+   "r": 255,
+   "g": 255,
+   "b": 255,
+   "intensity": 1,
+   "range": 3,
+   "shadowrange": 3
+  },
+  "anim": null,
+  "size": null,
+  "quat": null,
+  "name": "hcp_nav_tail_glow",
+  "position": [
+   -0.17,
+   -18.09,
+   -127.5
+  ]
+ }
+]

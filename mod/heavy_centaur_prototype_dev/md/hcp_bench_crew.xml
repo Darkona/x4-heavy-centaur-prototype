@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mdscript name="HcpBenchCrew" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
+  <cues>
+    <cue name="Crew" checkinterval="5s">
+      <conditions>
+        <check_value value="global.$X4ShipTestActive? and player.occupiedship and player.occupiedship.macro == macro.ship_arg_l_hcp_01_a_macro and player.occupiedship.people.count == 0"/>
+      </conditions>
+      <delay exact="5s"/>
+      <actions>
+        <set_value name="$ship" exact="player.occupiedship"/>
+        <set_value name="$women" exact="[macro.character_argon_female_afr_crew_01_macro, macro.character_argon_female_asi_crew_01_macro, macro.character_argon_female_cau_crew_01_macro, macro.character_terran_female_afr_pilot_01_macro, macro.character_terran_female_asi_pilot_01_macro, macro.character_argon_female_afr_crew_02_macro, macro.character_argon_female_asi_crew_02_macro, macro.character_argon_female_cau_crew_02_macro, macro.character_terran_female_cau_pilot_01_macro, macro.character_argon_female_cau_base_01_macro]"/>
+        <do_for_each name="$macro" in="$women">
+          <create_npc_template name="$npc" object="$ship" macro="$macro" role="entityrole.service"/>
+        </do_for_each>
+        <set_value name="$marines" exact="[macro.character_argon_male_marine_mk1_01_macro, macro.character_argon_male_marine_mk2_01_macro, macro.character_argon_male_marine_mk3_01_macro, macro.character_argon_male_marine_helmet_01_macro]"/>
+        <do_all exact="$ship.people.free" counter="$i">
+          <create_npc_template name="$npc" object="$ship" macro="$marines.{($i - 1) % $marines.count + 1}" role="entityrole.marine"/>
+        </do_all>
+        <debug_text text="'hcp-bench: crew ' + $ship.people.count + '/' + $ship.people.capacity + ', service ' + $ship.people.{entityrole.service}.count + ', marines ' + $ship.people.{entityrole.marine}.count" filter="scripts"/>
+      </actions>
+    </cue>
+  </cues>
+</mdscript>

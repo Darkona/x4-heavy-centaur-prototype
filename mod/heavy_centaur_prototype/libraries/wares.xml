@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/wares">
+    <ware id="ship_arg_l_hcp_01_a" name="{1931170,1}" description="{1931170,2}" group="ships_argon" transport="ship" volume="1" tags="ship">
+      <price min="1253078" average="1606562" max="1960047" />
+      <production time="80" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="329" />
+          <ware ware="hullparts" amount="1517" />
+        </primary>
+      </production>
+      <component ref="ship_arg_l_hcp_01_a_macro" />
+      <restriction licence="militaryship" />
+    </ware>
+    <ware id="weapon_arg_m_hcp_vls_01_mk1" name="{1931170,101}" description="{1931170,102}" group="weapons" transport="equipment" volume="1" tags="equipment missilelauncher weapon">
+      <price min="60690" average="67433" max="74176" />
+      <production time="5" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="advancedelectronics" amount="15" />
+          <ware ware="energycells" amount="139" />
+          <ware ware="weaponcomponents" amount="15" />
+        </primary>
+      </production>
+      <component ref="weapon_arg_m_hcp_vls_01_mk1_macro" />
+      <icon video="weapon_gen_m_torpedo_01_mk1_macro" />
+      <restriction licence="militaryequipment" />
+      <use threshold="0" />
+    </ware>
+    <ware id="shield_arg_l_hcp_internal_01_mk1" name="{1931170,201}" description="{1931170,202}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="42166" average="46851" max="51536" />
+      <production time="20" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="58" />
+          <ware ware="fieldcoils" amount="14" />
+          <ware ware="shieldcomponents" amount="12" />
+        </primary>
+      </production>
+      <component ref="shield_arg_l_hcp_internal_01_mk1_macro" />
+      <restriction licence="generaluseequipment" />
+      <use threshold="0" />
+    </ware>
+    <ware id="shield_arg_l_hcp_internal_01_mk2" name="{1931170,205}" description="{1931170,202}" group="shields" transport="equipment" volume="1" tags="equipment shield">
+      <price min="205644" average="228494" max="251343" />
+      <production time="20" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="energycells" amount="357" />
+          <ware ware="fieldcoils" amount="90" />
+          <ware ware="shieldcomponents" amount="75" />
+        </primary>
+      </production>
+      <component ref="shield_arg_l_hcp_internal_01_mk2_macro" />
+      <restriction licence="generaluseequipment" />
+      <use threshold="0.31" />
+    </ware>
+  </add>
+</diff>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mdscript name="HcpBench" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
+  <cues>
+    <cue name="BenchStart" checkinterval="5s">
+      <conditions>
+        <check_value value="global.$X4ShipTestActive? and player.sector and (player.occupiedship or player.entity)"/>
+      </conditions>
+      <delay exact="5s"/>
+      <actions>
+        <cancel_cue cue="BenchGiveUp"/>
+        <signal_cue cue="BenchSpawn"/>
+      </actions>
+      <cues>
+        <cue name="BenchReload" instantiate="true">
+          <conditions>
+            <event_game_loaded/>
+          </conditions>
+          <delay exact="8s"/>
+          <actions>
+            <signal_cue cue="BenchSpawn"/>
+          </actions>
+        </cue>
+      </cues>
+    </cue>
+
+    <cue name="BenchGiveUp" checkinterval="30s">
+      <conditions>
+        <check_value value="player.age gt 300s and not global.$X4ShipTestActive?"/>
+      </conditions>
+      <actions>
+        <cancel_cue cue="BenchStart"/>
+      </actions>
+    </cue>
+
+    <cue name="BenchSpawn" instantiate="true">
+      <conditions>
+        <event_cue_signalled/>
+      </conditions>
+      <actions>
+        <set_value name="$anchor" exact="if player.occupiedship then player.occupiedship else player.entity"/>
+        <do_if value="global.$HcpDerelictTest? and global.$HcpDerelictTest.exists and global.$HcpDerelictTest.trueowner == faction.ownerless and global.$HcpDerelictTest != player.occupiedship">
+          <debug_text text="'hcp-bench: removes the previous test derelict'" filter="scripts"/>
+          <destroy_object object="global.$HcpDerelictTest" explosion="false"/>
+        </do_if>
+        <do_if value="not $anchor or not $anchor.sector">
+          <debug_text text="'hcp-bench: test derelict skipped, the player is not in a sector'" filter="scripts"/>
+        </do_if>
+        <do_else>
+          <create_position name="$pos" object="$anchor" y="300m" z="4km" space="$anchor.sector"/>
+          <get_safe_pos result="$pos" sector="$anchor.sector" value="$pos" radius="400m"/>
+          <run_actions ref="md.HcpDerelict.CreateDerelict" result="$result">
+            <param name="Label" value="'bench'"/>
+            <param name="Sector" value="$anchor.sector"/>
+            <param name="Position" value="$pos"/>
+            <param name="Rotation" value="rotation.[37deg, -14deg, 22deg]"/>
+          </run_actions>
+          <set_value name="global.$HcpDerelictTest" exact="$result.$hcp"/>
+          <do_if value="$result.$hcp">
+            <set_known object="$result.$hcp" known="true"/>
+            <set_value name="$Hcp" exact="$result.$hcp"/>
+            <set_value name="$Guns" exact="''"/>
+            <do_for_each name="$W" in="$Hcp.weapons.all.list">
+              <set_value name="$Guns" exact="$Guns + ' ' + $W.macro.id"/>
+            </do_for_each>
+            <debug_text text="'hcp-bench: derelict at ' + $Hcp.distanceto.{$anchor} + ' from the player, relative position ' + $Hcp.relativeposition.{$anchor}" filter="scripts"/>
+            <debug_text text="'hcp-bench: equipment: engines ' + $Hcp.engines.all.count + '/' + $Hcp.engines.numslots + ', shields ' + $Hcp.shields.all.count + '/' + $Hcp.shields.numslots + ', weapons ' + $Hcp.weapons.all.count + '/' + $Hcp.weapons.numslots + ', turrets ' + $Hcp.turrets.all.count + ', missiles ' + $Hcp.ammostorage.missile.count + ' ' + $Hcp.ammostorage.missile.table" filter="scripts"/>
+            <debug_text text="'hcp-bench: weapons:' + $Guns" filter="scripts"/>
+          </do_if>
+        </do_else>
+      </actions>
+    </cue>
+  </cues>
+</mdscript>

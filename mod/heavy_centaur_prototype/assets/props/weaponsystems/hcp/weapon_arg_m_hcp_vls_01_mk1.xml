@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components>
+  <component name="weapon_arg_m_hcp_vls_01_mk1" class="missilelauncher">
+    <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\weapon_arg_m_hcp_vls_01_mk1_data" />
+    <layers>
+      <layer />
+    </layers>
+    <connections>
+      <connection name="position" tags="position" value="1" />
+      <connection name="con_missilelauncher_01" tags="component medium missile weapon hcp_vls" />
+      <connection name="ConnectionForpart_socket" tags="forceoutline part ">
+        <offset>
+          <position x="0" y="0" z="0" />
+          <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
+        </offset>
+        <parts>
+          <part name="part_socket">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="1.95" y="1.95" z="3.275" />
+              <center x="-2.980232e-08" y="0" z="3.275" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="ConnectionForpart_rotator" tags="forceoutline nocollision part " parent="part_socket">
+        <offset>
+          <position x="0" y="0" z="6.55" />
+        </offset>
+        <parts>
+          <part name="part_rotator">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="1.82901" y="1.82901" z="0.1800001" />
+              <center x="0" y="-5.960464e-08" z="0.15" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="ConnectionForpart_gun" tags="forceoutline nocollision part " parent="part_rotator">
+        <offset>
+          <position x="0" y="0" z="0.3000002" />
+        </offset>
+        <parts>
+          <part name="part_gun">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="1.85" y="1.85" z="0.55" />
+              <center x="-2.980232e-08" y="0" z="0.55" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="con_rocket_01" tags="rocket ">
+        <offset>
+          <position x="0.9" y="10" z="0.9" />
+          <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
+        </offset>
+      </connection>
+      <connection name="con_rocket_02" tags="rocket ">
+        <offset>
+          <position x="-0.9" y="10" z="0.9" />
+          <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
+        </offset>
+      </connection>
+      <connection name="con_rocket_03" tags="rocket ">
+        <offset>
+          <position x="0.9" y="10" z="-0.9" />
+          <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
+        </offset>
+      </connection>
+      <connection name="con_rocket_04" tags="rocket ">
+        <offset>
+          <position x="-0.9" y="10" z="-0.9" />
+          <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
+        </offset>
+      </connection>
+    </connections>
+  </component>
+</components>

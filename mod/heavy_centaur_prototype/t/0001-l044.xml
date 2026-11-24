@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/language">
+    <page id="1931170" title="Heavy Centaur Prototype" descr="Heavy Centaur Prototype" voice="no">
+      <t id="1">(Heavy Centaur Prototype){20111,5211} {20101,12801} {20111,1501}</t>
+      <t id="2">Built in the last years of the Terran Conflict, the Heavy Centaur Prototype was the Argon Federation's proving ground for a heavier Centaur: a hangar, a forward battery of medium guns and a ring of turrets on one swift hull. OTAS, the defence contractor on friendly terms with the Federation, fitted it with a shield core buried in the frame and a bank of vertical launch cells for torpedoes, and trialled it at a test facility in Black Hole Sun, far from its home yards and close to the Xenon border. The cost proved too high, and production ships were pared down while the prototype stayed in the yard. When the Jump Gates shut down, the facility was cut off and OTAS went under. The ship was left behind. It has since been found adrift, its logs wiped, a Teladi Kestrel still berthed in its hangar.</t>
+      <t id="3">HCP</t>
+      <t id="4">Heavy Centaur Prototype</t>
+      <t id="101">HCP Vertical Launch Cell</t>
+      <t id="102">A buried missile cell built only for the Heavy Centaur Prototype. It sits in the silos of the neck under armoured hatches and is fired by the pilot like any missile launcher: lock a target, fire, and the torpedo or guided missile leaves the ship straight up and then turns toward the lock. It takes torpedoes and guided missiles, not dumbfire missiles, and fits no other ship.</t>
+      <t id="103">HCP VLS</t>
+      <t id="104">HCP Vertical Launch Cell</t>
+      <t id="201">HCP Internal Shield Generator Mk1</t>
+      <t id="202">A shield generator built into the core of the Heavy Centaur Prototype, with no emitter on the skin. It raises the hull shield that covers the whole ship, so no generator sits on the deck where a hit can knock it out. It fits no other ship and nobody sells it: with its blueprint it can be built at your own equipment dock.</t>
+      <t id="203">HCP Int Shield Mk1</t>
+      <t id="204">HCP Internal Shield Generator</t>
+      <t id="205">HCP Internal Shield Generator Mk2</t>
+      <t id="206">HCP Int Shield Mk2</t>
+    </page>
+  </add>
+</diff>

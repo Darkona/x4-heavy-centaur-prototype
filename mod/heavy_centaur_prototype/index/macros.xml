@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/index">
+    <entry name="ship_arg_l_hcp_01_a_macro" value="extensions\heavy_centaur_prototype\assets\units\size_l\macros\ship_arg_l_hcp_01_a_macro" />
+    <entry name="storage_arg_l_hcp_01_macro" value="extensions\heavy_centaur_prototype\assets\units\size_l\macros\storage_arg_l_hcp_01_macro" />
+    <entry name="weapon_arg_m_hcp_vls_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\weapon_arg_m_hcp_vls_01_mk1_macro" />
+    <entry name="shield_arg_l_hcp_internal_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\surfaceelements\hcp\macros\shield_arg_l_hcp_internal_01_mk1_macro" />
+    <entry name="shield_arg_l_hcp_internal_01_mk2_macro" value="extensions\heavy_centaur_prototype\assets\props\surfaceelements\hcp\macros\shield_arg_l_hcp_internal_01_mk2_macro" />
+  </add>
+</diff>

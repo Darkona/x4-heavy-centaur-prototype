@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//add_ammo[@macro='macro.missile_gen_s_torpedo_01_mk1_macro']/@macro">macro.missile_torpedo_light_mk1_macro</replace>
+  <replace sel="//add_ammo[@macro='macro.missile_gen_s_dumbfire_01_mk1_macro']/@macro">macro.missile_dumbfire_light_mk1_macro</replace>
+</diff>
