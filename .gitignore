@@ -6,3 +6,5 @@
 /hwtest/
 /notes/
 __pycache__/
+!/blend/hcp_work.blend
+/blend/backup-*/

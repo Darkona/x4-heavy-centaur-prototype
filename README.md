@@ -28,4 +28,4 @@ The original X3 design is by Egosoft. This port is by Darkona.
 
 ## License
 
-All rights reserved for now.
+MIT, see [LICENSE](LICENSE). The original X3 Heavy Centaur design and all X4 game assets belong to Egosoft and are not covered by this license.
