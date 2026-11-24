@@ -40,7 +40,7 @@ HATCH_STATES = [('inactive', 1, 2), ('activating', 2, 20), ('active', 20, 21), (
 DOCKDOORS = {'anim_dockdoor_xs'}
 DOCKDOOR_OBS = []
 DOCKDOOR_STATES = [('closed', 1, 2), ('opening', 2, 25), ('open', 25, 26), ('closing', 26, 50)]
-DOCKDOOR_KEYS = [(1, 0.0, 0.0), (2, 0.0, 0.0), (9, 0.35, 0.0), (25, 0.35, 3.9), (26, 0.35, 3.9), (43, 0.35, 0.0), (50, 0.0, 0.0)]
+DOCKDOOR_KEYS = [(1, 0.0, 0.0), (2, 0.0, 0.0), (9, -0.25, 0.0), (25, -0.25, 3.6), (26, -0.25, 3.6), (43, -0.25, 0.0), (50, 0.0, 0.0)]
 
 layouts = bpy.propertyGroupLayouts
 names_in = {g: {d['name'] for d in defs} for g, defs in layouts.items()}
