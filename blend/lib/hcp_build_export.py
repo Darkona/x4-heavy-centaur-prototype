@@ -32,10 +32,6 @@ HATCH_ACTIONS = {}
 HATCH_OBS = {}
 VLS_HATCHES = {'con_turret_vls_01': ('anim_vlshatch_01_a', 'anim_vlshatch_01_b'), 'con_turret_vls_02': ('anim_vlshatch_02_a', 'anim_vlshatch_02_b')}
 HATCH_DUMMY_SIZE = 0.17
-VLS_STATUS = {'con_turret_vls_01': ('anim_vlsstatus_01_red', 'anim_vlsstatus_01_green'), 'con_turret_vls_02': ('anim_vlsstatus_02_red', 'anim_vlsstatus_02_green')}
-VLS_STATUS_NAMES = {n for pair in VLS_STATUS.values() for n in pair}
-VLS_STATUS_SWAP = 0.162
-VLS_STATUS_KEYS = [(1, 0.0), (2, 0.0), (6, 1.0), (20, 1.0), (21, 1.0), (25, 0.0), (40, 0.0)]
 RADAR_PIVOTS = {'anim_radar_01': (-0.019, -81.998, -25.364), 'anim_radar_02': (23.42, -82.045, 11.939), 'anim_radar_03': (-22.048, -82.045, 12.927), 'anim_radar_04': (0.0, -72.048, 32.95), 'anim_radar_05': (0.07, -34.57, -35.63)}
 RADAR_AXES = {'anim_radar_01': (0.0, 0.0, 1.0), 'anim_radar_02': (0.309, 0.0119, 0.951), 'anim_radar_03': (-0.309, 0.0119, 0.951), 'anim_radar_04': (0.0, 0.0, 1.0), 'anim_radar_05': (0.0, 0.0, 1.0)}
 SPIN_STEPS = 8
@@ -119,10 +115,6 @@ for o in src_rebuild.all_objects:
             act.name = 'hcpkeep_' + o.name
             act.use_fake_user = True
             HATCH_ACTIONS[ob] = act
-    elif o.name in VLS_STATUS_NAMES:
-        ob = copy_mesh(o, False)
-        anim_parts.append(ob)
-        HATCH_OBS[o.name] = ob
     elif o.name in DOCKDOORS:
         ob = copy_mesh(o, False)
         anim_parts.append(ob)
@@ -235,7 +227,7 @@ for o in src_cons.objects:
         dummy.matrix_parent_inverse = Matrix.Identity(4)
         dummy.Meshflags.hidden = True
         add_vertex_data(dummy)
-        for leaf in leaves + VLS_STATUS.get(name, ()):
+        for leaf in leaves:
             hob = HATCH_OBS[leaf]
             hatch_world = hob.matrix_basis.copy()
             hob.parent = dummy
@@ -399,33 +391,6 @@ for ob, src_act in HATCH_ACTIONS.items():
         st.frame_end = b
         st.name = nm
     print('ANIM', ob.name, [(s.name, s.frame_start, s.frame_end) for s in tr.strips], 'hinge keys', [(kp.co[0], round(kp.co[1], 3)) for kp in hinge.keyframe_points])
-for nm in sorted(VLS_STATUS_NAMES):
-    ob = HATCH_OBS[nm]
-    ob.GeometryTags.animation = True
-    ob.animation_data_create()
-    ob.rotation_mode = 'XYZ'
-    rest = ob.matrix_basis.copy()
-    sign = -1.0 if nm.endswith('_red') else 1.0
-    act = bpy.data.actions.new(ob.name + '_status')
-    ob.animation_data.action = act
-    for f, w in VLS_STATUS_KEYS:
-        ob.matrix_basis = Matrix.Translation(rest.to_3x3() @ Vector((0.0, 0.0, sign * VLS_STATUS_SWAP * w))) @ rest
-        ob.keyframe_insert('location', frame=f)
-        ob.keyframe_insert('rotation_euler', frame=f)
-    for fc in act.fcurves:
-        for kp in fc.keyframe_points:
-            kp.interpolation = 'LINEAR'
-    ob.animation_data.action = None
-    ob.matrix_basis = rest
-    tr = ob.animation_data.nla_tracks.new()
-    tr.name = 'turrethatch'
-    for st_name, a, b in HATCH_STATES:
-        st = tr.strips.new(st_name, a, act)
-        st.action_frame_start = a
-        st.action_frame_end = b
-        st.frame_end = b
-        st.name = st_name
-    print('ANIM', ob.name, [(x.name, x.frame_start, x.frame_end) for x in tr.strips], 'parent', ob.parent.name if ob.parent else None)
 for ob in DOCKDOOR_OBS:
     ob.GeometryTags.animation = True
     ob.GeometryTags.anim_dockdoor = True
