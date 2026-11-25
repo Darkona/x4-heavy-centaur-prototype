@@ -36,7 +36,8 @@ UNDER_EXTRA = {"hcr_bow_trunk", "hcr_keel_ball", "hcr_keel_ball_sphere", "hcr_st
 SKIP = {"rb_dock_s_clearance", "hcr_bridge_window_cap"}
 FX_OBJECTS = {"hcr_poslight_housings"}
 KEEP_MM = {"hcr_stern_nozzles"}
-STEEL = {"hcr_bow_antenna", "hcr_roof_dish"}
+STEEL = {"hcr_roof_dish"}
+LIGHT_PLATES = {"hcr_bow_antenna", "hcr_bow_prow", "hcr_bow_arch_armor", "hcr_bow_arch_core"}
 
 BANDS = [
     (("hcr_wing_armor",), 0, True, [(39.3, 39.9, 1), (39.9, 41.4, 2), (41.4, 42.0, 1)]),
@@ -100,8 +101,19 @@ def cut_bands():
     return done
 
 
+def p1_role(name):
+    if name.startswith("p2generic."):
+        if "hullpattern" in name:
+            return HP
+        if "hulltexture" in name:
+            return HT
+        if name.endswith("_fx_01"):
+            return FX
+    return name
+
+
 def current_names(o):
-    names = [s.material.name if s.material else "" for s in o.material_slots] or [""]
+    names = [p1_role(s.material.name) if s.material else "" for s in o.material_slots] or [""]
     mi = np.zeros(len(o.data.polygons), dtype=np.int32)
     o.data.polygons.foreach_get("material_index", mi)
     return [names[i] if i < len(names) else "" for i in mi]
@@ -148,7 +160,7 @@ def zones_for(o):
     if is_under(n):
         want = [MM if w == HT else w for w in want]
     hp = part_attr(o)
-    if n == "hcr_turret_seats" and hp is not None:
+    if n.startswith("hcr_turret_seats") and hp is not None:
         want = [MM if hp[i] == 3 else w for i, w in enumerate(want)]
     return want
 
@@ -409,7 +421,7 @@ def face_colours(o):
             col = C_GR
         elif m == HP:
             mask = 255
-            col = C_TOWER_PLATE if (n in TOWER or keys[f.index] in big) else pick(C_PLATE_TONES, keys[f.index])
+            col = C_TOWER_PLATE if (n in TOWER or n in LIGHT_PLATES or keys[f.index] in big) else pick(C_PLATE_TONES, keys[f.index])
         else:
             col = C_PLATE_SIDE if (is_armour(n) or n in TOWER or n in ALL_HP) else pick(C_MECH_TONES, keys[f.index])
         if n in STEEL:

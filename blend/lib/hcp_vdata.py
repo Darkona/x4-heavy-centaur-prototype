@@ -11,7 +11,7 @@ def add_vertex_data(ob):
     for nm in ('col', 'ao') + VDATA:
         if nm in me.color_attributes:
             me.color_attributes.remove(me.color_attributes[nm])
-    pattern = {i for i, m in enumerate(me.materials) if m is not None and m.name.endswith('hullpattern')}
+    pattern = {i for i, m in enumerate(me.materials) if m is not None and 'hullpattern' in m.name}
     n = len(me.loops)
     col = me.color_attributes.new('col', 'BYTE_COLOR', 'CORNER')
     col.data.foreach_set('color', [1.0, 1.0, 1.0, 1.0] * n)

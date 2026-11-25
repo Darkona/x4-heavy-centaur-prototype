@@ -37,35 +37,41 @@
         <event_cue_signalled/>
       </conditions>
       <actions>
-        <set_value name="$anchor" exact="if player.occupiedship then player.occupiedship else player.entity"/>
-        <do_if value="global.$HcpDerelictTest? and global.$HcpDerelictTest.exists and global.$HcpDerelictTest.trueowner == faction.ownerless and global.$HcpDerelictTest != player.occupiedship">
-          <debug_text text="'hcp-bench: removes the previous test derelict'" filter="scripts"/>
-          <destroy_object object="global.$HcpDerelictTest" explosion="false"/>
+        <set_value name="$Hcp" exact="player.occupiedship"/>
+        <do_if value="global.$HcpBenchKestrel? and global.$HcpBenchKestrel.exists">
+          <debug_text text="'hcp-bench: removes the previous bench kestrel'" filter="scripts"/>
+          <destroy_object object="global.$HcpBenchKestrel" explosion="false"/>
         </do_if>
-        <do_if value="not $anchor or not $anchor.sector">
-          <debug_text text="'hcp-bench: test derelict skipped, the player is not in a sector'" filter="scripts"/>
+        <do_if value="not $Hcp or $Hcp.macro != macro.ship_arg_l_hcp_01_a_macro">
+          <debug_text text="'hcp-bench: kestrel skipped, the player is not flying the HCP'" filter="scripts"/>
         </do_if>
         <do_else>
-          <create_position name="$pos" object="$anchor" y="300m" z="4km" space="$anchor.sector"/>
-          <get_safe_pos result="$pos" sector="$anchor.sector" value="$pos" radius="400m"/>
-          <run_actions ref="md.HcpDerelict.CreateDerelict" result="$result">
-            <param name="Label" value="'bench'"/>
-            <param name="Sector" value="$anchor.sector"/>
-            <param name="Position" value="$pos"/>
-            <param name="Rotation" value="rotation.[37deg, -14deg, 22deg]"/>
-          </run_actions>
-          <set_value name="global.$HcpDerelictTest" exact="$result.$hcp"/>
-          <do_if value="$result.$hcp">
-            <set_known object="$result.$hcp" known="true"/>
-            <set_value name="$Hcp" exact="$result.$hcp"/>
-            <set_value name="$Guns" exact="''"/>
-            <do_for_each name="$W" in="$Hcp.weapons.all.list">
-              <set_value name="$Guns" exact="$Guns + ' ' + $W.macro.id"/>
-            </do_for_each>
-            <debug_text text="'hcp-bench: derelict at ' + $Hcp.distanceto.{$anchor} + ' from the player, relative position ' + $Hcp.relativeposition.{$anchor}" filter="scripts"/>
-            <debug_text text="'hcp-bench: equipment: engines ' + $Hcp.engines.all.count + '/' + $Hcp.engines.numslots + ', shields ' + $Hcp.shields.all.count + '/' + $Hcp.shields.numslots + ', weapons ' + $Hcp.weapons.all.count + '/' + $Hcp.weapons.numslots + ', turrets ' + $Hcp.turrets.all.count + ', missiles ' + $Hcp.ammostorage.missile.count + ' ' + $Hcp.ammostorage.missile.table" filter="scripts"/>
-            <debug_text text="'hcp-bench: weapons:' + $Guns" filter="scripts"/>
+          <set_value name="$Kestrel" exact="null"/>
+          <find_dockingbay name="$Bay" object="$Hcp" checkoperational="true" multiple="false">
+            <match_dock size="tag.dock_s" storage="false"/>
+          </find_dockingbay>
+          <do_if value="$Bay">
+            <create_ship name="$Kestrel" macro="macro.ship_tel_s_scout_01_a_macro" dock="$Bay">
+              <owner exact="faction.player"/>
+              <loadout ref="hcp_derelict_kestrel"/>
+              <people>
+                <fillpercent exact="0"/>
+              </people>
+            </create_ship>
           </do_if>
+          <set_value name="global.$HcpBenchKestrel" exact="$Kestrel"/>
+          <do_if value="$Kestrel and $Kestrel.exists and $Kestrel.dock">
+            <debug_text text="'hcp-bench: kestrel docked in ' + $Kestrel.dock.macro.id + ' of ' + $Kestrel.dock.container.macro.id + ' (S pad), owner ' + $Kestrel.trueowner" filter="scripts"/>
+          </do_if>
+          <do_else>
+            <debug_text text="'hcp-bench: kestrel FAILED, bay found ' + ($Bay != null)" filter="error"/>
+          </do_else>
+          <set_value name="$Guns" exact="''"/>
+          <do_for_each name="$W" in="$Hcp.weapons.all.list">
+            <set_value name="$Guns" exact="$Guns + ' ' + $W.macro.id"/>
+          </do_for_each>
+          <debug_text text="'hcp-bench: equipment: engines ' + $Hcp.engines.all.count + '/' + $Hcp.engines.numslots + ', shields ' + $Hcp.shields.all.count + '/' + $Hcp.shields.numslots + ', weapons ' + $Hcp.weapons.all.count + '/' + $Hcp.weapons.numslots + ', turrets ' + $Hcp.turrets.all.count + ', missiles ' + $Hcp.ammostorage.missile.count" filter="scripts"/>
+          <debug_text text="'hcp-bench: weapons:' + $Guns" filter="scripts"/>
         </do_else>
       </actions>
     </cue>

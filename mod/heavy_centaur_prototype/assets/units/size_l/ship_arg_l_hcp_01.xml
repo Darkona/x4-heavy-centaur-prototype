@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-24 22:32:15 from Blender-->
+<!--Exported on 2026-11-25 03:41:14 from Blender-->
 <components>
   <component name="ship_arg_l_hcp_01" class="ship_m">
     <source geometry="extensions\heavy_centaur_prototype\assets\units\size_l\ship_arg_l_hcp_01_data" />
@@ -57,27 +57,27 @@
 </box>
 <spot name="hcp_headlight_01" shadow="0" specularintensity="1" lighteffect="1" trigger="0" r="153" g="206" b="255" intensity="0.5" range="150" shadowrange="150" angle="40" gradientindex="2" lenseffect="none">
   <lightanimations />
-  <offset><position x="-1.38" y="-5.45" z="120.11" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
+  <offset><position x="-1.38" y="-7.84" z="122.52" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
 </spot>
 <spot name="hcp_headlight_02" shadow="0" specularintensity="1" lighteffect="1" trigger="0" r="153" g="206" b="255" intensity="0.5" range="150" shadowrange="150" angle="40" gradientindex="2" lenseffect="none">
   <lightanimations />
-  <offset><position x="1.38" y="-5.45" z="120.11" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
+  <offset><position x="1.38" y="-7.84" z="122.52" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
 </spot>
 <spot name="hcp_headlight_03" shadow="0" specularintensity="1" lighteffect="1" trigger="0" r="153" g="206" b="255" intensity="0.5" range="150" shadowrange="150" angle="40" gradientindex="2" lenseffect="none">
   <lightanimations />
-  <offset><position x="-2.52" y="-9.57" z="119.97" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
+  <offset><position x="-2.52" y="-11.96" z="122.38" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
 </spot>
 <spot name="hcp_headlight_04" shadow="0" specularintensity="1" lighteffect="1" trigger="0" r="153" g="206" b="255" intensity="0.5" range="150" shadowrange="150" angle="40" gradientindex="2" lenseffect="none">
   <lightanimations />
-  <offset><position x="2.52" y="-9.57" z="119.97" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
+  <offset><position x="2.52" y="-11.96" z="122.38" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
 </spot>
 <spot name="hcp_headlight_05" shadow="0" specularintensity="1" lighteffect="1" trigger="0" r="153" g="206" b="255" intensity="0.5" range="150" shadowrange="150" angle="40" gradientindex="2" lenseffect="none">
   <lightanimations />
-  <offset><position x="-3.41" y="-14.38" z="119.81" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
+  <offset><position x="-3.41" y="-16.77" z="122.22" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
 </spot>
 <spot name="hcp_headlight_06" shadow="0" specularintensity="1" lighteffect="1" trigger="0" r="153" g="206" b="255" intensity="0.5" range="150" shadowrange="150" angle="40" gradientindex="2" lenseffect="none">
   <lightanimations />
-  <offset><position x="3.41" y="-14.38" z="119.81" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
+  <offset><position x="3.41" y="-16.77" z="122.22" /><quaternion qx="-0.7071068" qy="0" qz="0" qw="0.7071068" /></offset>
 </spot>
 <omni name="hcp_lamp_dock_xs" shadow="0" specularintensity="1" lighteffect="1" trigger="1" r="255" g="255" b="255" intensity="1" range="6" shadowrange="6">
   <lightanimations />
@@ -347,7 +347,7 @@
       </connection>
       <connection name="con_turret_04" group="group_front_down_mid " tags="combat hittable medium missile standard turret ">
         <offset>
-          <position x="0" y="-28.3092" z="97.50677" />
+          <position x="0" y="-29.50298" z="96.67615" />
           <quaternion qx="1.127989e-07" qy="-0.005602352" qz="-0.9999843" qw="-7.613104e-08" />
         </offset>
       </connection>
@@ -414,6 +414,8 @@
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
                   <material id="2" ref="generic.generic_p1_hulltexture" />
+                  <material id="3" ref="p2generic.gen_p2_hullpattern_01" />
+                  <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
                 </materials>
               </lod>
             </lods>
@@ -446,6 +448,8 @@
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
                   <material id="2" ref="generic.generic_p1_hulltexture" />
+                  <material id="3" ref="p2generic.gen_p2_hullpattern_01" />
+                  <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
                 </materials>
               </lod>
             </lods>
@@ -499,6 +503,8 @@
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
                   <material id="2" ref="generic.generic_p1_hulltexture" />
+                  <material id="3" ref="p2generic.gen_p2_hullpattern_01" />
+                  <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
                 </materials>
               </lod>
             </lods>
@@ -531,6 +537,8 @@
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
                   <material id="2" ref="generic.generic_p1_hulltexture" />
+                  <material id="3" ref="p2generic.gen_p2_hullpattern_01" />
+                  <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
                 </materials>
               </lod>
             </lods>
@@ -864,12 +872,12 @@
               </lod>
             </lods>
             <size>
-              <max x="0.4755283" y="0.5" z="0.5" />
-              <center x="-2.980232e-08" y="0" z="0" />
+              <max x="0.7132925" y="0.75" z="0.75" />
+              <center x="0" y="0" z="0" />
             </size>
             <size_raw>
-              <max x="0.4755283" y="0.5" z="0.5000001" />
-              <center x="-3.72529e-08" y="0" z="0" />
+              <max x="0.7132925" y="0.75" z="0.7500001" />
+              <center x="1.490116e-08" y="0" z="0" />
             </size_raw>
             <uv_animations>
               <uv_animation mapchannel="1">
@@ -903,12 +911,12 @@
               </lod>
             </lods>
             <size>
-              <max x="0.4755283" y="0.5" z="0.5" />
-              <center x="-2.980232e-08" y="0" z="0" />
+              <max x="0.7132925" y="0.75" z="0.75" />
+              <center x="0" y="0" z="0" />
             </size>
             <size_raw>
-              <max x="0.4755283" y="0.5" z="0.5000001" />
-              <center x="-3.72529e-08" y="0" z="0" />
+              <max x="0.7132925" y="0.75" z="0.7500001" />
+              <center x="1.490116e-08" y="0" z="0" />
             </size_raw>
             <uv_animations>
               <uv_animation mapchannel="1">
@@ -925,7 +933,7 @@
       </connection>
       <connection name="ConnectionForanim_poslight_bow_tip" tags="animation detail_xl forceoutline nocollision part textureanimation ">
         <offset>
-          <position x="0" y="9.05" z="123.75" />
+          <position x="0" y="11.41253" z="116.0276" />
         </offset>
         <animations>
           <animation name="loop" start="1" end="90" />
@@ -940,12 +948,12 @@
               </lod>
             </lods>
             <size>
-              <max x="0.2853169" y="0.3000002" z="0.3000031" />
-              <center x="-2.980232e-08" y="0" z="0" />
+              <max x="0.3094318" y="0.3184271" z="0.4503326" />
+              <center x="0" y="0" z="0" />
             </size>
             <size_raw>
-              <max x="0.2853169" y="0.3" z="0.3" />
-              <center x="-1.490116e-08" y="0" z="1.490116e-08" />
+              <max x="0.3094318" y="0.3184268" z="0.4503339" />
+              <center x="-7.450581e-09" y="0" z="1.490116e-08" />
             </size_raw>
             <uv_animations>
               <uv_animation mapchannel="1">
@@ -979,12 +987,12 @@
               </lod>
             </lods>
             <size>
-              <max x="39.42798" y="0.4499998" z="0.4499969" />
+              <max x="39.64197" y="0.6750002" z="0.6750031" />
               <center x="39" y="0" z="0" />
             </size>
             <size_raw>
-              <max x="39.42798" y="0.45" z="0.45" />
-              <center x="39" y="0" z="-1.490116e-08" />
+              <max x="39.64196" y="0.675" z="0.675" />
+              <center x="39" y="0" z="0" />
             </size_raw>
             <uv_animations>
               <uv_animation mapchannel="1">
@@ -1022,11 +1030,11 @@
               </lod>
             </lods>
             <size>
-              <max x="59.73885" y="0.4500008" z="0.4500046" />
+              <max x="59.95284" y="0.6749992" z="0.6750031" />
               <center x="59.31087" y="0" z="0" />
             </size>
             <size_raw>
-              <max x="59.73885" y="0.45" z="0.4500008" />
+              <max x="59.95284" y="0.675" z="0.6750011" />
               <center x="59.31087" y="0" z="0" />
             </size_raw>
             <uv_animations>
@@ -1062,6 +1070,7 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
+                  <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                 </materials>
               </lod>
             </lods>
@@ -1091,6 +1100,7 @@
                 <materials>
                   <material id="1" ref="generic.generic_p1_fx" />
                   <material id="2" ref="generic.generic_p1_hullpattern" />
+                  <material id="3" ref="p2generic.gen_p2_hullpattern_01" />
                 </materials>
               </lod>
             </lods>
@@ -1120,6 +1130,7 @@
                 <materials>
                   <material id="1" ref="generic.generic_p1_fx" />
                   <material id="2" ref="generic.generic_p1_hullpattern" />
+                  <material id="3" ref="p2generic.gen_p2_hullpattern_01" />
                 </materials>
               </lod>
             </lods>
@@ -1148,6 +1159,7 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
+                  <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                 </materials>
               </lod>
             </lods>
@@ -1176,6 +1188,7 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
+                  <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                 </materials>
               </lod>
             </lods>
@@ -1197,14 +1210,15 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hulltexture" />
-                  <material id="2" ref="generic.generic_p1_fx" />
-                  <material id="3" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="2" ref="p2generic.gen_p2_hulltexture_01" />
+                  <material id="3" ref="generic.generic_p1_fx" />
+                  <material id="4" ref="p2fx.fx_p2_gradientcolour_01" />
                 </materials>
               </lod>
             </lods>
             <size>
-              <max x="56.35906" y="26.78931" z="130.521" />
-              <center x="9.536743e-07" y="-6.389313" z="-3.260942" />
+              <max x="56.62906" y="26.90181" z="131.9965" />
+              <center x="-9.536743e-07" y="-6.276813" z="-2.055359" />
             </size>
           </part>
         </parts>
@@ -1234,6 +1248,7 @@
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
                   <material id="2" ref="generic.generic_p1_hulltexture" />
+                  <material id="3" ref="p2generic.gen_p2_hullpattern_01" />
                 </materials>
               </lod>
             </lods>
@@ -1268,48 +1283,60 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
-                  <material id="2" ref="p2multimat.p2_multimat_01" />
+                  <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                   <material id="3" ref="generic.generic_p1_hulltexture" />
-                  <material id="4" ref="p2fx.fx_p2_gradientcolour_01" />
-                  <material id="5" ref="generic.generic_p1_fx" />
+                  <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
+                  <material id="5" ref="p2multimat.p2_multimat_01" />
+                  <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="7" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="8" ref="generic.generic_p1_fx" />
                 </materials>
               </lod>
               <lod index="1">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
-                  <material id="2" ref="p2multimat.p2_multimat_01" />
+                  <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                   <material id="3" ref="generic.generic_p1_hulltexture" />
-                  <material id="4" ref="p2fx.fx_p2_gradientcolour_01" />
-                  <material id="5" ref="generic.generic_p1_fx" />
+                  <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
+                  <material id="5" ref="p2multimat.p2_multimat_01" />
+                  <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="7" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="8" ref="generic.generic_p1_fx" />
                 </materials>
               </lod>
               <lod index="2">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
-                  <material id="2" ref="p2multimat.p2_multimat_01" />
+                  <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                   <material id="3" ref="generic.generic_p1_hulltexture" />
-                  <material id="4" ref="p2fx.fx_p2_gradientcolour_01" />
-                  <material id="5" ref="generic.generic_p1_fx" />
+                  <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
+                  <material id="5" ref="p2multimat.p2_multimat_01" />
+                  <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="7" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="8" ref="generic.generic_p1_fx" />
                 </materials>
               </lod>
               <lod index="3">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hullpattern" />
-                  <material id="2" ref="p2multimat.p2_multimat_01" />
+                  <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                   <material id="3" ref="generic.generic_p1_hulltexture" />
-                  <material id="4" ref="p2fx.fx_p2_gradientcolour_01" />
-                  <material id="5" ref="generic.generic_p1_fx" />
+                  <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
+                  <material id="5" ref="p2multimat.p2_multimat_01" />
+                  <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="7" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="8" ref="generic.generic_p1_fx" />
                 </materials>
               </lod>
             </lods>
             <size>
-              <max x="60.37567" y="36.943" z="129.8427" />
-              <center x="0" y="-2.507" z="-3.259148" />
+              <max x="60.37567" y="36.943" z="131.0339" />
+              <center x="0" y="-2.507" z="-2.067963" />
             </size>
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main951131042147303232" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main951138681210698176" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="-0.04780692" qz="0.001863591" qw="-0.9980968" />
@@ -1331,7 +1358,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main952131042147303488" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main952138681210698304" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-5.8927" y="-7.652972" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="-0.03376869" qz="0.0007361233" qw="-0.9991921" />
@@ -1353,7 +1380,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main953131042147303616" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main953138681210698432" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="5.8927" y="-7.652973" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="0.03376869" qz="-0.0007361233" qw="-0.9991921" />
@@ -1375,7 +1402,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main954131042147303744" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main954138681210698560" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="0.04780692" qz="-0.001863591" qw="-0.9980968" />
@@ -1397,7 +1424,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main955131042147303872" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main955138681210698688" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-13.49152" y="5.840501" z="-96.35839" />
           <quaternion qx="-0.04646049" qy="-0.03891892" qz="0.001811526" qw="-0.9981601" />
@@ -1419,7 +1446,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main956131042147304000" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main956138681210698816" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="13.49146" y="5.840504" z="-96.3584" />
           <quaternion qx="-0.04646049" qy="0.03891892" qz="-0.001811526" qw="-0.9981601" />
@@ -1441,7 +1468,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main957131042147304128" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main957138681210698944" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="0" y="9.107853" z="-100.8717" />
           <quaternion qx="-0.024426" qy="0" qz="0" qw="-0.9997016" />
