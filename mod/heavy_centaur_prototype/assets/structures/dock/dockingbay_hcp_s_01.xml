@@ -82,6 +82,39 @@
 			</connection>
 			<connection name="Connection02" tags="part animation walk_dockingbay anim_floor collision  ">
 				<offset />
+				<animations>
+					<animation name="dockingbay_idle" start="0" end="0" />
+					<animation name="dockingbay_storingship_fastest" start="0" end="100" startsound="1">
+						<sounds>
+							<sound ref="XU SoundEmitter_storing_ship_s_fastest" />
+						</sounds>
+					</animation>
+					<animation name="dockingbay_retrievingship_fastest" start="100" end="200" startsound="1">
+						<sounds>
+							<sound ref="XU SoundEmitter_retrieving_ship_s_fastest" />
+						</sounds>
+					</animation>
+					<animation name="dockingbay_storingship_faster" start="200" end="400" startsound="1">
+						<sounds>
+							<sound ref="XU SoundEmitter_storing_ship_s_faster" />
+						</sounds>
+					</animation>
+					<animation name="dockingbay_retrievingship_faster" start="400" end="600" startsound="1">
+						<sounds>
+							<sound ref="XU SoundEmitter_retrieving_ship_s_faster" />
+						</sounds>
+					</animation>
+					<animation name="dockingbay_storingship" start="600" end="1000" startsound="1">
+						<sounds>
+							<sound ref="XU SoundEmitter_storing_ship_s" />
+						</sounds>
+					</animation>
+					<animation name="dockingbay_retrievingship" start="1000" end="1400" startsound="1">
+						<sounds>
+							<sound ref="XU SoundEmitter_retrieving_ship_s" />
+						</sounds>
+					</animation>
+				</animations>
 				<parts>
 					<part name="anim_floor">
 						<lods>
@@ -577,6 +610,124 @@
 						<size_raw>
 							<max x="0.898286" y="6.069489E-02" z="0.8982784" />
 							<center x="0" y="1.965258E-02" z="0" />
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection08" tags="part animation nocollision forceoutline detail_xl  ">
+				<offset>
+					<position x="19" y="-19.01606" z="-2.5" />
+				</offset>
+				<animations>
+					<animation name="dockingbay_idle" start="0" end="0" />
+					<animation name="dockingbay_storingship_fastest" start="0" end="100" />
+					<animation name="dockingbay_retrievingship_fastest" start="100" end="200" />
+					<animation name="dockingbay_storingship_faster" start="200" end="400" />
+					<animation name="dockingbay_retrievingship_faster" start="400" end="600" />
+					<animation name="dockingbay_storingship" start="600" end="1000" startsound="1" />
+					<animation name="dockingbay_retrievingship" start="1000" end="1400" />
+				</animations>
+				<parts>
+					<part name="anim_door_01">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="generic.generic_p1_hullpattern" />
+									<material id="2" ref="generic.generic_p1_hulltexture" />
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="9.510852" y="18.92966" z="19" />
+							<center x="-9.494788" y="18.95685" z="-3.814697E-06" />
+						</size>
+						<size_raw>
+							<max x="0.5000097" y="9.486412" z="19" />
+							<center x="-0.4839478" y="9.513601" z="-2.861023E-06" />
+						</size_raw>
+					</part>
+				</parts>
+				<waypoints />
+			</connection>
+			<connection name="Connection09" tags="part detail_s nocollision forceoutline  " parent="anim_door_01">
+				<parts>
+					<part name="detail_s_door_01">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="generic.generic_p1_hulltexture" />
+									<material id="2" ref="generic.generic_p1_alphatexture" />
+									<material id="3" ref="generic.generic_p1_fx" />
+									<material id="4" ref="p1paint.paint_p1_decal_01" />
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="9.619641" y="19.12233" z="18.99993" />
+							<center x="-8.760503" y="18.16281" z="0" />
+						</size>
+						<size_raw>
+							<max x="4.029148" y="0.9595205" z="18.99993" />
+							<center x="-2.001394" y="8.715739" z="0" />
+						</size_raw>
+					</part>
+				</parts>
+			</connection>
+			<connection name="Connection10" tags="part animation nocollision forceoutline detail_xl  ">
+				<offset>
+					<position x="-19" y="-19.01606" z="-2.5" />
+				</offset>
+				<animations>
+					<animation name="dockingbay_idle" start="0" end="0" />
+					<animation name="dockingbay_storingship_fastest" start="0" end="100" />
+					<animation name="dockingbay_retrievingship_fastest" start="100" end="200" />
+					<animation name="dockingbay_storingship_faster" start="200" end="400" />
+					<animation name="dockingbay_retrievingship_faster" start="400" end="600" />
+					<animation name="dockingbay_storingship" start="600" end="1000" />
+					<animation name="dockingbay_retrievingship" start="1000" end="1400" startsound="1" />
+				</animations>
+				<parts>
+					<part name="anim_door_02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="generic.generic_p1_hullpattern" />
+									<material id="2" ref="generic.generic_p1_hulltexture" />
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="9.510852" y="18.92965" z="19" />
+							<center x="9.494788" y="18.95685" z="1.907349E-06" />
+						</size>
+						<size_raw>
+							<max x="0.5000096" y="9.486411" z="19" />
+							<center x="0.4839458" y="9.513602" z="4.768372E-06" />
+						</size_raw>
+					</part>
+				</parts>
+				<waypoints />
+			</connection>
+			<connection name="Connection11" tags="part detail_s nocollision forceoutline  " parent="anim_door_02">
+				<parts>
+					<part name="detail_s_door_02">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="generic.generic_p1_hulltexture" />
+									<material id="2" ref="generic.generic_p1_alphatexture" />
+									<material id="3" ref="generic.generic_p1_fx" />
+									<material id="4" ref="p1paint.paint_p1_decal_01" />
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="9.619641" y="19.12232" z="18.99993" />
+							<center x="8.760501" y="18.16281" z="0" />
+						</size>
+						<size_raw>
+							<max x="2.635892E-02" y="0.9595203" z="18.99993" />
+							<center x="2.001394" y="8.715739" z="0" />
 						</size_raw>
 					</part>
 				</parts>

@@ -46,6 +46,9 @@
       <connection ref="con_cockpit">
         <macro ref="bridge_arg_l_01_macro" connection="con_cockpit" />
       </connection>
+      <connection ref="con_shipstorage_s_01">
+        <macro ref="shipstorage_gen_s_two_macro" connection="object" />
+      </connection>
       <connection ref="con_shipstorage_xs_01">
         <macro ref="shipstorage_gen_xs_01_macro" connection="object" />
       </connection>
