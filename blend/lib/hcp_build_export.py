@@ -32,15 +32,16 @@ HATCH_ACTIONS = {}
 HATCH_OBS = {}
 VLS_HATCHES = {'con_turret_vls_01': ('anim_vlshatch_01_a', 'anim_vlshatch_01_b'), 'con_turret_vls_02': ('anim_vlshatch_02_a', 'anim_vlshatch_02_b')}
 HATCH_DUMMY_SIZE = 0.17
-RADAR_PIVOTS = {'anim_radar_01': (-0.019, -81.998, -25.364), 'anim_radar_02': (23.42, -82.045, 11.939), 'anim_radar_03': (-22.048, -82.045, 12.927), 'anim_radar_04': (0.0, -72.048, 32.95), 'anim_radar_05': (0.07, -34.57, -35.63)}
+RADAR_PIVOTS = {'anim_radar_01': (-0.019, -81.998, -25.364), 'anim_radar_02': (23.42, -82.045, 11.939), 'anim_radar_03': (-22.048, -82.045, 12.927), 'anim_radar_04': (0.0, -86.2, 34.15), 'anim_radar_05': (0.07, -34.57, -35.63)}
 RADAR_AXES = {'anim_radar_01': (0.0, 0.0, 1.0), 'anim_radar_02': (0.309, 0.0119, 0.951), 'anim_radar_03': (-0.309, 0.0119, 0.951), 'anim_radar_04': (0.0, 0.0, 1.0), 'anim_radar_05': (0.0, 0.0, 1.0)}
 SPIN_STEPS = 8
 RADAR_FRAMES = {'anim_radar_01': 1000, 'anim_radar_02': 600, 'anim_radar_03': 600, 'anim_radar_04': 1000, 'anim_radar_05': 1500}
 HATCH_STATES = [('inactive', 1, 2), ('activating', 2, 20), ('active', 20, 21), ('deactivating', 21, 40)]
 DOCKDOORS = {'anim_dockdoor_xs'}
+WALK_PARTS = {'hcr_dock_well': 'part_dock_well'}
 DOCKDOOR_OBS = []
 DOCKDOOR_STATES = [('closed', 1, 2), ('opening', 2, 25), ('open', 25, 26), ('closing', 26, 50)]
-DOCKDOOR_KEYS = [(1, 0.0, 0.0), (2, 0.0, 0.0), (9, -0.25, 0.0), (25, -0.25, 3.6), (26, -0.25, 3.6), (43, -0.25, 0.0), (50, 0.0, 0.0)]
+DOCKDOOR_KEYS = [(1, 0.0, 0.0), (2, 0.0, 0.0), (9, -0.25, 0.0), (25, -0.25, -3.6), (26, -0.25, -3.6), (43, -0.25, 0.0), (50, 0.0, 0.0)]
 
 layouts = bpy.propertyGroupLayouts
 names_in = {g: {d['name'] for d in defs} for g, defs in layouts.items()}
@@ -95,6 +96,7 @@ main_src = []
 detail_src = []
 anim_parts = []
 cap_parts = []
+walk_parts = []
 for o in src_rebuild.all_objects:
     if o.type != 'MESH' or o.name in EXCLUDE:
         continue
@@ -119,6 +121,11 @@ for o in src_rebuild.all_objects:
         ob = copy_mesh(o, False)
         anim_parts.append(ob)
         DOCKDOOR_OBS.append(ob)
+    elif o.name in WALK_PARTS:
+        ob = copy_mesh(o, True)
+        ob.name = WALK_PARTS[o.name]
+        ob.data.name = ob.name
+        walk_parts.append(ob)
     elif o.name in DETAIL:
         detail_src.append(copy_mesh(o, True))
     elif o.name in CAPS:
@@ -135,6 +142,8 @@ for ob in anim_parts:
     set_geo_tags(ob, ['detail_xl', 'forceoutline', 'nocollision'])
 for ob in cap_parts:
     set_geo_tags(ob, ['noshadowcaster'])
+for ob in walk_parts:
+    set_geo_tags(ob, ['detail_xl', 'forceoutline', 'platformcollision'])
 engine_parts = []
 for o in (src_engines.objects if src_engines else []):
     if o.type != 'MESH':
@@ -150,7 +159,7 @@ for o in (src_pos.objects if src_pos else []):
     ob = copy_mesh(o, False)
     set_geo_tags(ob, [t for t in (o.get('tags') or '').split() if t != 'part'])
     POS_BLINK[ob] = json.loads(o['blink'])
-for ob in [part_main, detail] + anim_parts + engine_parts + list(POS_BLINK):
+for ob in [part_main, detail] + anim_parts + walk_parts + engine_parts + list(POS_BLINK):
     add_vertex_data(ob)
 
 for idx, ratio in LODS:
@@ -467,7 +476,7 @@ scene.name = 'ship_arg_l_hcp_01'
 import os
 os.makedirs(os.path.dirname(COL_OBJ), exist_ok=True)
 for o in scene.objects:
-    o.select_set(o == part_main)
+    o.select_set(o == part_main or o in cap_parts)
 bpy.context.view_layer.objects.active = part_main
 bpy.ops.wm.obj_export(filepath=COL_OBJ, export_selected_objects=True, forward_axis='Y', up_axis='Z', export_materials=False, export_uv=False, export_normals=False)
 

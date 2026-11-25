@@ -6,5 +6,7 @@
     <entry name="weapon_arg_m_hcp_vls_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\weapon_arg_m_hcp_vls_01_mk1_macro" />
     <entry name="shield_arg_l_hcp_internal_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\surfaceelements\hcp\macros\shield_arg_l_hcp_internal_01_mk1_macro" />
     <entry name="shield_arg_l_hcp_internal_01_mk2_macro" value="extensions\heavy_centaur_prototype\assets\props\surfaceelements\hcp\macros\shield_arg_l_hcp_internal_01_mk2_macro" />
+    <entry name="dockingbay_hcp_s_01_macro" value="extensions\heavy_centaur_prototype\assets\structures\dock\macros\dockingbay_hcp_s_01_macro" />
+    <entry name="dockarea_hcp_s_01_macro" value="extensions\heavy_centaur_prototype\assets\structures\dock\macros\dockarea_hcp_s_01_macro" />
   </add>
 </diff>

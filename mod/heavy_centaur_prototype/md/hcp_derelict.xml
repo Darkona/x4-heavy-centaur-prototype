@@ -145,7 +145,7 @@
         <set_value name="$Kestrel" exact="null"/>
         <set_value name="$KestrelWhere" exact="'not created'"/>
         <find_dockingbay name="$Bay" object="$Hcp" checkoperational="true" multiple="false">
-          <match_dock size="tag.dock_s" storage="true"/>
+          <match_dock size="tag.dock_s" storage="false"/>
         </find_dockingbay>
         <do_if value="$Bay">
           <create_ship name="$Kestrel" macro="macro.ship_tel_s_scout_01_a_macro" dock="$Bay">
@@ -157,7 +157,7 @@
           </create_ship>
         </do_if>
         <do_if value="$Kestrel and $Kestrel.exists and $Kestrel.dock">
-          <set_value name="$KestrelWhere" exact="'docked in ' + $Kestrel.dock.macro.id + ' of ' + $Kestrel.dock.container.macro.id + ' (S storage)'"/>
+          <set_value name="$KestrelWhere" exact="'docked in ' + $Kestrel.dock.macro.id + ' of ' + $Kestrel.dock.container.macro.id + ' (S pad)'"/>
         </do_if>
         <do_else>
           <do_if value="$Kestrel and $Kestrel.exists">
@@ -174,7 +174,7 @@
             <rotation value="$Rotation"/>
           </create_ship>
           <do_if value="$Kestrel and $Kestrel.exists">
-            <set_value name="$KestrelWhere" exact="'FALLBACK beside the HCP at ' + $Kestrel.distanceto.{$Hcp} + ' (storage dock found ' + ($Bay != null) + ')'"/>
+            <set_value name="$KestrelWhere" exact="'FALLBACK beside the HCP at ' + $Kestrel.distanceto.{$Hcp} + ' (pad dock found ' + ($Bay != null) + ')'"/>
           </do_if>
         </do_else>
         <do_if value="$Kestrel and $Kestrel.exists">
