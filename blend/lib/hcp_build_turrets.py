@@ -13,7 +13,6 @@ from hcp_vdata import add_vertex_data
 ARGS = sys.argv[sys.argv.index('--') + 1:]
 SPEC = json.load(open(ARGS[0]))
 G = SPEC['geometry']
-DEPTH = G['mount_depth']
 UV_PER_M = 20.0 / 2048.0
 MOUNT = ('con_turret', 'turret medium hittable component combat hcp_turret')
 PIECES = SPEC['pieces']
@@ -28,12 +27,12 @@ MATERIALS = {
     'visor_sensor': 'generic.generic_p1_hulltexture',
 }
 PART_TAGS = {
-    'part_socket': ['forceoutline'],
+    'part_base': ['forceoutline'],
     'part_rotator': ['iklink', 'nocollision', 'forceoutline'],
     'part_gun': ['iklink', 'nocollision', 'forceoutline'],
 }
-FIXED = Matrix.Translation((0.0, 0.0, DEPTH)) @ Matrix.Rotation(math.radians(90.0), 4, 'X')
-PITCHED = Matrix.Translation((0.0, 0.0, DEPTH))
+ORIGIN = (0.0, 0.0, 0.0)
+HIDDEN_MATERIAL = 'generic.generic_p1_hulltexture'
 
 
 def read_obj(path):
@@ -242,6 +241,24 @@ def limit(ob, x=None, y=None, z=None):
             setattr(c, 'max_' + axis, math.radians(rng[1]))
 
 
+def hidden_part(name, shape, size):
+    bm = bmesh.new()
+    if shape == 'sphere':
+        bmesh.ops.create_icosphere(bm, subdivisions=2, radius=size)
+    else:
+        bmesh.ops.create_cube(bm, size=size)
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me)
+    bm.free()
+    me.materials.append(material(HIDDEN_MATERIAL))
+    box_uv(me)
+    me.uv_layers[0].name = 'uv1'
+    ob = bpy.data.objects.new(name, me)
+    bpy.context.scene.collection.objects.link(ob)
+    ob.Meshflags.hidden = True
+    return ob
+
+
 def gun_geometry(t):
     data = read_obj(t['obj'])
     pieces = [build_mesh('gunpiece_' + o['name'], data, o, swap=True) for o in data[3] if o['name'] in t['parts']]
@@ -253,9 +270,9 @@ def gun_geometry(t):
     hi = Vector((max(c[i] for c in co) for i in range(3)))
     size = hi - lo
     flak = t['count'] == 1
-    slot = (G['flak_slot'] if flak else G['dual_slot']) - 2 * G['side_gap']
+    slot = G['dual_slot'] - 2 * G['side_gap']
     below = -G['socket_front'] - G['side_gap']
-    scale = min(slot / size.x, 2 * below / size.z)
+    scale = t['scale'] or min(slot / size.x, 2 * below / size.z)
     centres = [0.0] if flak else G['dual_centres']
     return gun, lo, hi, scale, centres
 
@@ -293,15 +310,12 @@ def build(t):
     bpy.data.orphans_purge(do_local_ids=True, do_linked_ids=True, do_recursive=True)
     tag_setup()
     flak = t['count'] == 1
-    to_gpt = Matrix.Identity(4)
-    socket_src = load_pieces(PIECES['socket'])
-    rot_src = load_pieces(PIECES['rotator'])
     ball_src = load_pieces(PIECES['gun_flak' if flak else 'gun'])
-    src_names = {k: '+'.join(o.name for o in v) for k, v in (('socket', socket_src), ('rotator', rot_src), ('gun', ball_src))}
+    src_name = '+'.join(o.name for o in ball_src)
     keep_src = set(bpy.data.objects)
-    socket = join_copies(socket_src, 'part_socket', FIXED @ to_gpt, (0.0, 0.0, 0.0))
-    rotator = join_copies(rot_src, 'part_rotator', FIXED @ to_gpt, (0.0, 0.0, DEPTH))
-    ball = join_copies(ball_src, 'ball_tmp', PITCHED @ to_gpt, (0.0, 0.0, DEPTH))
+    base = hidden_part('part_base', 'sphere', G['sphere_radius'] - 0.1)
+    rotator = hidden_part('part_rotator', 'cube', 0.17)
+    ball = join_copies(ball_src, 'ball_tmp', Matrix.Identity(4), ORIGIN)
     gun_src, lo, hi, scale, centres = gun_geometry(t)
     copies = []
     for cx in centres:
@@ -311,16 +325,15 @@ def build(t):
         bpy.context.scene.collection.objects.link(c)
         copies.append(c)
     bpy.data.objects.remove(gun_src, do_unlink=True)
-    guns = join(copies, 'guns_tmp', (0.0, 0.0, 0.0))
+    guns = join(copies, 'guns_tmp', ORIGIN)
     clip_report(t['kind'], guns)
-    guns.location = (0.0, 0.0, DEPTH)
-    gun = join([ball, guns], 'part_gun', (0.0, 0.0, DEPTH))
-    rotator.parent = socket
+    gun = join([ball, guns], 'part_gun', ORIGIN)
+    rotator.parent = base
     rotator.matrix_parent_inverse = Matrix.Identity(4)
-    rotator.location = (0.0, 0.0, DEPTH)
+    rotator.location = ORIGIN
     gun.parent = rotator
     gun.matrix_parent_inverse = Matrix.Identity(4)
-    gun.location = (0.0, 0.0, 0.0)
+    gun.location = ORIGIN
     limit(rotator, x=(0, 0), y=(0, 0), z=None)
     limit(gun, x=(-1, 90), y=(0, 0), z=(0, 0))
     n = 0
@@ -330,13 +343,13 @@ def build(t):
             n += 1
             p = m @ Vector((s[0], s[2], s[1]))
             empty(f'con_laser_{n:02d}', 'laser', tuple(p), parent=gun)
-    empty(MOUNT[0], MOUNT[1], (0.0, 0.0, G['seat_drop']))
-    empty('con_aimtarget_01', 'aimtarget', (0.0, 0.0, DEPTH))
+    empty(MOUNT[0], MOUNT[1], ORIGIN)
+    empty('con_aimtarget_01', 'aimtarget', ORIGIN)
     cont = empty('container', 'contents')
     cont.value = 0
-    for o in (socket, rotator, gun):
+    for o in (base, rotator, gun):
         add_vertex_data(o)
-    ours = {socket, rotator, gun} | {o for o in bpy.context.scene.objects if o.type == 'EMPTY' and o not in keep_src}
+    ours = {base, rotator, gun} | {o for o in bpy.context.scene.objects if o.type == 'EMPTY' and o not in keep_src}
     for o in list(bpy.data.objects):
         if o not in ours:
             bpy.data.objects.remove(o, do_unlink=True)
@@ -364,7 +377,7 @@ def build(t):
     bpy.ops.wm.save_as_mainfile(filepath=out, relative_remap=True)
     dims = [round(v, 2) for v in (hi - lo) * scale]
     mz = max(o.location.y for o in scene.objects if o.name.startswith('con_laser'))
-    print(f'TURRET {t["component"]}: scale {scale:.3f}, gun {dims} m, {len(centres)} gun(s), {n} shooters, muzzle y {mz:.2f}; socket {src_names["socket"]} {len(socket.data.vertices)} v; rotator {src_names["rotator"]} {len(rotator.data.vertices)} v; gun {src_names["gun"]}+guns {len(gun.data.vertices)} v')
+    print(f'TURRET {t["component"]}: scale {scale:.3f}, gun {dims} m, {len(centres)} gun(s), {n} shooters, muzzle y {mz:.2f}; gun {src_name}+guns {len(gun.data.vertices)} v')
 
 
 for turret in SPEC['turrets']:

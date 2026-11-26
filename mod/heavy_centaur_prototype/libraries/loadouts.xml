@@ -20,6 +20,12 @@
         <shield macro="shield_arg_l_hcp_internal_01_mk1_macro" path="../con_shield_l_01" />
         <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_01" />
         <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_02" />
+        <turret macro="turret_arg_m_hcp_laser_01_mk1_macro" path="../con_turret_03" />
+        <turret macro="turret_arg_m_hcp_plasma_01_mk1_macro" path="../con_turret_04" />
+        <turret macro="turret_arg_m_hcp_laser_01_mk1_macro" path="../con_turret_05" />
+        <turret macro="turret_arg_m_hcp_laser_01_mk1_macro" path="../con_turret_06" />
+        <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_07" />
+        <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_08" />
       </macros>
       <software>
         <software ware="software_dockmk2" />
@@ -55,12 +61,12 @@
         <shield macro="shield_arg_s_standard_01_mk1_macro" path="../con_shield_13" />
         <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_01" />
         <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_02" />
-        <turret macro="turret_arg_m_laser_01_mk1_macro" path="../con_turret_03" />
+        <turret macro="turret_arg_m_hcp_laser_01_mk1_macro" path="../con_turret_03" />
         <turret macro="turret_arg_m_hcp_plasma_01_mk1_macro" path="../con_turret_04" />
-        <turret macro="turret_arg_m_beam_01_mk1_macro" path="../con_turret_05" />
-        <turret macro="turret_arg_m_beam_01_mk1_macro" path="../con_turret_06" />
-        <turret macro="turret_arg_m_flak_01_mk1_macro" path="../con_turret_07" />
-        <turret macro="turret_arg_m_flak_01_mk1_macro" path="../con_turret_08" />
+        <turret macro="turret_arg_m_hcp_beam_01_mk1_macro" path="../con_turret_05" />
+        <turret macro="turret_arg_m_hcp_beam_01_mk1_macro" path="../con_turret_06" />
+        <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_07" />
+        <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_08" />
       </macros>
       <groups>
         <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_back_down_left" exact="1" />
@@ -116,12 +122,12 @@
         <shield macro="shield_arg_s_standard_01_mk1_macro" path="../con_shield_13" />
         <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_01" />
         <turret macro="turret_arg_m_hcp_railgun_01_mk1_macro" path="../con_turret_02" />
-        <turret macro="turret_arg_m_laser_01_mk1_macro" path="../con_turret_03" />
+        <turret macro="turret_arg_m_hcp_laser_01_mk1_macro" path="../con_turret_03" />
         <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_04" />
-        <turret macro="turret_arg_m_beam_01_mk1_macro" path="../con_turret_05" />
-        <turret macro="turret_arg_m_beam_01_mk1_macro" path="../con_turret_06" />
-        <turret macro="turret_arg_m_flak_01_mk1_macro" path="../con_turret_07" />
-        <turret macro="turret_arg_m_flak_01_mk1_macro" path="../con_turret_08" />
+        <turret macro="turret_arg_m_hcp_plasma_01_mk1_macro" path="../con_turret_05" />
+        <turret macro="turret_arg_m_hcp_plasma_01_mk1_macro" path="../con_turret_06" />
+        <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_07" />
+        <turret macro="turret_arg_m_hcp_laser_01_mk1_macro" path="../con_turret_08" />
       </macros>
       <groups>
         <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_back_down_left" exact="1" />

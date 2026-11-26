@@ -6,7 +6,7 @@
       <ammunition value="2" reload="7" />
       <bullet speed="1000" lifetime="5.5" amount="1" barrelamount="2" icon="weapon_plasma_mk1" timediff="0.05" angle="0.8" maxhits="1" scale="0" attach="0" />
       <reload time="3" />
-      <damage value="1125" shielddisruption="10" repair="0" />
+      <damage value="750" shielddisruption="10" repair="0" />
       <effects>
         <bigobjectimpact inside="impact_gen_s_plasma_01_mk1_bigobject_inside" ref="impact_gen_s_plasma_01_mk1_bigobject" />
         <impact inside="impact_gen_s_plasma_01_mk1_inside" ref="impact_gen_s_plasma_01_mk1" />

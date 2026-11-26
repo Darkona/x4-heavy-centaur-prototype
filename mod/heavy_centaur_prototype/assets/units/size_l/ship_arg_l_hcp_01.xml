@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 05:52:50 from Blender-->
+<!--Exported on 2026-11-26 08:54:04 from Blender-->
 <components>
   <component name="ship_arg_l_hcp_01" class="ship_m">
     <source geometry="extensions\heavy_centaur_prototype\assets\units\size_l\ship_arg_l_hcp_01_data" />
@@ -326,50 +326,50 @@
       </connection>
       <connection name="con_turret_01" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="-25.41223" y="-13.09002" z="88.49478" />
-          <quaternion qx="0.006849392" qy="-0.001409778" qz="-0.7062067" qw="-0.7079712" />
+          <position x="-25.67" y="-13.657" z="87.693" />
+          <quaternion qx="0.5556665" qy="-0.4504271" qz="0.5461965" qw="0.4359123" />
         </offset>
       </connection>
       <connection name="con_turret_02" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="25.41226" y="-13.09002" z="88.49477" />
-          <quaternion qx="0.006850641" qy="0.001408497" qz="0.7062078" qw="-0.7079701" />
+          <position x="25.67" y="-13.657" z="87.693" />
+          <quaternion qx="0.5556665" qy="0.4504271" qz="-0.5461965" qw="0.4359123" />
         </offset>
       </connection>
-      <connection name="con_turret_03" tags="combat hittable medium standard turret ">
+      <connection name="con_turret_03" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="0" y="27.86739" z="-98.8587" />
-          <quaternion qx="0.4091683" qy="-5.691914e-05" qz="-0.0001949456" qw="-0.9124589" />
+          <position x="0" y="27.148" z="-101.518" />
+          <quaternion qx="0" qy="0.8359742" qz="-0.5487688" qw="-0" />
         </offset>
       </connection>
       <connection name="con_turret_04" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="0" y="-28.3092" z="97.50677" />
-          <quaternion qx="1.127988e-07" qy="-0.005602349" qz="-0.9999843" qw="-7.613104e-08" />
+          <position x="0" y="-29.522" z="94.062" />
+          <quaternion qx="-0.03434041" qy="0.09560759" qz="0.9948212" qw="0.003283781" />
         </offset>
       </connection>
-      <connection name="con_turret_05" tags="combat hittable medium standard turret ">
+      <connection name="con_turret_05" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="-15.42001" y="3.98" z="-35.47" />
-          <quaternion qx="-0.1424175" qy="-0.01306743" qz="-0.190504" qw="-0.971213" />
+          <position x="-15.776" y="3.547" z="-33.476" />
+          <quaternion qx="0.3204086" qy="-0.05375483" qz="0.1869044" qw="0.9271006" />
         </offset>
       </connection>
-      <connection name="con_turret_06" tags="combat hittable medium standard turret ">
+      <connection name="con_turret_06" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="15.42001" y="3.98" z="-35.47" />
-          <quaternion qx="-0.1424175" qy="0.01306743" qz="0.190504" qw="-0.971213" />
+          <position x="15.776" y="3.547" z="-33.476" />
+          <quaternion qx="0.3204086" qy="0.05375483" qz="-0.1869044" qw="0.9271006" />
         </offset>
       </connection>
-      <connection name="con_turret_07" tags="combat hittable medium standard turret ">
+      <connection name="con_turret_07" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="21.97812" y="-20.58114" z="-78.23345" />
-          <quaternion qx="-0.0004373342" qy="-0.03521982" qz="-0.9993284" qw="-0.0101095" />
+          <position x="21.89" y="-23.109" z="-79.714" />
+          <quaternion qx="0.9915757" qy="-0.01005465" qz="0.001312282" qw="-0.129131" />
         </offset>
       </connection>
-      <connection name="con_turret_08" tags="combat hittable medium standard turret ">
+      <connection name="con_turret_08" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="-21.97812" y="-20.58144" z="-78.23343" />
-          <quaternion qx="-0.0004373071" qy="0.03522102" qz="0.9993283" qw="-0.01011164" />
+          <position x="-21.89" y="-23.109" z="-79.714" />
+          <quaternion qx="0.9915757" qy="0.01005465" qz="-0.001312282" qw="-0.129131" />
         </offset>
       </connection>
       <connection name="con_turret_vls_01" tags="nocollision part hcp_vls_hatchmount" hidden="true">
@@ -1287,6 +1287,7 @@
                   <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
                   <material id="7" ref="generic.generic_p1_fx" />
                   <material id="8" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="9" ref="p2generic.gen_p2_cockpitglassoutside_01" />
                 </materials>
               </lod>
               <lod index="1">
@@ -1299,6 +1300,7 @@
                   <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
                   <material id="7" ref="generic.generic_p1_fx" />
                   <material id="8" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="9" ref="p2generic.gen_p2_cockpitglassoutside_01" />
                 </materials>
               </lod>
               <lod index="2">
@@ -1311,6 +1313,7 @@
                   <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
                   <material id="7" ref="generic.generic_p1_fx" />
                   <material id="8" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="9" ref="p2generic.gen_p2_cockpitglassoutside_01" />
                 </materials>
               </lod>
               <lod index="3">
@@ -1323,6 +1326,7 @@
                   <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
                   <material id="7" ref="generic.generic_p1_fx" />
                   <material id="8" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="9" ref="p2generic.gen_p2_cockpitglassoutside_01" />
                 </materials>
               </lod>
             </lods>
@@ -1333,7 +1337,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main951139333480609216" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main951134894580396352" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="-0.04780692" qz="0.001863591" qw="-0.9980968" />
@@ -1355,7 +1359,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main952139333480609344" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main952134894580396480" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-5.8927" y="-7.652972" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="-0.03376869" qz="0.0007361233" qw="-0.9991921" />
@@ -1377,7 +1381,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main953139333480609472" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main953134894580396608" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="5.8927" y="-7.652973" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="0.03376869" qz="-0.0007361233" qw="-0.9991921" />
@@ -1399,7 +1403,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main954139333480609600" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main954134894580396736" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="0.04780692" qz="-0.001863591" qw="-0.9980968" />
@@ -1421,7 +1425,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main955139333480609728" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main955134894580396864" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-13.49152" y="5.840501" z="-96.35839" />
           <quaternion qx="-0.04646049" qy="-0.03891892" qz="0.001811526" qw="-0.9981601" />
@@ -1443,7 +1447,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main956139333480609856" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main956134894580396992" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="13.49146" y="5.840504" z="-96.3584" />
           <quaternion qx="-0.04646049" qy="0.03891892" qz="-0.001811526" qw="-0.9981601" />
@@ -1465,7 +1469,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main957139333480609984" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main957134894580397120" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="0" y="9.107853" z="-100.8717" />
           <quaternion qx="-0.024426" qy="0" qz="0" qw="-0.9997016" />

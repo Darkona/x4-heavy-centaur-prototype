@@ -22,8 +22,7 @@ P1DATA = X4 / 'p1data'
 SUB = 'extensions/heavy_centaur_prototype/assets/props/weaponsystems/hcp'
 WORK = X4 / 'work/hcp_turrets'
 SOURCE_DIR = X4 / 'heavy-centaur/publish/turret_hcp_final'
-FLAK_BALL = X4 / 'heavy-centaur/publish/gpt/turret02/ball_joint_flak.obj'
-PIECE_PREFIXES = {'socket': ('socket', 'visor'), 'rotator': ('rear_shell',), 'gun': ('ball',), 'gun_flak': ('flak',)}
+PIECE_PREFIXES = {'gun': ('ball',), 'gun_flak': ('flak',)}
 MOD = REPO / 'mod/heavy_centaur_prototype'
 WINEPREFIX = HOME / '.local/share/wineprefixes/egosoft'
 WIN_BLENDER = r'C:\Program Files\Blender Foundation\Blender 4.5\blender.exe'
@@ -31,28 +30,25 @@ WIN_CONVERTER = r'C:\Program Files\EGOSOFT\Egosoft Blender Mod Tools\Converter\X
 LOCK = X4 / '.xuconverter.lock'
 
 TURRETS = {
-    'laser': ('base/assets/props/WeaponSystems/standard/weapon_gen_m_laser_01_mk1.xml', None, 2),
-    'gatling': ('base/assets/props/WeaponSystems/heavy/weapon_gen_m_gatling_01_mk1.xml', None, 2),
-    'plasma': ('base/assets/props/WeaponSystems/heavy/weapon_gen_m_plasma_01_mk1.xml', None, 2),
-    'beam': ('base/assets/props/WeaponSystems/energy/weapon_gen_m_beam_01_mk1.xml', None, 2),
-    'shotgun': ('base/assets/props/WeaponSystems/standard/weapon_gen_m_shotgun_01_mk1.xml', None, 2),
-    'flak': ('base/assets/props/WeaponSystems/heavy/turret_arg_m_flak_02_mk1.xml', 'part_gun', 1),
-    'borlaser': ('ego_dlc_boron/assets/props/weaponsystems/boron/weapon_bor_m_laser_01_mk1.xml', None, 2),
-    'railgun': ('ego_dlc_boron/assets/props/weaponsystems/boron/weapon_bor_m_railgun_01_mk1.xml', None, 2),
-    'arc': ('ego_dlc_boron/assets/props/weaponsystems/boron/turret_bor_m_arc_02_mk1.xml', 'part_gun', 2),
+    'laser': ('base/assets/props/WeaponSystems/standard/weapon_gen_m_laser_01_mk1.xml', None, 2, None),
+    'gatling': ('base/assets/props/WeaponSystems/heavy/weapon_gen_m_gatling_01_mk1.xml', None, 2, None),
+    'plasma': ('base/assets/props/WeaponSystems/heavy/weapon_gen_m_plasma_01_mk1.xml', None, 2, None),
+    'beam': ('base/assets/props/WeaponSystems/energy/weapon_gen_m_beam_01_mk1.xml', None, 2, None),
+    'shotgun': ('base/assets/props/WeaponSystems/standard/turret_arg_m_shotgun_02_mk1.xml', 'part_gun', 1, 1.0),
+    'flak': ('base/assets/props/WeaponSystems/heavy/turret_arg_m_flak_02_mk1.xml', 'part_gun', 1, 0.67),
+    'borlaser': ('ego_dlc_boron/assets/props/weaponsystems/boron/turret_bor_m_laser_02_mk1.xml', 'part_gun', 1, 1.0),
+    'railgun': ('ego_dlc_boron/assets/props/weaponsystems/boron/weapon_bor_m_railgun_01_mk1.xml', None, 1, 1.0),
+    'arc': ('ego_dlc_boron/assets/props/weaponsystems/boron/turret_bor_m_arc_02_mk1.xml', 'part_gun', 1, 1.0),
 }
 GEOMETRY = {
     'sphere_radius': 3.65,
     'shell_radius': 3.79,
     'socket_radius': 5.12,
-    'mount_depth': 4.6,
     'slot_rear': -0.42,
     'socket_front': -1.4,
     'dual_centres': [-1.095, 1.095],
     'dual_slot': 1.97,
-    'flak_slot': 5.17,
     'side_gap': 0.04,
-    'seat_drop': 2.0,
 }
 VANILLA = {
     'laser': ('base', 'turret_arg_m_laser_02_mk1', 'Laser', 'láser'),
@@ -65,13 +61,14 @@ VANILLA = {
     'railgun': ('ego_dlc_boron', 'turret_bor_m_railgun_02_mk1', 'Railgun', 'de riel'),
     'arc': ('ego_dlc_boron', 'turret_bor_m_arc_02_mk1', 'Arc', 'de arco'),
 }
-DAMAGE_FACTOR = 1.5
-PRICE_FACTOR = 1.5
+DEPLOYED_POSE = 'turret_active'
+DAMAGE_FACTOR = 1.0
+PRICE_FACTOR = 1.0
 TEXT_PAGE = 1931170
 TEXT_BASE = 400
 TEXTS = {
-    'en': ('t/0001-l044.xml', 'HCP {n} Turret', 'HCP {n} T', 'A ball turret made only for the Heavy Centaur Prototype: two fixed guns in a ball joint that turns all the way round, set in a socket on the hull. It fits only the three turret mounts of the bulb. Hits half again as hard as the medium turret of the same weapon.'),
-    'es': ('t/0001-l034.xml', 'Torreta {n} PCP', 'Torr. {n} PCP', 'Una torreta de rótula hecha solo para el Prototipo de Centauro Pesado: dos cañones fijos en una rótula que gira la vuelta entera, montada en un zócalo del casco. Solo cabe en los tres anclajes de torreta del bulbo. Pega la mitad más que la torreta mediana del mismo arma.'),
+    'en': ('t/0001-l044.xml', 'HCP {n} Turret', 'HCP {n} T', 'A ball turret made only for the Heavy Centaur Prototype: fixed guns in a ball joint that turns all the way round, set in a socket on the hull. It fits only the turret mounts of that ship. Same damage as the medium turret of the same weapon.'),
+    'es': ('t/0001-l034.xml', 'Torreta {n} PCP', 'Torr. {n} PCP', 'Una torreta de rótula hecha solo para el Prototipo de Centauro Pesado: cañones fijos en una rótula que gira la vuelta entera, montada en un zócalo del casco. Solo cabe en los anclajes de torreta de esa nave. Hace el mismo daño que la torreta mediana del mismo arma.'),
 }
 SKIP_PART = re.compile(r'(^fx_|decal|wreck|^anim_lights|^detail_m_)')
 
@@ -132,9 +129,7 @@ def subtree(part_conn, conns, root):
 
 def pieces(source_dir):
     found = {part: sorted(str(p) for p in source_dir.glob('*.obj') if p.stem.lower().startswith(prefixes) and (part == 'gun_flak' or 'flak' not in p.stem.lower())) for part, prefixes in PIECE_PREFIXES.items()}
-    if not any('ball_joint_flak' in p or Path(p).stem.lower().startswith('flak_ball') for p in found['gun_flak']):
-        found['gun_flak'].insert(0, str(FLAK_BALL))
-    for part in ('socket', 'rotator', 'gun'):
+    for part in PIECE_PREFIXES:
         if not found[part]:
             sys.exit(f'hcp_turrets: no {part} meshes in {source_dir}')
     for part, paths in found.items():
@@ -142,15 +137,51 @@ def pieces(source_dir):
     return found
 
 
+def obj_parts(path):
+    verts = []
+    parts = {}
+    cur = None
+    for line in open(path):
+        if line.startswith(('o ', 'g ')):
+            cur = line.split()[1]
+        elif line.startswith('v '):
+            verts.append([float(v) for v in line.split()[1:4]])
+            parts.setdefault(cur, []).append(len(verts) - 1)
+    return {name: [verts[i] for i in idx] for name, idx in parts.items()}
+
+
+def posed_parts(xml_path, posed_obj):
+    import numpy as np
+    rest_obj = posed_obj.with_name(posed_obj.stem + '_rest.obj')
+    subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(rest_obj)], check=True, stdout=subprocess.DEVNULL)
+    rest = obj_parts(rest_obj)
+    posed = obj_parts(posed_obj)
+    moves = {}
+    for name, pts in posed.items():
+        a = np.array(rest.get(name, []))
+        b = np.array(pts)
+        if len(a) != len(b) or len(a) < 3:
+            continue
+        ca = a.mean(0)
+        cb = b.mean(0)
+        u, _, vt = np.linalg.svd((a - ca).T @ (b - cb))
+        d = np.sign(np.linalg.det(vt.T @ u.T))
+        rot = vt.T @ np.diag([1.0, 1.0, d]) @ u.T
+        moves[name] = (rot.tolist(), (cb - rot @ ca).tolist())
+    return moves
+
+
 def prepare(kinds, source_dir=SOURCE_DIR):
     xmf = xmf_module()
     WORK.mkdir(parents=True, exist_ok=True)
     spec = {'pieces': pieces(source_dir), 'out_dir': str(ASSETS / SUB), 'geometry': GEOMETRY, 'turrets': []}
     for kind in kinds:
-        rel, root_part, count = TURRETS[kind]
+        rel, root_part, count, scale = TURRETS[kind]
         xml_path = REFS / rel
         obj = WORK / f'gun_{kind}.obj'
-        subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(obj)], check=True, stdout=subprocess.DEVNULL)
+        pose = DEPLOYED_POSE if root_part else None
+        subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(obj)] + (['--pose', pose] if pose else []), check=True, stdout=subprocess.DEVNULL)
+        moves = posed_parts(xml_path, obj) if pose else {}
         conns, part_conn, world = connection_frames(xml_path, xmf)
         parts = [p for p in part_conn if not SKIP_PART.search(p)]
         if root_part:
@@ -158,8 +189,12 @@ def prepare(kinds, source_dir=SOURCE_DIR):
         shooters = []
         for name, (parent, _, tags) in conns.items():
             if 'laser' in tags and (not root_part or parent in parts):
-                shooters.append([round(v, 6) for v in world(name)[1]])
-        spec['turrets'].append({'kind': kind, 'component': component_name(kind), 'obj': str(obj), 'parts': parts, 'shooters': shooters, 'count': count, 'source': rel})
+                pos = world(name)[1]
+                if parent in moves:
+                    rot, shift = moves[parent]
+                    pos = [sum(rot[i][k] * pos[k] for k in range(3)) + shift[i] for i in range(3)]
+                shooters.append([round(v, 6) for v in pos])
+        spec['turrets'].append({'kind': kind, 'component': component_name(kind), 'obj': str(obj), 'parts': parts, 'shooters': shooters, 'count': count, 'scale': scale, 'source': rel})
         print(f'{kind}: {len(parts)} parts {parts}, {len(shooters)} shooters {shooters}')
     path = WORK / 'spec.json'
     path.write_text(json.dumps(spec, indent=1))
@@ -349,7 +384,7 @@ def data(kinds):
 def main():
     ap = argparse.ArgumentParser(description='Build the HCP turrets: game guns + turret OBJ pieces -> blends -> EgoTools export -> XUConverter -> mod')
     ap.add_argument('step', choices=['all', 'blends', 'export', 'convert', 'install', 'data'])
-    ap.add_argument('--source', type=Path, help=f'folder of turret OBJs in turret axes (+Y out of the hull, +Z up, origin at the sphere centre); file name prefixes pick the part: socket*/visor* fixed, rear_shell* part_rotator, ball* part_gun, flak* the flak ball (default {SOURCE_DIR}, flak ball {FLAK_BALL})')
+    ap.add_argument('--source', type=Path, help=f'folder of turret OBJs in turret axes (+Y out of the hull, +Z up, origin at the sphere centre); file name prefixes pick the part_gun pieces: ball* for the twin-gun turrets, flak* for the single-gun turrets (default {SOURCE_DIR}); socket, rear shell and visor are hull pieces (hcp_turret_mounts.py)')
     ap.add_argument('--only', action='append', choices=sorted(TURRETS), help='limit to these turret kinds')
     args = ap.parse_args()
     kinds = args.only or list(TURRETS)
