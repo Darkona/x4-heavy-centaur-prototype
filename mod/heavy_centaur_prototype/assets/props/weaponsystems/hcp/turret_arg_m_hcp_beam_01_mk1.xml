@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 08:49:56 from Blender-->
+<!--Exported on 2026-11-26 09:22:52 from Blender-->
 <components>
   <component name="turret_arg_m_hcp_beam_01_mk1" class="turret">
     <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_beam_01_mk1_data" />
@@ -10,7 +10,14 @@
       <connection name="position" tags="position" value="1" />
       <connection name="con_aimtarget_01" tags="aimtarget " />
       <connection name="con_turret" tags="combat component hittable medium turret  hcp_turret" />
-      <connection name="ConnectionForpart_base" tags="forceoutline part " hidden="true">
+      <connection name="ConnectionForpart_base" tags="animation forceoutline part " hidden="true">
+        <animations>
+          <animation name="turret_inactive" start="0" end="0" />
+          <animation name="turret_activating" start="0" end="45" />
+          <animation name="turret_active" start="50" end="50" />
+          <animation name="turret_deactivating" start="55" end="100" />
+          <animation name="gun_firing" start="50" end="55" />
+        </animations>
         <parts>
           <part name="part_base">
             <lods>
@@ -51,7 +58,7 @@
         <restrictions>
           <restriction type="rotation_x">
             <limits>
-              <min value="0" />
+              <min value="5" />
               <max value="90.00000250447816" />
             </limits>
           </restriction>
@@ -62,26 +69,66 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hulltexture" />
-                  <material id="2" ref="p2generic.gen_p2_hulltexture_01" />
-                  <material id="3" ref="p2generic.gen_p2_fx_01" />
                 </materials>
               </lod>
             </lods>
             <size>
-              <max x="3.65" y="3.625755" z="3.979589" />
-              <center x="-5.960464e-08" y="0" z="0.3295887" />
+              <max x="3.65" y="3.625755" z="3.139348" />
+              <center x="-5.960464e-08" y="0" z="-0.5106525" />
             </size>
           </part>
         </parts>
       </connection>
-      <connection name="con_laser_01" tags="laser " parent="part_gun">
+      <connection name="ConnectionFordetail_xl_gun" tags="forceoutline iklink nocollision part " parent="part_gun">
         <offset>
-          <position x="-1.095943" y="0.007394018" z="3.917452" />
+          <position x="-9.914683e-07" y="0.31247" z="1.513992" />
+          <quaternion qx="-2.209014e-07" qy="0" qz="0" qw="-1" />
+        </offset>
+        <parts>
+          <part name="detail_xl_gun">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="2.479389" y="0.9946545" z="1.748788" />
+              <center x="5.364418e-07" y="-0.3124436" z="-0.185204" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="ConnectionFordetail_xl_barrel" tags="forceoutline iklink nocollision part " parent="detail_xl_gun">
+        <offset>
+          <position x="-1.397871e-08" y="-0.4363059" z="0.8053" />
+        </offset>
+        <parts>
+          <part name="detail_xl_barrel">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                  <material id="2" ref="generic.generic_p1_fx" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="1.827436" y="0.4603905" z="1.465667" />
+              <center x="9.834766e-07" y="1.449883e-05" z="-0.4955645" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="con_beam_01" tags="laser " parent="detail_xl_barrel">
+        <offset>
+          <position x="1.363469" y="0.0001241955" z="0.7202291" />
         </offset>
       </connection>
-      <connection name="con_laser_02" tags="laser " parent="part_gun">
+      <connection name="con_beam_02" tags="laser " parent="detail_xl_barrel">
         <offset>
-          <position x="1.094057" y="0.007394018" z="3.917452" />
+          <position x="-1.354795" y="0.0001239273" z="0.7202287" />
         </offset>
       </connection>
       <connection name="container" tags=" contents" />

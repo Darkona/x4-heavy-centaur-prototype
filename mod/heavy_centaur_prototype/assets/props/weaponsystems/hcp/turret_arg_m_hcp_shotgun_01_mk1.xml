@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 08:53:46 from Blender-->
+<!--Exported on 2026-11-26 09:22:59 from Blender-->
 <components>
   <component name="turret_arg_m_hcp_shotgun_01_mk1" class="turret">
     <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_shotgun_01_mk1_data" />
@@ -10,7 +10,14 @@
       <connection name="position" tags="position" value="1" />
       <connection name="con_aimtarget_01" tags="aimtarget " />
       <connection name="con_turret" tags="combat component hittable medium turret  hcp_turret" />
-      <connection name="ConnectionForpart_base" tags="forceoutline part " hidden="true">
+      <connection name="ConnectionForpart_base" tags="animation forceoutline part " hidden="true">
+        <animations>
+          <animation name="turret_inactive" start="1" end="1" />
+          <animation name="turret_activating" start="1" end="45" />
+          <animation name="turret_active" start="50" end="50" />
+          <animation name="turret_deactivating" start="55" end="100" />
+          <animation name="gun_firing" start="50" end="55" />
+        </animations>
         <parts>
           <part name="part_base">
             <lods>
@@ -51,7 +58,7 @@
         <restrictions>
           <restriction type="rotation_x">
             <limits>
-              <min value="0" />
+              <min value="5" />
               <max value="90.00000250447816" />
             </limits>
           </restriction>
@@ -62,20 +69,42 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hulltexture" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="3.65" y="3.625755" z="4.538501" />
+              <center x="-5.960464e-08" y="0" z="0.8885005" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="ConnectionForpart_barrel" tags="forceoutline iklink nocollision part " parent="part_gun">
+        <offset>
+          <position x="1.249342e-06" y="0.5920998" z="3.179001" />
+          <quaternion qx="-1.972775e-07" qy="1.724025e-07" qz="2.421997e-09" qw="-1" />
+        </offset>
+        <parts>
+          <part name="part_barrel">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
                   <material id="2" ref="generic.generic_p1_fx" />
                 </materials>
               </lod>
             </lods>
             <size>
-              <max x="3.65" y="3.625755" z="6.59305" />
-              <center x="-5.960464e-08" y="0" z="2.943049" />
+              <max x="0.6505" y="1.1066" z="2.70705" />
+              <center x="-1.013279e-06" y="-1.901388e-05" z="0.07314909" />
             </size>
           </part>
         </parts>
       </connection>
-      <connection name="con_laser_01" tags="laser " parent="part_gun">
+      <connection name="con_standard_01" tags="laser " parent="part_barrel">
         <offset>
-          <position x="0" y="0.6144381" z="9.736485" />
+          <position x="-8.158385e-07" y="0.02231644" z="2.980561" />
+          <quaternion qx="2.8213e-07" qy="4.331258e-07" qz="1" qw="-4.371151e-08" />
         </offset>
       </connection>
       <connection name="container" tags=" contents" />

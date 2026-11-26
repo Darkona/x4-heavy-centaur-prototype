@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 08:53:38 from Blender-->
+<!--Exported on 2026-11-26 09:23:06 from Blender-->
 <components>
   <component name="turret_arg_m_hcp_flak_01_mk1" class="turret">
     <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_flak_01_mk1_data" />
@@ -10,7 +10,14 @@
       <connection name="position" tags="position" value="1" />
       <connection name="con_aimtarget_01" tags="aimtarget " />
       <connection name="con_turret" tags="combat component hittable medium turret  hcp_turret" />
-      <connection name="ConnectionForpart_base" tags="forceoutline part " hidden="true">
+      <connection name="ConnectionForpart_base" tags="animation forceoutline part " hidden="true">
+        <animations>
+          <animation name="turret_inactive" start="0" end="0" />
+          <animation name="turret_activating" start="0" end="45" />
+          <animation name="turret_active" start="50" end="50" />
+          <animation name="turret_deactivating" start="55" end="100" />
+          <animation name="gun_firing" start="50" end="55" />
+        </animations>
         <parts>
           <part name="part_base">
             <lods>
@@ -51,7 +58,7 @@
         <restrictions>
           <restriction type="rotation_x">
             <limits>
-              <min value="0" />
+              <min value="5" />
               <max value="90.00000250447816" />
             </limits>
           </restriction>
@@ -66,30 +73,51 @@
               </lod>
             </lods>
             <size>
-              <max x="3.65" y="3.625755" z="5.225864" />
-              <center x="-5.960464e-08" y="0" z="1.575865" />
+              <max x="3.65" y="3.625755" z="3.889549" />
+              <center x="-5.960464e-08" y="0" z="0.2395494" />
             </size>
           </part>
         </parts>
       </connection>
-      <connection name="con_laser_01" tags="laser " parent="part_gun">
+      <connection name="ConnectionForpart_barrel" tags="forceoutline iklink nocollision part " parent="part_gun">
         <offset>
-          <position x="-1.527248" y="0.8388915" z="6.818522" />
+          <position x="-1.711407e-07" y="0.103508" z="2.533467" />
+          <quaternion qx="-1.998049e-07" qy="5.162703e-08" qz="1.241993e-10" qw="-1" />
+        </offset>
+        <parts>
+          <part name="part_barrel">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="1.756204" y="0.966341" z="1.674431" />
+              <center x="2.980232e-08" y="0" z="-6.496906e-06" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="con_standard_003" tags="laser " parent="part_barrel">
+        <offset>
+          <position x="1.52519" y="-0.7357525" z="1.691223" />
         </offset>
       </connection>
-      <connection name="con_laser_02" tags="laser " parent="part_gun">
+      <connection name="con_standard_004" tags="laser " parent="part_barrel">
         <offset>
-          <position x="-1.527248" y="-0.6308057" z="6.818521" />
+          <position x="-1.527259" y="-0.734326" z="1.691222" />
         </offset>
       </connection>
-      <connection name="con_laser_03" tags="laser " parent="part_gun">
+      <connection name="con_standard_01" tags="laser " parent="part_barrel">
         <offset>
-          <position x="1.525202" y="-0.6322324" z="6.818527" />
+          <position x="-1.527259" y="0.7353712" z="1.691222" />
         </offset>
       </connection>
-      <connection name="con_laser_04" tags="laser " parent="part_gun">
+      <connection name="con_standard_02" tags="laser " parent="part_barrel">
         <offset>
-          <position x="1.525202" y="0.8374658" z="6.818528" />
+          <position x="1.52519" y="0.7339455" z="1.691223" />
         </offset>
       </connection>
       <connection name="container" tags=" contents" />

@@ -10,6 +10,7 @@ import subprocess
 import sys
 import time
 import xml.etree.ElementTree as ET
+import numpy as np
 from pathlib import Path
 
 HOME = Path.home()
@@ -22,34 +23,29 @@ P1DATA = X4 / 'p1data'
 SUB = 'extensions/heavy_centaur_prototype/assets/props/weaponsystems/hcp'
 WORK = X4 / 'work/hcp_turrets'
 SOURCE_DIR = X4 / 'heavy-centaur/publish/turret_hcp_final'
-PIECE_PREFIXES = {'gun': ('ball',), 'gun_flak': ('flak',)}
 MOD = REPO / 'mod/heavy_centaur_prototype'
 WINEPREFIX = HOME / '.local/share/wineprefixes/egosoft'
 WIN_BLENDER = r'C:\Program Files\Blender Foundation\Blender 4.5\blender.exe'
 WIN_CONVERTER = r'C:\Program Files\EGOSOFT\Egosoft Blender Mod Tools\Converter\XUConverter.exe'
 LOCK = X4 / '.xuconverter.lock'
 
+W = 'base/assets/props/WeaponSystems/'
+B = 'ego_dlc_boron/assets/props/weaponsystems/boron/'
 TURRETS = {
-    'laser': ('base/assets/props/WeaponSystems/standard/weapon_gen_m_laser_01_mk1.xml', None, 2, None),
-    'gatling': ('base/assets/props/WeaponSystems/heavy/turret_arg_m_gatling_02_mk1.xml', 'part_gun', 1, 1.0),
-    'plasma': ('base/assets/props/WeaponSystems/heavy/weapon_gen_m_plasma_01_mk1.xml', None, 2, None),
-    'beam': ('base/assets/props/WeaponSystems/energy/weapon_gen_m_beam_01_mk1.xml', None, 2, None),
-    'shotgun': ('base/assets/props/WeaponSystems/standard/turret_arg_m_shotgun_02_mk1.xml', 'part_gun', 1, 1.0),
-    'flak': ('base/assets/props/WeaponSystems/heavy/turret_arg_m_flak_02_mk1.xml', 'part_gun', 1, 0.67),
-    'borlaser': ('ego_dlc_boron/assets/props/weaponsystems/boron/turret_bor_m_laser_02_mk1.xml', 'part_gun', 1, 1.0),
-    'railgun': ('ego_dlc_boron/assets/props/weaponsystems/boron/weapon_bor_m_railgun_01_mk1.xml', None, 1, 1.0),
-    'arc': ('ego_dlc_boron/assets/props/weaponsystems/boron/turret_bor_m_arc_02_mk1.xml', 'part_gun', 1, 1.0),
+    'laser': (W + 'standard/turret_arg_m_laser_02_mk1.xml', 'part_gun', (), 0.0),
+    'gatling': (W + 'heavy/turret_arg_m_gatling_02_mk1.xml', 'part_gun', (), 0.0),
+    'plasma': (W + 'heavy/turret_arg_m_plasma_02_mk1.xml', 'part_gun', (), 0.10),
+    'beam': (W + 'energy/turret_arg_m_beam_02_mk1.xml', 'detail_xl_gun', (), 0.0),
+    'shotgun': (W + 'standard/turret_arg_m_shotgun_02_mk1.xml', 'part_gun', (), 0.0),
+    'flak': (W + 'heavy/turret_arg_m_flak_02_mk1.xml', 'part_gun', (), 0.0),
+    'borlaser': (B + 'turret_bor_m_laser_02_mk1.xml', 'part_gun', ('part_detail_rotator',), 0.0),
+    'railgun': (B + 'weapon_bor_m_railgun_01_mk1.xml', None, (), 0.0),
+    'arc': (B + 'turret_bor_m_arc_02_mk1.xml', 'part_gun', (), 0.0),
 }
-GEOMETRY = {
-    'sphere_radius': 3.65,
-    'shell_radius': 3.79,
-    'socket_radius': 5.12,
-    'slot_rear': -0.42,
-    'socket_front': -1.4,
-    'dual_centres': [-1.095, 1.095],
-    'dual_slot': 1.97,
-    'side_gap': 0.04,
-}
+BALL = 'flak_ball.obj'
+GUNS = 'guns.json'
+MERGED = {'part_gun'}
+ELEVATION = (5, 90)
 VANILLA = {
     'laser': ('base', 'turret_arg_m_laser_02_mk1', 'Laser', 'láser'),
     'gatling': ('base', 'turret_arg_m_gatling_02_mk1', 'Bolt Repeater', 'repetidora'),
@@ -61,7 +57,6 @@ VANILLA = {
     'railgun': ('ego_dlc_boron', 'turret_bor_m_railgun_02_mk1', 'Railgun', 'de riel'),
     'arc': ('ego_dlc_boron', 'turret_bor_m_arc_02_mk1', 'Arc', 'de arco'),
 }
-DEPLOYED_POSE = 'turret_active'
 DAMAGE_FACTOR = 1.0
 PRICE_FACTOR = 1.0
 TEXT_PAGE = 1931170
@@ -127,75 +122,203 @@ def subtree(part_conn, conns, root):
     return keep
 
 
-def pieces(source_dir):
-    found = {part: sorted(str(p) for p in source_dir.glob('*.obj') if p.stem.lower().startswith(prefixes) and (part == 'gun_flak' or 'flak' not in p.stem.lower())) for part, prefixes in PIECE_PREFIXES.items()}
-    for part in PIECE_PREFIXES:
-        if not found[part]:
-            sys.exit(f'hcp_turrets: no {part} meshes in {source_dir}')
-    for part, paths in found.items():
-        print(f'pieces {part}: ' + ', '.join(Path(p).name for p in paths))
-    return found
-
-
-def obj_parts(path):
+def read_obj(path):
     verts = []
-    parts = {}
+    uvs = []
+    objects = {}
     cur = None
     for line in open(path):
-        if line.startswith(('o ', 'g ')):
-            cur = line.split()[1]
-        elif line.startswith('v '):
+        tag = line[:2]
+        if tag in ('o ', 'g '):
+            cur = objects.setdefault(line.split()[1], [])
+        elif tag == 'v ':
             verts.append([float(v) for v in line.split()[1:4]])
-            parts.setdefault(cur, []).append(len(verts) - 1)
-    return {name: [verts[i] for i in idx] for name, idx in parts.items()}
+        elif line.startswith('vt '):
+            uvs.append(line.split()[1:3])
+        elif line.startswith('usemtl '):
+            cur.append(('usemtl', line.split()[1]))
+        elif tag == 'f ':
+            cur.append(('f', [tuple(int(i) if i else 0 for i in (c.split('/') + ['', ''])[:2]) for c in line.split()[1:]]))
+    return np.array(verts), uvs, objects
 
 
-def posed_parts(xml_path, posed_obj):
-    import numpy as np
-    rest_obj = posed_obj.with_name(posed_obj.stem + '_rest.obj')
-    subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(rest_obj)], check=True, stdout=subprocess.DEVNULL)
-    rest = obj_parts(rest_obj)
-    posed = obj_parts(posed_obj)
-    moves = {}
-    for name, pts in posed.items():
-        a = np.array(rest.get(name, []))
-        b = np.array(pts)
-        if len(a) != len(b) or len(a) < 3:
+def kabsch(a, b):
+    ca = a.mean(0)
+    cb = b.mean(0)
+    u, _, vt = np.linalg.svd((a - ca).T @ (b - cb))
+    d = np.sign(np.linalg.det(vt.T @ u.T))
+    rot = vt.T @ np.diag([1.0, 1.0, d]) @ u.T
+    m = np.eye(4)
+    m[:3, :3] = rot
+    m[:3, 3] = cb - rot @ ca
+    return m
+
+
+def frame(local):
+    m = np.eye(4)
+    m[:3, :3] = np.array(local[0])
+    m[:3, 3] = local[1]
+    return m
+
+
+def used_verts(items):
+    return sorted({c[0] for kind, data in items if kind == 'f' for c in data})
+
+
+def write_part_obj(path, name, verts, uvs, items, transform, shift_of_face):
+    idx = used_verts(items)
+    out = [f'o {name}']
+    remap = {}
+    lines_v = []
+    faces = []
+    for kind, data in items:
+        if kind == 'usemtl':
+            faces.append(f'usemtl {data}')
             continue
-        ca = a.mean(0)
-        cb = b.mean(0)
-        u, _, vt = np.linalg.svd((a - ca).T @ (b - cb))
-        d = np.sign(np.linalg.det(vt.T @ u.T))
-        rot = vt.T @ np.diag([1.0, 1.0, d]) @ u.T
-        moves[name] = (rot.tolist(), (cb - rot @ ca).tolist())
-    return moves
+        side = shift_of_face(data)
+        corners = []
+        for vi, ti in data:
+            key = (vi, side[0])
+            if key not in remap:
+                p = transform(verts[vi - 1]) + side[1]
+                lines_v.append('v %.6f %.6f %.6f' % tuple(p))
+                remap[key] = len(lines_v)
+            corners.append(f'{remap[key]}/{ti}' if ti else f'{remap[key]}')
+        faces.append('f ' + ' '.join(corners))
+    out += lines_v + [f'vt {u} {v}' for u, v in uvs] + faces
+    Path(path).write_text('\n'.join(out) + '\n')
+    return len(idx)
+
+
+def gun_spec(kind, source_dir, xmf):
+    rel, root, extra, gap = TURRETS[kind]
+    want = json.loads((source_dir / GUNS).read_text())['types'][kind]
+    scale = want['scale']
+    pose = want.get('pose')
+    xml_path = REFS / rel
+    rest_obj = WORK / f'gun_{kind}_rest.obj'
+    subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(rest_obj)], check=True, stdout=subprocess.DEVNULL)
+    posed_obj = rest_obj
+    if pose:
+        posed_obj = WORK / f'gun_{kind}_{pose}.obj'
+        subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(posed_obj), '--pose', pose], check=True, stdout=subprocess.DEVNULL)
+    rv, uvs, robjs = read_obj(rest_obj)
+    pv, _, pobjs = read_obj(posed_obj)
+    conns, part_conn, world = connection_frames(xml_path, xmf)
+    parts = [p for p in part_conn if not SKIP_PART.search(p) and p in robjs]
+    if root:
+        keep = subtree(part_conn, conns, root) | set(extra)
+        parts = [p for p in parts if p in keep]
+    merged = set(parts) if root is None else MERGED & set(parts)
+    moves = {}
+    for p in robjs:
+        idx = used_verts(robjs[p])
+        moves[p] = kabsch(rv[[i - 1 for i in idx]], pv[[i - 1 for i in idx]]) if pose and idx else np.eye(4)
+    dep = np.array([pv[i - 1] for p in parts for i in used_verts(pobjs[p])])
+    lo = dep.min(0) * scale
+    hi = dep.max(0) * scale
+    offset = np.array([-(lo[0] + hi[0]) / 2, -(lo[1] + hi[1]) / 2, want['y_min'] - lo[2]])
+    place = lambda v: np.asarray(v) * scale + offset
+    shifts = {0: np.zeros(3), 1: np.zeros(3), -1: np.zeros(3)}
+    if gap:
+        cradle = np.array([place(pv[i - 1]) for i in used_verts(pobjs['part_gun'])])
+        shifts[1] = np.array([gap / 2 - cradle[cradle[:, 0] > 0, 0].min(), 0, 0])
+        shifts[-1] = np.array([-gap / 2 - cradle[cradle[:, 0] < 0, 0].max(), 0, 0])
+
+    def side_of(x):
+        return 0 if not gap else (1 if x > 0 else -1)
+
+    absolute = {}
+
+    def abs_frame(p):
+        if p in absolute:
+            return absolute[p]
+        cname = part_conn[p]
+        parent = conns[cname][0]
+        if parent in parts and parent not in merged:
+            m = abs_frame(parent) @ scaled(frame(conns[cname][1]))
+        else:
+            m = moves.get(parent, np.eye(4)) @ frame(world(cname))
+            m[:3, 3] = place(m[:3, 3])
+        absolute[p] = m
+        return m
+
+    def scaled(m):
+        m = m.copy()
+        m[:3, 3] *= scale
+        return m
+
+    out_parts = []
+    for p in parts:
+        items = robjs[p]
+        if p in merged:
+            def transform(v, p=p):
+                return place(moves[p][:3, :3] @ v + moves[p][:3, 3])
+            parent = 'part_gun'
+            rel_frame = np.eye(4)
+            rot_back = np.eye(3)
+        else:
+            inv = np.linalg.inv(frame(world(part_conn[p])))
+            def transform(v, inv=inv):
+                return (inv[:3, :3] @ v + inv[:3, 3]) * scale
+            cname = part_conn[p]
+            vparent = conns[cname][0]
+            parent = vparent if vparent in parts and vparent not in merged else 'part_gun'
+            rel_frame = scaled(frame(conns[cname][1])) if parent != 'part_gun' else abs_frame(p)
+            rot_back = abs_frame(p)[:3, :3].T
+
+        def shift_of_face(data, p=p, rot_back=rot_back):
+            x = np.mean([place(pv[vi - 1])[0] for vi, _ in data])
+            side = side_of(x)
+            return side, rot_back @ shifts[side]
+
+        obj = WORK / f'{component_name(kind)}_{p}.obj'
+        write_part_obj(obj, p, rv, uvs, items, transform, shift_of_face)
+        out_parts.append({'name': p, 'obj': str(obj), 'merged': p in merged, 'parent': parent, 'frame': rel_frame.tolist(), 'tags': [t for t in conns[part_conn[p]][2] if t != 'part']})
+    shooters = []
+    for name, (vparent, local, tags) in conns.items():
+        if 'laser' not in tags or vparent not in parts:
+            continue
+        world_dep = moves[vparent] @ frame(world(name))
+        side = side_of(place(world_dep[:3, 3])[0])
+        if vparent in merged:
+            m = world_dep.copy()
+            m[:3, 3] = place(m[:3, 3]) + shifts[side]
+            parent = 'part_gun'
+        else:
+            m = scaled(frame(local))
+            m[:3, 3] += abs_frame(vparent)[:3, :3].T @ shifts[side]
+            parent = vparent
+        shooters.append({'name': name, 'parent': parent, 'frame': m.tolist(), 'muzzle': (place(world_dep[:3, 3]) + shifts[side]).tolist()})
+    deployed = []
+    for p in parts:
+        for i in used_verts(pobjs[p]):
+            q = place(pv[i - 1])
+            deployed.append(q + shifts[side_of(q[0])])
+    deployed = np.array(deployed)
+    ani = None
+    if pose:
+        src_ani = next((f for f in xml_path.parent.iterdir() if f.name.lower() == xml_path.stem.lower() + '_data.ani'), None)
+        ani = {'source': str(src_ani), 'parts': [q['name'] for q in out_parts if not q['merged']], 'scale': scale}
+        root_anims = ET.parse(xml_path).getroot().find('component').find('connections')
+        block = next((c.find('animations') for c in root_anims.findall('connection') if c.find('animations') is not None and len(c.find('animations'))), None)
+        ani['states'] = [(a.get('name'), a.get('start'), a.get('end')) for a in block] if block is not None else []
+    spec = {'kind': kind, 'component': component_name(kind), 'parts': out_parts, 'shooters': shooters, 'scale': scale, 'source': rel, 'ani': ani}
+    lo = deployed.min(0).round(3)
+    hi = deployed.max(0).round(3)
+    print(f"{kind}: scale {scale}, parts {[(q['name'], 'ball' if q['merged'] else q['parent']) for q in out_parts]}, {len(shooters)} shooters, muzzles {sorted({round(m['muzzle'][2], 2) for m in shooters})}; deployed x {lo[0]}..{hi[0]} y {lo[2]}..{hi[2]} z {lo[1]}..{hi[1]} (turret axes); guns.json x {want['x']} y {want['y_min']}..{want['y_max']} z {want['z']}")
+    return spec
 
 
 def prepare(kinds, source_dir=SOURCE_DIR):
     xmf = xmf_module()
     WORK.mkdir(parents=True, exist_ok=True)
-    spec = {'pieces': pieces(source_dir), 'out_dir': str(ASSETS / SUB), 'geometry': GEOMETRY, 'turrets': []}
-    for kind in kinds:
-        rel, root_part, count, scale = TURRETS[kind]
-        xml_path = REFS / rel
-        obj = WORK / f'gun_{kind}.obj'
-        pose = DEPLOYED_POSE if root_part else None
-        subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(obj)] + (['--pose', pose] if pose else []), check=True, stdout=subprocess.DEVNULL)
-        moves = posed_parts(xml_path, obj) if pose else {}
-        conns, part_conn, world = connection_frames(xml_path, xmf)
-        parts = [p for p in part_conn if not SKIP_PART.search(p)]
-        if root_part:
-            parts = [p for p in parts if p in subtree(part_conn, conns, root_part)]
-        shooters = []
-        for name, (parent, _, tags) in conns.items():
-            if 'laser' in tags and (not root_part or parent in parts):
-                pos = world(name)[1]
-                if parent in moves:
-                    rot, shift = moves[parent]
-                    pos = [sum(rot[i][k] * pos[k] for k in range(3)) + shift[i] for i in range(3)]
-                shooters.append([round(v, 6) for v in pos])
-        spec['turrets'].append({'kind': kind, 'component': component_name(kind), 'obj': str(obj), 'parts': parts, 'shooters': shooters, 'count': count, 'scale': scale, 'source': rel})
-        print(f'{kind}: {len(parts)} parts {parts}, {len(shooters)} shooters {shooters}')
+    ball = source_dir / BALL
+    if not ball.is_file():
+        sys.exit(f'hcp_turrets: no {BALL} in {source_dir}')
+    spec = {'ball': str(ball), 'out_dir': str(ASSETS / SUB), 'elevation': ELEVATION, 'turrets': [gun_spec(kind, source_dir, xmf) for kind in kinds]}
+    for t in spec['turrets']:
+        (WORK / f"spec_{t['kind']}.json").write_text(json.dumps(t, indent=1))
     path = WORK / 'spec.json'
     path.write_text(json.dumps(spec, indent=1))
     return path
@@ -274,9 +397,14 @@ def convert(timeout=600):
         sys.exit('hcp_turrets: converter errors, see XUConverterLog.txt')
 
 
-def patch_component(xml_path):
+def patch_component(xml_path, states):
     text = xml_path.read_text()
-    text = re.sub(r'(<restriction type="rotation_x">\s*<limits>\s*<min value=")-0\.99\d*(")', r'\g<1>0\2', text)
+    text, k = re.subn(r'(<restriction type="rotation_x">\s*<limits>\s*<min value=")-0\.99\d*(")', rf'\g<1>{ELEVATION[0]}\g<2>', text)
+    assert k == 1 or f'<min value="{ELEVATION[0]}"' in text, xml_path
+    if states and '<animations>' not in text:
+        block = ''.join(f'          <animation name="{n}" start="{a}" end="{b}" />\n' for n, a, b in states)
+        text, k = re.subn(r'(<connection name="ConnectionForpart_base" tags=")([^"]*)("[^>]*>\n)', lambda m: m.group(1) + 'animation ' + m.group(2) + m.group(3) + '        <animations>\n' + block + '        </animations>\n', text, count=1)
+        assert k == 1, xml_path
     xml_path.write_text(text)
     ET.parse(xml_path)
 
@@ -286,15 +414,20 @@ def install(kinds):
     for kind in kinds:
         name = component_name(kind)
         src = P1DATA / SUB
+        spec = json.loads((WORK / f'spec_{kind}.json').read_text())
         shutil.rmtree(dest / f'{name}_data', ignore_errors=True)
         shutil.copytree(src / f'{name}_data', dest / f'{name}_data', ignore=shutil.ignore_patterns('*.dae'))
         shutil.copy2(src / f'{name}.xml', dest / f'{name}.xml')
-        ani = src / f'{name}_data.ani'
-        if ani.exists():
-            shutil.copy2(ani, dest / ani.name)
-        patch_component(dest / f'{name}.xml')
+        ani = dest / f'{name}_data.ani'
+        ani.unlink(missing_ok=True)
+        info = spec['ani']
+        states = []
+        if info and info['parts']:
+            subprocess.run(['x4-ani', 'subset', info['source'], str(ani), '--parts', ','.join(info['parts']), '--scale', str(info['scale'])], check=True, stdout=subprocess.DEVNULL)
+            states = info['states']
+        patch_component(dest / f'{name}.xml', states)
         n = len(list((dest / f'{name}_data').glob('*-lod0.xmf')))
-        print(f'install {kind}: {n} parts')
+        print(f'install {kind}: {n} parts' + (f', {ani.name} with {",".join(info["parts"])} x{info["scale"]}' if states else ''))
 
 
 def find_one(pattern, folder):
@@ -384,7 +517,7 @@ def data(kinds):
 def main():
     ap = argparse.ArgumentParser(description='Build the HCP turrets: game guns + turret OBJ pieces -> blends -> EgoTools export -> XUConverter -> mod')
     ap.add_argument('step', choices=['all', 'blends', 'export', 'convert', 'install', 'data'])
-    ap.add_argument('--source', type=Path, help=f'folder of turret OBJs in turret axes (+Y out of the hull, +Z up, origin at the sphere centre); file name prefixes pick the part_gun pieces: ball* for the twin-gun turrets, flak* for the single-gun turrets (default {SOURCE_DIR}); socket, rear shell and visor are hull pieces (hcp_turret_mounts.py)')
+    ap.add_argument('--source', type=Path, help=f'folder with {BALL} (the gun ball, turret axes: +Y out of the hull, +Z up, origin at the sphere centre) and {GUNS} (scale, pose and placement of each gun; default {SOURCE_DIR}); socket, rear shell and visor are hull pieces (hcp_turret_mounts.py)')
     ap.add_argument('--only', action='append', choices=sorted(TURRETS), help='limit to these turret kinds')
     args = ap.parse_args()
     kinds = args.only or list(TURRETS)
