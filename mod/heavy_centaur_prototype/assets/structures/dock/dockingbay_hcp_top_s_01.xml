@@ -76,17 +76,17 @@
 			</connection>
 			<connection name="Con_dockpos" tags="dockpos">
 				<offset>
-					<position x="0" y="0" z="0" />
+					<position x="0" y="0" z="1.1" />
 				</offset>
 			</connection>
 			<connection name="Con_todock" tags="todock ">
 				<offset>
-					<position x="0" y="60" z="0" />
+					<position x="0" y="60" z="1.1" />
 				</offset>
 			</connection>
 			<connection name="Con_launchpos" tags="launchpos ">
 				<offset>
-					<position x="0" y="60" z="0" />
+					<position x="0" y="60" z="1.1" />
 				</offset>
 			</connection>
 			<connection name="Connection27" group="transporter_01 " tags="part  ">
