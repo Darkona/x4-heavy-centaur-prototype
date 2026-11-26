@@ -17,27 +17,34 @@ MM_METAL = 0xFF
 CK_MM = (0xAE, 0x00, 16)
 CK_COL = (0xDE, 0xEC, 0xFF)
 
-C_PLATE_TONES = [((0xC3, 0xC2, 0xC0), 45), ((0x80, 0x80, 0x80), 30), ((0x70, 0x70, 0x70), 15), ((0x63, 0x63, 0x63), 10)]
+C_PLATE_TONES = [((0xC6, 0xC7, 0xC9), 40), ((0xBA, 0xBB, 0xBD), 30), ((0xAF, 0xB0, 0xB2), 20), ((0xA4, 0xA5, 0xA7), 10)]
 C_MECH_TONES = [((0x64, 0x64, 0x64), 60), ((0x80, 0x80, 0x80), 25), ((0x50, 0x50, 0x50), 15)]
-C_TOWER_PLATE = (0xC3, 0xC2, 0xC0)
-C_PLATE_SIDE = (0x80, 0x80, 0x80)
+C_TOWER_PLATE = (0xC6, 0xC7, 0xC9)
+C_PLATE_SIDE = (0x9A, 0x9B, 0x9D)
+C_NEUTRAL = (0xFF, 0xFF, 0xFF)
 C_UNDER = (0x40, 0x40, 0x40)
 C_FX = (0x80, 0x80, 0x80)
 C_GR = (0x00, 0x00, 0x00)
 C_WHITE = (0xFF, 0xFF, 0xFF)
 C_FACTION = (0xFF, 0x00, 0x00)
 
-TOWER = {"hcr_tower_core", "hcr_tower_armor", "hcr_tower_fins", "hcr_tower_bridge_armor"}
-ALL_HP = {"hcr_bow_bulb_core"}
+TOWER = {"hcr_tower_core", "hcr_tower_armor"}
+TURRET_SHELLS = {"hcr_turret_mount_%02d_shell" % i for i in range(1, 9)}
+ALL_HP = {"hcr_bow_bulb_core"} | TURRET_SHELLS
 SEAM_UNWRAP = {"hcr_bow_bulb_core"}
 BULB_LIGHT_AREA = 150.0
 ARMOUR_EXTRA = {"hcr_stern_lobes", "hcr_wing_lobes", "hcr_tower_core", "hcr_bow_prow"}
-UNDER_EXTRA = {"hcr_bow_trunk", "hcr_keel_ball", "hcr_keel_ball_sphere", "hcr_stern_antenna", "hcr_orig_details", "rb_bay_s_support", "rb_dock_pad_wall", "hcr_stern_spine", "hcr_stern_cowls"}
-SKIP = {"rb_dock_s_clearance", "rb_dock_s_top_clearance", "hcr_bridge_window_cap"}
+UNDER_EXTRA = {"hcr_keel_ball", "hcr_keel_ball_sphere", "hcr_stern_antenna", "hcr_orig_details", "hcr_stern_spine", "hcr_stern_cowls"}
+SKIP = {"rb_dock_s_top_clearance", "hcr_bridge_window_cap"}
 FX_OBJECTS = {"hcr_poslight_housings"}
 KEEP_MM = {"hcr_stern_nozzles"}
 STEEL = {"hcr_roof_dish"}
-LIGHT_PLATES = {"hcr_bow_antenna", "hcr_bow_prow", "hcr_bow_arch_armor", "hcr_bow_arch_core"}
+LIGHT_PLATES = {"hcr_bow_antenna", "hcr_bow_prow", "hcr_bow_arch_armor", "hcr_bow_arch_core", "hcr_bow_trunk"}
+EDGE_PLATES = {"hcr_wing_core", "hcr_wing_tip_core"}
+EDGE_PLATE_MATERIAL = "p2generic.gen_p2_hullpattern_04"
+NO_UNWRAP = {"hcr_dock_deck", "hcr_dock_marks"} | FX_OBJECTS
+UV_TOLERANCE = 0.2
+P2_DEFAULT = {"HP": "p2generic.gen_p2_hullpattern_01", "HT": "p2generic.gen_p2_hulltexture_01", "FX": "p2generic.gen_p2_fx_01"}
 
 BANDS = [
     (("hcr_wing_armor",), 0, True, [(39.3, 39.9, 1), (39.9, 41.4, 2), (41.4, 42.0, 1)]),
@@ -67,7 +74,7 @@ def cut_bands():
     for names, axis, mirror, bands in BANDS:
         for n in names:
             o = bpy.data.objects[n]
-            if o.get("hc_bands"):
+            if o.get("hc_bands") and "hc_stripe" in o.data.attributes:
                 continue
             mw = o.matrix_world
             mi = mw.inverted()
@@ -112,6 +119,18 @@ def p1_role(name):
     return name
 
 
+def face_material_names(o):
+    me = o.data
+    mi = np.zeros(len(me.polygons), dtype=np.int32)
+    me.polygons.foreach_get("material_index", mi)
+    names = [p1_role(s.material.name) if s.material else "" for s in o.material_slots] or [""]
+    return mi, names
+
+
+def role_key(name):
+    return {HP: "HP", HT: "HT", FX: "FX"}.get(name)
+
+
 def current_names(o):
     names = [p1_role(s.material.name) if s.material else "" for s in o.material_slots] or [""]
     mi = np.zeros(len(o.data.polygons), dtype=np.int32)
@@ -139,10 +158,8 @@ def zones_for(o):
     elif n in ALL_HP:
         hp = part_attr(o)
         want = [HT if hp is not None and hp[i] == 3 else HP for i in range(len(cur))]
-    elif n == "hcr_cockpit_pod":
-        want = [HP if "hullpattern" in c else (FX if "_fx" in c else HT) for c in cur]
-    elif n == "hcr_tower_fins":
-        want = [HT] * len(cur)
+    elif n in EDGE_PLATES:
+        want = [HP] * len(cur)
     elif n in FX_OBJECTS:
         want = [FX] * len(cur)
     elif is_armour(n):
@@ -165,11 +182,38 @@ def zones_for(o):
     return want
 
 
-def assign_all():
+def set_role_materials(o, want):
+    me = o.data
+    raw = [s.material.name if s.material else "" for s in o.material_slots] or [""]
+    mi = np.zeros(len(me.polygons), dtype=np.int32)
+    me.polygons.foreach_get("material_index", mi)
+    cur_raw = [raw[i] if i < len(raw) else "" for i in mi]
+    usual = {}
+    for r in cur_raw:
+        k = role_key(p1_role(r))
+        if k and r.startswith("p2generic."):
+            usual.setdefault(k, {}).setdefault(r, 0)
+            usual[k][r] += 1
+    final = []
+    for r, w in zip(cur_raw, want):
+        k = role_key(w)
+        if p1_role(r) == w or (w == MM and r.startswith(MM)):
+            final.append(r)
+        elif k == "HP" and o.get("hcr_group", o.name) in EDGE_PLATES:
+            final.append(EDGE_PLATE_MATERIAL)
+        elif k:
+            pool = usual.get(k)
+            final.append(max(pool, key=pool.get) if pool else P2_DEFAULT[k])
+        else:
+            final.append(w)
+    set_face_materials(o, final)
+
+
+def assign_all(objs=None):
     rep = {}
-    for o in hull_objects():
+    for o in objs or hull_objects():
         want = zones_for(o)
-        set_face_materials(o, want)
+        set_role_materials(o, want)
         rep[o.name] = {k: want.count(k) for k in set(want)}
     return rep
 
@@ -343,9 +387,54 @@ def world_aligned_unwrap(o, angle=60.0, target=TARGET_PX_PER_M):
     me.update()
 
 
-def unwrap(objs=None):
+def uv_off(o):
+    me = o.data
+    if not me.uv_layers:
+        return True
+    uv = np.zeros(len(me.loops) * 2)
+    me.uv_layers.active.data.foreach_get("uv", uv)
+    uv = uv.reshape(-1, 2)
+    ls = np.zeros(len(me.polygons), dtype=np.int32)
+    me.polygons.foreach_get("loop_start", ls)
+    lt = np.zeros(len(me.polygons), dtype=np.int32)
+    me.polygons.foreach_get("loop_total", lt)
+    area = np.zeros(len(me.polygons))
+    me.polygons.foreach_get("area", area)
+    area *= object_area_scale(o)
+    mi, names = face_material_names(o)
+    rel = []
+    wts = []
+    for f in range(len(me.polygons)):
+        name = names[mi[f]] if mi[f] < len(names) else ""
+        if name not in (HP, HT, MM) or area[f] < 1e-4:
+            continue
+        w, h = TEX_SIZE.get(name, (2048, 2048))
+        q = uv[ls[f]:ls[f] + lt[f]] * (w, h)
+        a = 0.5 * abs(np.dot(q[:, 0], np.roll(q[:, 1], -1)) - np.dot(q[:, 1], np.roll(q[:, 0], -1)))
+        rel.append(np.sqrt(a / area[f]) / (MM_PX_PER_M if name == MM else TARGET_PX_PER_M))
+        wts.append(area[f])
+    if not rel:
+        return False
+    r = np.array(rel)
+    wt = np.array(wts)
+    order = np.argsort(r)
+    cw = np.cumsum(wt[order]) / wt.sum()
+    med = r[order][min(np.searchsorted(cw, 0.5), len(r) - 1)]
+    return abs(med - 1.0) > UV_TOLERANCE
+
+
+def unwrappable(o):
+    if o.get("hcr_group", o.name) in NO_UNWRAP:
+        return False
+    names = set(current_names(o))
+    return bool(names) and names <= {HP, HT, MM, FX, GR}
+
+
+def unwrap(objs=None, only_off=False):
     out = {}
     for o in objs or hull_objects():
+        if not unwrappable(o) or (only_off and o.name not in SEAM_UNWRAP and not uv_off(o)):
+            continue
         if o.name in SEAM_UNWRAP:
             world_aligned_unwrap(o)
         else:
@@ -401,7 +490,7 @@ def face_colours(o):
     stripe_l = bm.faces.layers.int.get("hc_stripe")
     keys = island_keys(bm, want)
     big = set()
-    if n in ALL_HP:
+    if n in ALL_HP and n not in TURRET_SHELLS:
         area = {}
         for f in bm.faces:
             area[keys[f.index]] = area.get(keys[f.index], 0.0) + f.calc_area()
@@ -412,18 +501,22 @@ def face_colours(o):
         stripe = f[stripe_l] if stripe_l else 0
         mm = (0, 0, 0)
         mask = 0
-        if m == MM:
+        if n in FX_OBJECTS and m != MM:
+            col = C_FX
+        elif m == MM:
             col = C_UNDER
             mm = (MM_SMOOTH, MM_METAL, MM_LAYER_ID)
+        elif m not in (HP, HT, FX, GR):
+            col = C_NEUTRAL
         elif m == FX:
             col = C_FX
         elif m == GR:
             col = C_GR
         elif m == HP:
             mask = 255
-            col = C_TOWER_PLATE if (n in TOWER or n in LIGHT_PLATES or keys[f.index] in big) else pick(C_PLATE_TONES, keys[f.index])
+            col = C_PLATE_SIDE if n in EDGE_PLATES else C_TOWER_PLATE if (n in TOWER or n in LIGHT_PLATES or keys[f.index] in big) else pick(C_PLATE_TONES, keys[f.index])
         else:
-            col = C_PLATE_SIDE if (is_armour(n) or n in TOWER or n in ALL_HP) else pick(C_MECH_TONES, keys[f.index])
+            col = C_PLATE_SIDE if (is_armour(n) or n in TOWER or n in ALL_HP or n in EDGE_PLATES) else pick(C_MECH_TONES, keys[f.index])
         if n in STEEL:
             col = C_TOWER_PLATE
             mask = 0
@@ -466,6 +559,22 @@ def write_vertex_data(o, per):
     set_byte(me, "multimatid", [(p[2][2] * b, 0, 0) for p in per], ls, lt)
     me.color_attributes.active_color = me.color_attributes["col"]
     me.color_attributes.render_color_index = list(me.color_attributes).index(me.color_attributes["col"])
+
+
+def fix_normals(objs=None, angle=30.0):
+    lim = math.radians(angle)
+    for o in objs or hull_objects():
+        me = o.data
+        if "custom_normal" in me.attributes:
+            me.attributes.remove(me.attributes["custom_normal"])
+        me.shade_smooth()
+        bm = bmesh.new()
+        bm.from_mesh(me)
+        for e in bm.edges:
+            e.smooth = not (len(e.link_faces) == 2 and e.calc_face_angle(0.0) > lim)
+        bm.to_mesh(me)
+        bm.free()
+        me.update()
 
 
 def paint_all():
@@ -609,14 +718,18 @@ def build_previews():
     build_multimat()
 
 
-def run(step="all"):
+def run(step="all", objs=None):
     out = {}
     if step in ("all", "bands"):
         out["bands"] = cut_bands()
+    if step in ("all", "normals"):
+        fix_normals(objs)
     if step in ("all", "zones"):
-        out["zones"] = assign_all()
+        out["zones"] = assign_all(objs)
     if step in ("all", "uv"):
-        out["uv"] = unwrap()
+        out["uv"] = unwrap(objs)
+    if step == "uv_off":
+        out["uv"] = unwrap(objs, only_off=True)
     if step in ("all", "paint"):
         paint_all()
         out["cockpit"] = paint_cockpit_interior()
