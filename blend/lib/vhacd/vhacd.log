@@ -12,14 +12,14 @@ Press the SPACEBAR to cancel convex decomposition before it has completed.
 [PERFORMING_DECOMPOSITION                ] : 50% : 0% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 0% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 1% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 3% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 12% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 47% : Performing recursive decomposition of convex hulls[PERFORMING_DECOMPOSITION                ] : 50% : 138% : Performing recursive decomposition of convex hulls
 [INITIALIZING_CONVEX_HULLS_FOR_MERGING   ] : 60% : 0% : Initializing ConvexHulls[INITIALIZING_CONVEX_HULLS_FOR_MERGING   ] : 60% : 100% : ConvexHull initialization complete
 [COMPUTING_COST_MATRIX                   ] : 70% : 0% : Computing Hull Merge Cost Matrix[COMPUTING_COST_MATRIX                   ] : 70% : 100% : Finished cost matrix
-[MERGING_CONVEX_HULLS                    ] : 80% : 39% : Merging Convex Hulls[MERGING_CONVEX_HULLS                    ] : 80% : 86% : Merging Convex Hulls
+[MERGING_CONVEX_HULLS                    ] : 80% : 39% : Merging Convex Hulls[MERGING_CONVEX_HULLS                    ] : 80% : 87% : Merging Convex Hulls
 [FINALIZING_RESULTS                      ] : 90% : 0% : Finalizing results[FINALIZING_RESULTS                      ] : 90% : 100% : Finalized results complete
 Skipped 18494 degenerate triangles
-Convex Decomposition took 1.38233 seconds
-Merging Convex Hulls took 0.26687 seconds
-Computing the Cost Matrix took 0.32716 seconds
+Convex Decomposition took 1.37563 seconds
+Merging Convex Hulls took 0.25955 seconds
+Computing the Cost Matrix took 0.32509 seconds
 VHACD::Complete
-Computing Convex Decomposition took 2.26483 seconds
+Computing Convex Decomposition took 2.24163 seconds
 Saving:part_main000.obj
 Saving:part_main001.obj
 Saving:part_main002.obj
