@@ -4,7 +4,7 @@ import math
 from mathutils import Vector
 
 SEATS = "hcr_turret_seats"
-HULL_SKIP = {"hcr_turret_seats", "hcr_shield_seats", "hcr_greebles", "hcr_orig_details", "hcr_poslight_housings", "hcr_vls_frames", "rb_dock_s_clearance", "rb_dock_s_pad", "hcr_cockpit_pod"}
+HULL_SKIP = {"hcr_turret_seats", "hcr_shield_seats", "hcr_greebles", "hcr_orig_details", "hcr_poslight_housings", "hcr_vls_frames", "rb_dock_s_clearance", "rb_dock_s_pad", "rb_dock_s_top_clearance", "hcr_cockpit_pod"}
 M_SIZE = dict(ax0=-8.1, ax1=8.1, ay0=-8.1, ay1=8.1, corner=2.0, rim=5.9, pit=5.3, depth=3.3, skirt=3.5, sink=0.45, drop_max=4.0)
 BOW_SIZE = dict(M_SIZE, skirt=1.5, drop_max=1.5)
 SUPPORTS = {

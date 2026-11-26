@@ -16,7 +16,7 @@ ENGINE_BODY_TAGS = ['engineeffect', 'forceoutline', 'nocollision']
 FLAME_UV_KEYS = [(1, 0.3), (10, 3.0)]
 SHIFT = Matrix.Translation((420.0, 0.0, 0.0))
 
-EXCLUDE = {'rb_dock_s_clearance', 'rb_dock_s_pad'}
+EXCLUDE = {'rb_dock_s_clearance', 'rb_dock_s_pad', 'rb_dock_s_top_clearance'}
 DETAIL = {'hcr_greebles', 'hcr_orig_details', 'hcr_poslight_housings', 'hcr_vls_frames', 'hcr_dock_marks'}
 CAPS = {'hcr_bridge_window_cap'}
 RADARS = {
