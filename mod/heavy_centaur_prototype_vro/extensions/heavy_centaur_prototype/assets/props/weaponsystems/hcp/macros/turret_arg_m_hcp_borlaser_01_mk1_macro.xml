@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="/macros/macro">
+    <macro name="turret_arg_m_hcp_borlaser_01_mk1_macro" class="turret">
+    <component ref="turret_arg_m_hcp_borlaser_01_mk1" />
+    <properties>
+      <identification name="{1931170,471}" basename="{1931170,474}" shortname="{1931170,473}" makerrace="argon" description="{1931170,402}" mk="1" />
+      <bullet class="bullet_hcp_turret_m_borlaser_01_mk1_macro" />
+      <rotationspeed max="100" />
+      <rotationacceleration max="200" />
+      <reload rate="1" time="1" />
+      <hull max="5400" threshold="0.2" integrated="0" />
+    </properties>
+  </macro>
+  </replace>
+</diff>

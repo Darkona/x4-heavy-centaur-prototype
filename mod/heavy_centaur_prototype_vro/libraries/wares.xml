@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_laser_01_mk1']/price">
+    <price min="74573" average="80145" max="86400" />
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_laser_01_mk1']/production[@method='default']/primary">
+    <primary>
+      <ware ware="advancedelectronics" amount="3" />
+      <ware ware="energycells" amount="26" />
+      <ware ware="turretcomponents" amount="13" />
+    </primary>
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_gatling_01_mk1']/use/@threshold">0.2</replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_gatling_01_mk1']/price">
+    <price min="65000" average="67500" max="70000" />
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_gatling_01_mk1']/production[@method='default']/primary">
+    <primary>
+      <ware ware="advancedelectronics" amount="3" />
+      <ware ware="energycells" amount="21" />
+      <ware ware="turretcomponents" amount="11" />
+    </primary>
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_gatling_01_mk1']/restriction">
+    <restriction licence="generaluseequipment" />
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_plasma_01_mk1']/use/@threshold">0.9</replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_plasma_01_mk1']/price">
+    <price min="80286" average="85864" max="90850" />
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_plasma_01_mk1']/production[@method='default']/primary">
+    <primary>
+      <ware ware="advancedelectronics" amount="4" />
+      <ware ware="energycells" amount="36" />
+      <ware ware="turretcomponents" amount="15" />
+    </primary>
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_beam_01_mk1']/use/@threshold">0.6</replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_beam_01_mk1']/price">
+    <price min="76000" average="81000" max="85000" />
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_beam_01_mk1']/production[@method='default']/primary">
+    <primary>
+      <ware ware="advancedelectronics" amount="3" />
+      <ware ware="energycells" amount="26" />
+      <ware ware="turretcomponents" amount="13" />
+    </primary>
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_shotgun_01_mk1']/use/@threshold">0.0</replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_shotgun_01_mk1']/price">
+    <price min="60217" average="63433" max="67845" />
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_shotgun_01_mk1']/production[@method='default']/primary">
+    <primary>
+      <ware ware="advancedelectronics" amount="4" />
+      <ware ware="energycells" amount="25" />
+      <ware ware="turretcomponents" amount="20" />
+    </primary>
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_flak_01_mk1']/price">
+    <price min="75000" average="80500" max="90000" />
+  </replace>
+  <replace sel="//wares/ware[@id='turret_arg_m_hcp_flak_01_mk1']/production[@method='default']/primary">
+    <primary>
+      <ware ware="advancedelectronics" amount="3" />
+      <ware ware="energycells" amount="33" />
+      <ware ware="turretcomponents" amount="21" />
+    </primary>
+  </replace>
+</diff>
