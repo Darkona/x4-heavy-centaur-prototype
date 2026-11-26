@@ -53,7 +53,7 @@
       <use threshold="0.31" />
     </ware>
     <ware id="turret_arg_m_hcp_laser_01_mk1" name="{1931170,411}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
-      <price min="21638" average="24043" max="26447" />
+      <price min="32457" average="36064" max="39670" />
       <production time="10" amount="1" method="default" name="{20206,101}">
         <primary>
           <ware ware="advancedelectronics" amount="3" />
@@ -66,7 +66,7 @@
       <use threshold="0" />
     </ware>
     <ware id="turret_arg_m_hcp_gatling_01_mk1" name="{1931170,421}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
-      <price min="36623" average="40693" max="44762" />
+      <price min="54934" average="61040" max="67143" />
       <production time="10" amount="1" method="default" name="{20206,101}">
         <primary>
           <ware ware="advancedelectronics" amount="6" />
@@ -79,7 +79,7 @@
       <use threshold="0" />
     </ware>
     <ware id="turret_arg_m_hcp_plasma_01_mk1" name="{1931170,431}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
-      <price min="58442" average="64935" max="71429" />
+      <price min="87663" average="97402" max="107144" />
       <production time="10" amount="1" method="default" name="{20206,101}">
         <primary>
           <ware ware="advancedelectronics" amount="10" />
@@ -92,7 +92,7 @@
       <use threshold="0.71" />
     </ware>
     <ware id="turret_arg_m_hcp_beam_01_mk1" name="{1931170,441}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
-      <price min="29131" average="32368" max="35604" />
+      <price min="43696" average="48552" max="53406" />
       <production time="10" amount="1" method="default" name="{20206,101}">
         <primary>
           <ware ware="advancedelectronics" amount="5" />
@@ -105,7 +105,7 @@
       <use threshold="0" />
     </ware>
     <ware id="turret_arg_m_hcp_shotgun_01_mk1" name="{1931170,451}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
-      <price min="44116" average="49018" max="53919" />
+      <price min="66174" average="73527" max="80878" />
       <production time="10" amount="1" method="default" name="{20206,101}">
         <primary>
           <ware ware="advancedelectronics" amount="7" />
@@ -118,7 +118,7 @@
       <use threshold="0" />
     </ware>
     <ware id="turret_arg_m_hcp_flak_01_mk1" name="{1931170,461}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
-      <price min="59101" average="65668" max="72234" />
+      <price min="88652" average="98502" max="108351" />
       <production time="10" amount="1" method="default" name="{20206,101}">
         <primary>
           <ware ware="advancedelectronics" amount="10" />
@@ -131,7 +131,7 @@
       <use threshold="0.71" />
     </ware>
     <ware id="turret_arg_m_hcp_borlaser_01_mk1" name="{1931170,471}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
-      <price min="23802" average="26447" max="29092" />
+      <price min="35703" average="39670" max="43638" />
       <production time="10" amount="1" method="default" name="{20206,801}">
         <primary>
           <ware ware="advancedelectronics" amount="4" />
@@ -144,7 +144,7 @@
       <use threshold="0" />
     </ware>
     <ware id="turret_arg_m_hcp_railgun_01_mk1" name="{1931170,481}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
-      <price min="48527" average="53919" max="59311" />
+      <price min="72790" average="80878" max="88966" />
       <production time="10" amount="1" method="default" name="{20206,801}">
         <primary>
           <ware ware="advancedelectronics" amount="8" />
@@ -157,7 +157,7 @@
       <use threshold="0.71" />
     </ware>
     <ware id="turret_arg_m_hcp_arc_01_mk1" name="{1931170,491}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
-      <price min="32044" average="35604" max="39165" />
+      <price min="48066" average="53406" max="58748" />
       <production time="10" amount="1" method="default" name="{20206,801}">
         <primary>
           <ware ware="advancedelectronics" amount="5" />

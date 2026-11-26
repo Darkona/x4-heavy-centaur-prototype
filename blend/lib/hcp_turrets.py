@@ -66,6 +66,7 @@ VANILLA = {
     'arc': ('ego_dlc_boron', 'turret_bor_m_arc_02_mk1', 'Arc', 'de arco'),
 }
 DAMAGE_FACTOR = 1.5
+PRICE_FACTOR = 1.5
 TEXT_PAGE = 1931170
 TEXT_BASE = 400
 TEXTS = {
@@ -324,6 +325,7 @@ def data(kinds):
         ware = ware.replace(f'id="{vanilla}"', f'id="{comp}"').replace(f'ref="{vanilla}_macro"', f'ref="{macro}"')
         ware = re.sub(r'name="\{[0-9]+,[0-9]+\}" description="\{[0-9]+,[0-9]+\}"', f'name="{{{TEXT_PAGE},{tid + 1}}}" description="{{{TEXT_PAGE},{TEXT_BASE + 2}}}"', ware, count=1)
         ware = re.sub(r'\s*<owner faction="[^"]+"\s*/>', '', ware)
+        ware = re.sub(r'<price min="(\d+)" average="(\d+)" max="(\d+)"', lambda m: '<price min="%d" average="%d" max="%d"' % tuple(round(int(v) * PRICE_FACTOR) for v in m.groups()), ware, count=1)
         lines = ware.split('\n')
         base_indent = len(lines[-1]) - len(lines[-1].lstrip())
         wares.append('\n'.join(['    ' + lines[0]] + ['    ' + l[base_indent:] for l in lines[1:]]) + '\n')
