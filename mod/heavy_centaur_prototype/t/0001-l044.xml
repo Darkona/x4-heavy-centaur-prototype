@@ -17,6 +17,34 @@
       <t id="205">HCP Internal Shield Generator Mk2</t>
       <t id="206">HCP Int Shield Mk2</t>
       <t id="301">Captain's Office</t>
+      <t id="402">A ball turret made only for the Heavy Centaur Prototype: two fixed guns in a ball joint that turns all the way round, set in a socket on the hull. It fits only the three turret mounts of the bulb. Hits half again as hard as the medium turret of the same weapon.</t>
+      <t id="411">HCP Laser Turret</t>
+      <t id="413">HCP Laser T</t>
+      <t id="414">HCP Laser Turret</t>
+      <t id="421">HCP Bolt Repeater Turret</t>
+      <t id="423">HCP Bolt Repeater T</t>
+      <t id="424">HCP Bolt Repeater Turret</t>
+      <t id="431">HCP Plasma Turret</t>
+      <t id="433">HCP Plasma T</t>
+      <t id="434">HCP Plasma Turret</t>
+      <t id="441">HCP Beam Turret</t>
+      <t id="443">HCP Beam T</t>
+      <t id="444">HCP Beam Turret</t>
+      <t id="451">HCP Shard Battery Turret</t>
+      <t id="453">HCP Shard Battery T</t>
+      <t id="454">HCP Shard Battery Turret</t>
+      <t id="461">HCP Flak Turret</t>
+      <t id="463">HCP Flak T</t>
+      <t id="464">HCP Flak Turret</t>
+      <t id="471">HCP Boron Laser Turret</t>
+      <t id="473">HCP Boron Laser T</t>
+      <t id="474">HCP Boron Laser Turret</t>
+      <t id="481">HCP Railgun Turret</t>
+      <t id="483">HCP Railgun T</t>
+      <t id="484">HCP Railgun Turret</t>
+      <t id="491">HCP Arc Turret</t>
+      <t id="493">HCP Arc T</t>
+      <t id="494">HCP Arc Turret</t>
     </page>
   </add>
 </diff>

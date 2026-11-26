@@ -52,5 +52,122 @@
       <restriction licence="generaluseequipment" />
       <use threshold="0.31" />
     </ware>
+    <ware id="turret_arg_m_hcp_laser_01_mk1" name="{1931170,411}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="21638" average="24043" max="26447" />
+      <production time="10" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="advancedelectronics" amount="3" />
+          <ware ware="energycells" amount="49" />
+          <ware ware="turretcomponents" amount="19" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_laser_01_mk1_macro" />
+      <restriction licence="generaluseequipment" />
+      <use threshold="0" />
+    </ware>
+    <ware id="turret_arg_m_hcp_gatling_01_mk1" name="{1931170,421}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="36623" average="40693" max="44762" />
+      <production time="10" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="advancedelectronics" amount="6" />
+          <ware ware="energycells" amount="83" />
+          <ware ware="turretcomponents" amount="19" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_gatling_01_mk1_macro" />
+      <restriction licence="militaryequipment" />
+      <use threshold="0" />
+    </ware>
+    <ware id="turret_arg_m_hcp_plasma_01_mk1" name="{1931170,431}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="58442" average="64935" max="71429" />
+      <production time="10" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="advancedelectronics" amount="10" />
+          <ware ware="energycells" amount="133" />
+          <ware ware="turretcomponents" amount="31" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_plasma_01_mk1_macro" />
+      <restriction licence="militaryequipment" />
+      <use threshold="0.71" />
+    </ware>
+    <ware id="turret_arg_m_hcp_beam_01_mk1" name="{1931170,441}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="29131" average="32368" max="35604" />
+      <production time="10" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="advancedelectronics" amount="5" />
+          <ware ware="energycells" amount="66" />
+          <ware ware="turretcomponents" amount="15" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_beam_01_mk1_macro" />
+      <restriction licence="militaryequipment" />
+      <use threshold="0" />
+    </ware>
+    <ware id="turret_arg_m_hcp_shotgun_01_mk1" name="{1931170,451}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="44116" average="49018" max="53919" />
+      <production time="10" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="advancedelectronics" amount="7" />
+          <ware ware="energycells" amount="101" />
+          <ware ware="turretcomponents" amount="23" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_shotgun_01_mk1_macro" />
+      <restriction licence="militaryequipment" />
+      <use threshold="0" />
+    </ware>
+    <ware id="turret_arg_m_hcp_flak_01_mk1" name="{1931170,461}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="59101" average="65668" max="72234" />
+      <production time="10" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="advancedelectronics" amount="10" />
+          <ware ware="energycells" amount="135" />
+          <ware ware="turretcomponents" amount="31" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_flak_01_mk1_macro" />
+      <restriction licence="militaryequipment" />
+      <use threshold="0.71" />
+    </ware>
+    <ware id="turret_arg_m_hcp_borlaser_01_mk1" name="{1931170,471}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="23802" average="26447" max="29092" />
+      <production time="10" amount="1" method="default" name="{20206,801}">
+        <primary>
+          <ware ware="advancedelectronics" amount="4" />
+          <ware ware="energycells" amount="54" />
+          <ware ware="turretcomponents" amount="12" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_borlaser_01_mk1_macro" />
+      <restriction licence="generaluseequipment" />
+      <use threshold="0" />
+    </ware>
+    <ware id="turret_arg_m_hcp_railgun_01_mk1" name="{1931170,481}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="48527" average="53919" max="59311" />
+      <production time="10" amount="1" method="default" name="{20206,801}">
+        <primary>
+          <ware ware="advancedelectronics" amount="8" />
+          <ware ware="energycells" amount="111" />
+          <ware ware="turretcomponents" amount="26" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_railgun_01_mk1_macro" />
+      <restriction licence="militaryequipment" />
+      <use threshold="0.71" />
+    </ware>
+    <ware id="turret_arg_m_hcp_arc_01_mk1" name="{1931170,491}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="32044" average="35604" max="39165" />
+      <production time="10" amount="1" method="default" name="{20206,801}">
+        <primary>
+          <ware ware="advancedelectronics" amount="5" />
+          <ware ware="energycells" amount="73" />
+          <ware ware="turretcomponents" amount="17" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_arc_01_mk1_macro" />
+      <restriction licence="militaryequipment" />
+      <use threshold="0.71" />
+    </ware>
   </add>
 </diff>

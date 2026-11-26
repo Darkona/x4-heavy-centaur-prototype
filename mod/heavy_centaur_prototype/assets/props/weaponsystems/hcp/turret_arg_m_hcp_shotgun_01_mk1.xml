@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Exported on 2026-11-26 08:24:17 from Blender-->
+<components>
+  <component name="turret_arg_m_hcp_shotgun_01_mk1" class="turret">
+    <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_shotgun_01_mk1_data" />
+    <layers>
+      <layer />
+    </layers>
+    <connections>
+      <connection name="position" tags="position" value="1" />
+      <connection name="con_aimtarget_01" tags="aimtarget ">
+        <offset>
+          <position x="0" y="4.6" z="0" />
+        </offset>
+      </connection>
+      <connection name="con_turret" tags="combat component hittable medium turret  hcp_turret">
+        <offset>
+          <position x="0" y="2" z="0" />
+        </offset>
+      </connection>
+      <connection name="ConnectionForpart_socket" tags="forceoutline part ">
+        <parts>
+          <part name="part_socket">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="5.12" y="3.294683" z="5.557016" />
+              <center x="0.07757604" y="1.597628" z="-0.4370162" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="ConnectionForpart_rotator" tags="forceoutline iklink nocollision part " parent="part_socket">
+        <offset>
+          <position x="0" y="4.6" z="0" />
+        </offset>
+        <restrictions>
+          <restriction type="rotation_y" />
+        </restrictions>
+        <parts>
+          <part name="part_rotator">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="3.754158" y="1.684858" z="3.754158" />
+              <center x="2.902746e-05" y="-2.104646" z="-7.510185e-06" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="ConnectionForpart_gun" tags="forceoutline iklink nocollision part " parent="part_rotator">
+        <restrictions>
+          <restriction type="rotation_x">
+            <limits>
+              <min value="0" />
+              <max value="90.00000250447816" />
+            </limits>
+          </restriction>
+        </restrictions>
+        <parts>
+          <part name="part_gun">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                  <material id="2" ref="p2generic.gen_p2_hulltexture_01" />
+                  <material id="3" ref="p2generic.gen_p2_fx_01" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="3.65" y="3.625755" z="4.235753" />
+              <center x="-5.960464e-08" y="-1.192093e-07" z="0.585753" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="con_laser_01" tags="laser " parent="part_gun">
+        <offset>
+          <position x="-1.088167" y="0.0130496" z="4.290197" />
+        </offset>
+      </connection>
+      <connection name="con_laser_02" tags="laser " parent="part_gun">
+        <offset>
+          <position x="1.101833" y="0.0130496" z="4.290197" />
+        </offset>
+      </connection>
+      <connection name="container" tags=" contents" />
+    </connections>
+  </component>
+</components>

@@ -1,4 +1,7 @@
+import re
 import sys
+
+HCP_TURRET_SLOTS = ('01', '02', '04')
 
 path = sys.argv[1]
 text = open(path, encoding='utf-8').read()
@@ -21,6 +24,9 @@ if 'con_weapon_vls_01' not in text:
         slots += (f'      <connection name="con_weapon_vls_{n}" tags="medium missile weapon hcp_vls symmetry symmetry_top symmetry_{side} symmetry_5 ">\n'
                   f'        <offset>\n          <position {pos} />\n        </offset>\n      </connection>\n')
     text = text.replace(anchor, slots + anchor)
+for n in HCP_TURRET_SLOTS:
+    text = re.sub(rf'(<connection name="con_turret_{n}"[^>]*? tags=")[^"]*(")', r'\g<1>combat hittable medium turret hcp_turret\g<2>', text)
+    assert f'name="con_turret_{n}"' in text, n
 assert 'group_vls' not in text
 open(path, 'w', encoding='utf-8').write(text)
 print('patched', path)

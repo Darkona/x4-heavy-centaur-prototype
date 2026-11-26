@@ -8,5 +8,23 @@
     <entry name="shield_arg_l_hcp_internal_01_mk2_macro" value="extensions\heavy_centaur_prototype\assets\props\surfaceelements\hcp\macros\shield_arg_l_hcp_internal_01_mk2_macro" />
     <entry name="dockingbay_hcp_s_01_macro" value="extensions\heavy_centaur_prototype\assets\structures\dock\macros\dockingbay_hcp_s_01_macro" />
     <entry name="dockarea_hcp_s_01_macro" value="extensions\heavy_centaur_prototype\assets\structures\dock\macros\dockarea_hcp_s_01_macro" />
+    <entry name="turret_arg_m_hcp_laser_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_laser_01_mk1_macro" />
+    <entry name="bullet_hcp_turret_m_laser_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\fx\weaponfx\macros\bullet_hcp_turret_m_laser_01_mk1_macro" />
+    <entry name="turret_arg_m_hcp_gatling_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_gatling_01_mk1_macro" />
+    <entry name="bullet_hcp_turret_m_gatling_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\fx\weaponfx\macros\bullet_hcp_turret_m_gatling_01_mk1_macro" />
+    <entry name="turret_arg_m_hcp_plasma_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_plasma_01_mk1_macro" />
+    <entry name="bullet_hcp_turret_m_plasma_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\fx\weaponfx\macros\bullet_hcp_turret_m_plasma_01_mk1_macro" />
+    <entry name="turret_arg_m_hcp_beam_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_beam_01_mk1_macro" />
+    <entry name="bullet_hcp_turret_m_beam_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\fx\weaponfx\macros\bullet_hcp_turret_m_beam_01_mk1_macro" />
+    <entry name="turret_arg_m_hcp_shotgun_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_shotgun_01_mk1_macro" />
+    <entry name="bullet_hcp_turret_m_shotgun_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\fx\weaponfx\macros\bullet_hcp_turret_m_shotgun_01_mk1_macro" />
+    <entry name="turret_arg_m_hcp_flak_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_flak_01_mk1_macro" />
+    <entry name="bullet_hcp_turret_m_flak_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\fx\weaponfx\macros\bullet_hcp_turret_m_flak_01_mk1_macro" />
+    <entry name="turret_arg_m_hcp_borlaser_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_borlaser_01_mk1_macro" />
+    <entry name="bullet_hcp_turret_m_borlaser_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\fx\weaponfx\macros\bullet_hcp_turret_m_borlaser_01_mk1_macro" />
+    <entry name="turret_arg_m_hcp_railgun_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_railgun_01_mk1_macro" />
+    <entry name="bullet_hcp_turret_m_railgun_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\fx\weaponfx\macros\bullet_hcp_turret_m_railgun_01_mk1_macro" />
+    <entry name="turret_arg_m_hcp_arc_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_arc_01_mk1_macro" />
+    <entry name="bullet_hcp_turret_m_arc_01_mk1_macro" value="extensions\heavy_centaur_prototype\assets\fx\weaponfx\macros\bullet_hcp_turret_m_arc_01_mk1_macro" />
   </add>
 </diff>

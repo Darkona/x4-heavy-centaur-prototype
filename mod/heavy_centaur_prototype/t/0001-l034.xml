@@ -17,6 +17,34 @@
       <t id="205">Generador de escudo interno PCP Mk2</t>
       <t id="206">Esc int PCP Mk2</t>
       <t id="301">Despacho del capitán</t>
+      <t id="402">Una torreta de rótula hecha solo para el Prototipo de Centauro Pesado: dos cañones fijos en una rótula que gira la vuelta entera, montada en un zócalo del casco. Solo cabe en los tres anclajes de torreta del bulbo. Pega la mitad más que la torreta mediana del mismo arma.</t>
+      <t id="411">Torreta láser PCP</t>
+      <t id="413">Torr. láser PCP</t>
+      <t id="414">Torreta láser PCP</t>
+      <t id="421">Torreta repetidora PCP</t>
+      <t id="423">Torr. repetidora PCP</t>
+      <t id="424">Torreta repetidora PCP</t>
+      <t id="431">Torreta de plasma PCP</t>
+      <t id="433">Torr. de plasma PCP</t>
+      <t id="434">Torreta de plasma PCP</t>
+      <t id="441">Torreta de haz PCP</t>
+      <t id="443">Torr. de haz PCP</t>
+      <t id="444">Torreta de haz PCP</t>
+      <t id="451">Torreta de esquirlas PCP</t>
+      <t id="453">Torr. de esquirlas PCP</t>
+      <t id="454">Torreta de esquirlas PCP</t>
+      <t id="461">Torreta antiaérea PCP</t>
+      <t id="463">Torr. antiaérea PCP</t>
+      <t id="464">Torreta antiaérea PCP</t>
+      <t id="471">Torreta láser borón PCP</t>
+      <t id="473">Torr. láser borón PCP</t>
+      <t id="474">Torreta láser borón PCP</t>
+      <t id="481">Torreta de riel PCP</t>
+      <t id="483">Torr. de riel PCP</t>
+      <t id="484">Torreta de riel PCP</t>
+      <t id="491">Torreta de arco PCP</t>
+      <t id="493">Torr. de arco PCP</t>
+      <t id="494">Torreta de arco PCP</t>
     </page>
   </add>
 </diff>

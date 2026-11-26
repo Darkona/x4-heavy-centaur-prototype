@@ -5,5 +5,14 @@
     <entry name="weapon_arg_m_hcp_vls_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\weapon_arg_m_hcp_vls_01_mk1" />
     <entry name="shield_arg_l_hcp_internal_01" value="extensions\heavy_centaur_prototype\assets\props\surfaceelements\hcp\shield_arg_l_hcp_internal_01" />
     <entry name="dockingbay_hcp_s_01" value="extensions\heavy_centaur_prototype\assets\structures\dock\dockingbay_hcp_s_01" />
+    <entry name="turret_arg_m_hcp_laser_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_laser_01_mk1" />
+    <entry name="turret_arg_m_hcp_gatling_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_gatling_01_mk1" />
+    <entry name="turret_arg_m_hcp_plasma_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_plasma_01_mk1" />
+    <entry name="turret_arg_m_hcp_beam_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_beam_01_mk1" />
+    <entry name="turret_arg_m_hcp_shotgun_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_shotgun_01_mk1" />
+    <entry name="turret_arg_m_hcp_flak_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_flak_01_mk1" />
+    <entry name="turret_arg_m_hcp_borlaser_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_borlaser_01_mk1" />
+    <entry name="turret_arg_m_hcp_railgun_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_railgun_01_mk1" />
+    <entry name="turret_arg_m_hcp_arc_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_arc_01_mk1" />
   </add>
 </diff>

@@ -324,13 +324,13 @@
           <position x="0" y="-10" z="-20" />
         </offset>
       </connection>
-      <connection name="con_turret_01" tags="combat hittable medium standard turret ">
+      <connection name="con_turret_01" tags="combat hittable medium turret hcp_turret">
         <offset>
           <position x="-25.41223" y="-13.09002" z="88.49478" />
           <quaternion qx="0.006849392" qy="-0.001409778" qz="-0.7062067" qw="-0.7079712" />
         </offset>
       </connection>
-      <connection name="con_turret_02" tags="combat hittable medium standard turret ">
+      <connection name="con_turret_02" tags="combat hittable medium turret hcp_turret">
         <offset>
           <position x="25.41226" y="-13.09002" z="88.49477" />
           <quaternion qx="0.006850641" qy="0.001408497" qz="0.7062078" qw="-0.7079701" />
@@ -342,7 +342,7 @@
           <quaternion qx="0.4091683" qy="-5.691914e-05" qz="-0.0001949456" qw="-0.9124589" />
         </offset>
       </connection>
-      <connection name="con_turret_04" tags="combat hittable medium standard turret ">
+      <connection name="con_turret_04" tags="combat hittable medium turret hcp_turret">
         <offset>
           <position x="0" y="-28.3092" z="97.50677" />
           <quaternion qx="1.127988e-07" qy="-0.005602349" qz="-0.9999843" qw="-7.613104e-08" />
