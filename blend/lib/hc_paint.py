@@ -59,7 +59,7 @@ def is_under(n):
 
 
 def hull_objects():
-    return [o for o in bpy.data.collections["HCP_rebuild"].all_objects if o.type == "MESH" and o.name not in SKIP and o.data.library is None]
+    return [o for o in bpy.data.collections["HCP_rebuild"].all_objects if o.type == "MESH" and o.get("hcr_group", o.name) not in SKIP and o.data.library is None]
 
 
 def cut_bands():
@@ -129,7 +129,7 @@ def part_attr(o):
 
 
 def zones_for(o):
-    n = o.name
+    n = o.get("hcr_group", o.name)
     cur = current_names(o)
     bm = bmesh.new()
     bm.from_mesh(o.data)
@@ -393,7 +393,7 @@ def island_keys(bm, mat_of):
 
 
 def face_colours(o):
-    n = o.name
+    n = o.get("hcr_group", o.name)
     want = current_names(o)
     bm = bmesh.new()
     bm.from_mesh(o.data)

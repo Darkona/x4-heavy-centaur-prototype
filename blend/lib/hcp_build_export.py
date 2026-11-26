@@ -63,6 +63,8 @@ def copy_mesh(src, apply_transform=True):
     ob = src.copy()
     ob.data = src.data.copy()
     ob.animation_data_clear()
+    if 'hcr_group' in ob:
+        del ob['hcr_group']
     for c in list(ob.users_collection):
         c.objects.unlink(ob)
     out_col.objects.link(ob)
@@ -126,7 +128,7 @@ for o in src_rebuild.all_objects:
         ob.name = WALK_PARTS[o.name]
         ob.data.name = ob.name
         walk_parts.append(ob)
-    elif o.name in DETAIL:
+    elif o.get('hcr_group', o.name) in DETAIL:
         detail_src.append(copy_mesh(o, True))
     elif o.name in CAPS:
         cap = copy_mesh(o, True)

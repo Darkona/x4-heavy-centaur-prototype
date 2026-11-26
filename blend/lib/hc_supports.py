@@ -57,7 +57,7 @@ def rounded_rect(ax0, ax1, ay0, ay1, r, n):
 
 
 def hull_objects():
-    return [o for o in bpy.data.collections["HCP_rebuild"].all_objects if o.type == "MESH" and o.name not in HULL_SKIP and not o.name.startswith(("anim_", "rb_work"))]
+    return [o for o in bpy.data.collections["HCP_rebuild"].all_objects if o.type == "MESH" and o.get("hcr_group", o.name) not in HULL_SKIP and not o.name.startswith(("anim_", "rb_work", "hcr_shield_seat_"))]
 
 
 def hull_height(objs, M, x, y, top=3.0, depth=12.0):
