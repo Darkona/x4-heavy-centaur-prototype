@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 08:49:37 from Blender-->
+<!--Exported on 2026-11-26 08:59:27 from Blender-->
 <components>
   <component name="turret_arg_m_hcp_gatling_01_mk1" class="turret">
     <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_gatling_01_mk1_data" />
@@ -62,26 +62,41 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hulltexture" />
-                  <material id="2" ref="p2generic.gen_p2_hulltexture_01" />
-                  <material id="3" ref="p2argon.arg_p2_decal_01" />
+                  <material id="2" ref="generic.generic_p1_fx" />
+                  <material id="3" ref="p1paint.paint_p1_decal_01" />
                 </materials>
               </lod>
             </lods>
             <size>
-              <max x="3.65" y="3.625755" z="5.216439" />
-              <center x="-5.960464e-08" y="0" z="1.566439" />
+              <max x="3.65" y="3.625755" z="6.8267" />
+              <center x="-5.960464e-08" y="0" z="3.1767" />
             </size>
           </part>
         </parts>
       </connection>
       <connection name="con_laser_01" tags="laser " parent="part_gun">
         <offset>
-          <position x="-1.095907" y="0.3024576" z="6.790799" />
+          <position x="-2e-06" y="0.2810602" z="10.01143" />
         </offset>
       </connection>
       <connection name="con_laser_02" tags="laser " parent="part_gun">
         <offset>
-          <position x="1.094093" y="0.3024576" z="6.790799" />
+          <position x="-0.449741" y="-0.05231094" z="10.01143" />
+        </offset>
+      </connection>
+      <connection name="con_laser_03" tags="laser " parent="part_gun">
+        <offset>
+          <position x="-0.282191" y="-0.5822768" z="10.01143" />
+        </offset>
+      </connection>
+      <connection name="con_laser_04" tags="laser " parent="part_gun">
+        <offset>
+          <position x="0.288103" y="-0.5798402" z="10.01143" />
+        </offset>
+      </connection>
+      <connection name="con_laser_05" tags="laser " parent="part_gun">
+        <offset>
+          <position x="0.455581" y="-0.05472279" z="10.01143" />
         </offset>
       </connection>
       <connection name="container" tags=" contents" />

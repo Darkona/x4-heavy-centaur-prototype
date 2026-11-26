@@ -31,7 +31,7 @@ LOCK = X4 / '.xuconverter.lock'
 
 TURRETS = {
     'laser': ('base/assets/props/WeaponSystems/standard/weapon_gen_m_laser_01_mk1.xml', None, 2, None),
-    'gatling': ('base/assets/props/WeaponSystems/heavy/weapon_gen_m_gatling_01_mk1.xml', None, 2, None),
+    'gatling': ('base/assets/props/WeaponSystems/heavy/turret_arg_m_gatling_02_mk1.xml', 'part_gun', 1, 1.0),
     'plasma': ('base/assets/props/WeaponSystems/heavy/weapon_gen_m_plasma_01_mk1.xml', None, 2, None),
     'beam': ('base/assets/props/WeaponSystems/energy/weapon_gen_m_beam_01_mk1.xml', None, 2, None),
     'shotgun': ('base/assets/props/WeaponSystems/standard/turret_arg_m_shotgun_02_mk1.xml', 'part_gun', 1, 1.0),
