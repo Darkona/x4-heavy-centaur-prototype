@@ -78,8 +78,8 @@
         </primary>
       </production>
       <component ref="turret_arg_m_hcp_ma_01_mk1_macro" />
-      <restriction licence="generaluseequipment" />
-      <use threshold="0" />
+      <restriction licence="militaryequipment" />
+      <use threshold="0.85" />
     </ware>
     <ware id="turret_arg_m_hcp_flechette_01_mk1" name="{1931171,21}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
       <price min="76573" average="82145" max="88400" />
@@ -92,7 +92,7 @@
       </production>
       <component ref="turret_arg_m_hcp_flechette_01_mk1_macro" />
       <restriction licence="generaluseequipment" />
-      <use threshold="0" />
+      <use threshold="0.6" />
     </ware>
   </add>
 </diff>
