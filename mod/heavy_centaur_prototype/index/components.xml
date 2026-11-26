@@ -14,5 +14,7 @@
     <entry name="turret_arg_m_hcp_borlaser_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_borlaser_01_mk1" />
     <entry name="turret_arg_m_hcp_railgun_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_railgun_01_mk1" />
     <entry name="turret_arg_m_hcp_arc_01_mk1" value="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_arc_01_mk1" />
+    <entry name="dockingbay_hcp_top_s_01" value="extensions\heavy_centaur_prototype\assets\structures\dock\dockingbay_hcp_top_s_01" />
+    <entry name="dockarea_hcp_top_s_01" value="extensions\heavy_centaur_prototype\assets\structures\dock\dockarea_hcp_top_s_01" />
   </add>
 </diff>

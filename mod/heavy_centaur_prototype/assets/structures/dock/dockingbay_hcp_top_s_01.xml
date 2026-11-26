@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<components>
+	<component name="dockingbay_hcp_top_s_01" class="dockingbay">
+		<source geometry="assets\structures\dock\dockingbay_arg_s_01_data" />
+		<layers>
+			<layer>
+				<waypoints />
+				<lights>
+					<arealight name="XU AreaLight013" areax="0" areay="1.5" radius="0.15" r="162" g="255" b="155" lighteffect="1" range="20" spotattenuation="0.4672222" specularintensity="1" trigger="1" intensity="1.6">
+						<lightanimations />
+						<offset>
+							<position x="-0.00636" y="2.8421" z="-41.2796" />
+							<quaternion qx="0.5015713" qy="-0.4984239" qz="0.5015711" qw="-0.4984237" />
+						</offset>
+					</arealight>
+					<box name="XU BoxLight019" shadow="0" r="108" g="255" b="0" lighteffect="1" trigger="1" intensity="6.4" specularintensity="0">
+						<size x="2.5" y="1" z="1" />
+						<lightanimations />
+						<offset>
+							<position x="0.00457" y="2.83865" z="-41.2702" />
+							<quaternion qx="-1" qy="0" qz="0" qw="0" />
+						</offset>
+					</box>
+				</lights>
+			</layer>
+		</layers>
+		<connections>
+			<connection name="container" tags="contents" value="0" />
+			<connection name="position" tags="position" value="1" />
+			<connection name="space" tags="dockingbay">
+				<offset />
+			</connection>
+			<connection name="con_walk_floor_aft" tags="part walk_dockingbay anim_floor collision collisiononly ">
+				<offset>
+					<position x="0" y="0" z="-20" />
+				</offset>
+				<parts>
+					<part name="anim_floor">
+						<lods>
+							<lod index="0">
+								<materials>
+									<material id="1" ref="generic.generic_p1_hullpattern" />
+									<material id="2" ref="generic.generic_p1_hulltexture" />
+								</materials>
+							</lod>
+							<lod index="1">
+								<materials>
+									<material id="1" ref="generic.generic_p1_hullpattern" />
+									<material id="2" ref="generic.generic_p1_hulltexture" />
+								</materials>
+							</lod>
+							<lod index="2">
+								<materials>
+									<material id="1" ref="generic.generic_p1_hullpattern" />
+									<material id="2" ref="generic.generic_p1_hulltexture" />
+								</materials>
+							</lod>
+							<lod index="3">
+								<materials>
+									<material id="1" ref="generic.generic_p1_hullpattern" />
+									<material id="2" ref="generic.generic_p1_hulltexture" />
+								</materials>
+							</lod>
+						</lods>
+						<size>
+							<max x="18.97281" y="15.00002" z="19.00001" />
+							<center x="1.907349E-06" y="-14.99995" z="-2.5" />
+						</size>
+						<size_raw>
+							<max x="18.97281" y="0.500013" z="19" />
+							<center x="1.907349E-06" y="-0.4999467" z="-2.5" />
+						</size_raw>
+					</part>
+				</parts>
+				<waypoints />
+			</connection>
+			<connection name="Con_dockpos" tags="dockpos">
+				<offset>
+					<position x="0" y="0" z="0" />
+				</offset>
+			</connection>
+			<connection name="Con_todock" tags="todock ">
+				<offset>
+					<position x="0" y="60" z="0" />
+				</offset>
+			</connection>
+			<connection name="Con_launchpos" tags="launchpos ">
+				<offset>
+					<position x="0" y="60" z="0" />
+				</offset>
+			</connection>
+			<connection name="Connection27" group="transporter_01 " tags="part  ">
+				<offset>
+					<position x="0" y="1.08465" z="-42.9" />
+					<quaternion qx="0" qy="0" qz="0" qw="-1" />
+				</offset>
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.part_main" name="part_main01" />
+				</parts>
+				<waypoints />
+			</connection>
+			<connection name="Connection28" tags="part iklink  " parent="part_main01">
+				<offset>
+					<position x="1.907349E-06" y="5.153775E-02" z="3.353691E-02" />
+				</offset>
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.detail_m_decals" name="detail_m_decals" />
+				</parts>
+			</connection>
+			<connection name="Connection29" group="transporter_01 " tags="part animation  ">
+				<offset>
+					<position x="0.55182" y="1.0778" z="-41.7487" />
+					<quaternion qx="0" qy="0" qz="0" qw="-1" />
+				</offset>
+				<animations />
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.anim_door_left" name="anim_door_left" />
+				</parts>
+				<waypoints />
+			</connection>
+			<connection name="Connection30" tags="part iklink  " parent="anim_door_left">
+				<offset>
+					<position x="-0.4329338" y="3.161669E-03" z="-8.512306E-02" />
+				</offset>
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.detail_m_decals_left" name="detail_m_decals_left" />
+				</parts>
+			</connection>
+			<connection name="Connection31" tags="part nocollision iklink  " parent="anim_door_left">
+				<offset>
+					<position x="6.044197E-02" y="9.536743E-07" z="-2.479553E-04" />
+				</offset>
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.detail_m_light_left" name="detail_m_light_left" />
+				</parts>
+			</connection>
+			<connection name="Connection32" group="transporter_01 " tags="part animation  ">
+				<offset>
+					<position x="-0.54224" y="1.07741" z="-41.7487" />
+					<quaternion qx="0" qy="0" qz="0" qw="-1" />
+				</offset>
+				<animations />
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.anim_door_right" name="anim_door_right" />
+				</parts>
+				<waypoints />
+			</connection>
+			<connection name="Connection33" tags="part iklink  " parent="anim_door_right">
+				<offset>
+					<position x="0.4321251" y="3.553271E-03" z="-8.512115E-02" />
+				</offset>
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.detail_m_decals_right" name="detail_m_decals_right" />
+				</parts>
+			</connection>
+			<connection name="Connection34" tags="part nocollision iklink  " parent="anim_door_right">
+				<offset>
+					<position x="-6.109619E-02" y="3.925562E-04" z="-2.46048E-04" />
+				</offset>
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.detail_m_light_right" name="detail_m_light_right" />
+				</parts>
+			</connection>
+			<connection name="Connection35" group="transporter_01 " tags="part detail_l  ">
+				<offset>
+					<position x="1.21329" y="1.11106" z="-42.9849" />
+					<quaternion qx="0" qy="-0.707107" qz="0" qw="0.7071066" />
+				</offset>
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.detail_l_button" name="detail_l_button" />
+				</parts>
+			</connection>
+			<connection name="Connection36" group="transporter_01 " tags="part  ">
+				<offset>
+					<position x="0.00029" y="2.22049" z="-42.01" />
+					<quaternion qx="-0.7057369" qy="-0.001364999" qz="0.001369878" qw="0.7084714" />
+				</offset>
+				<parts>
+					<part ref="interiors_arg_airlock_01_body.dummy_sound_animation" name="dummy_sound_animation" />
+				</parts>
+			</connection>
+			<connection name="con_npc_stand_001" group="transporter_01 " tags="npc_waypoint stand npctransport ">
+				<offset>
+					<position x="0.00615" y="0.001261" z="-42.9868" />
+					<quaternion qx="0" qy="0" qz="0" qw="-1" />
+				</offset>
+				<parts />
+			</connection>
+			<connection name="Connection39" tags="part nocollision  ">
+				<offset>
+					<position x="3.12396" y="1.328354" z="-34.18350" />
+					<quaternion qx="0" qy="0.7071068" qz="0" qw="0.7071068" />
+				</offset>
+				<parts>
+					<part ref="props_gen_standard_shipconsole_01.fx_text" name="fx_text" />
+				</parts>
+			</connection>
+			<connection name="Connection40" tags="part nocollision  ">
+				<offset>
+					<position x="3.12394" y="1.326691" z="-34.36099" />
+					<quaternion qx="0" qy="0.7071068" qz="0" qw="0.7071068" />
+				</offset>
+				<parts>
+					<part ref="props_gen_standard_shipconsole_01.fx_static" name="fx_static" />
+				</parts>
+			</connection>
+			<connection name="Connection41" group="shipconsole" tags="part  ">
+				<offset>
+					<position x="3.2" y="0" z="-34.3" />
+					<quaternion qx="0" qy="0.7071068" qz="0" qw="0.7071068" />
+				</offset>
+				<parts>
+					<part ref="props_gen_standard_shipconsole_01.part_main" name="part_main02" />
+				</parts>
+			</connection>
+			<connection name="con_npc_airmarshal" value="-1" tags="npc airmarshal">
+				<offset>
+					<position x="-3" y="0" z="-34" />
+				</offset>
+				<parts />
+			</connection>
+			<connection name="Connection001" value="-1" tags="npc stand npc_generic service ">
+				<offset>
+					<position x="6.5" y="0" z="-32.5" />
+				</offset>
+				<parts />
+			</connection>
+			<connection name="con_npc_welder" value="-1" tags="npc stand welder ">
+				<offset>
+					<position x="-4.5" y="0" z="-33.5" />
+				</offset>
+				<parts />
+			</connection>
+		</connections>
+	</component>
+</components>

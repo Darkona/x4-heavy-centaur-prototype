@@ -17,7 +17,7 @@ FLAME_UV_KEYS = [(1, 0.3), (10, 3.0)]
 SHIFT = Matrix.Translation((420.0, 0.0, 0.0))
 
 EXCLUDE = {'rb_dock_s_clearance', 'rb_dock_s_pad'}
-DETAIL = {'hcr_greebles', 'hcr_orig_details', 'hcr_poslight_housings', 'hcr_vls_frames'}
+DETAIL = {'hcr_greebles', 'hcr_orig_details', 'hcr_poslight_housings', 'hcr_vls_frames', 'hcr_dock_marks'}
 CAPS = {'hcr_bridge_window_cap'}
 RADARS = {
     'rb_work_Bships_animprops_m6mainradar1_4': 'anim_radar_01',
@@ -39,6 +39,8 @@ RADAR_FRAMES = {'anim_radar_01': 1000, 'anim_radar_02': 600, 'anim_radar_03': 60
 HATCH_STATES = [('inactive', 1, 2), ('activating', 2, 20), ('active', 20, 21), ('deactivating', 21, 40)]
 DOCKDOORS = {'anim_dockdoor_xs'}
 WALK_PARTS = {'hcr_dock_well': 'part_dock_well'}
+FENCE_PARTS = {'hcr_dock_fence': 'part_dock_fence'}
+FENCE_TAGS = ['detail_xl', 'forceoutline', 'walk_forbidden']
 DOCKDOOR_OBS = []
 DOCKDOOR_STATES = [('closed', 1, 2), ('opening', 2, 25), ('open', 25, 26), ('closing', 26, 50)]
 DOCKDOOR_KEYS = [(1, 0.0, 0.0), (2, 0.0, 0.0), (9, -0.25, 0.0), (25, -0.25, -3.6), (26, -0.25, -3.6), (43, -0.25, 0.0), (50, 0.0, 0.0)]
@@ -99,6 +101,7 @@ detail_src = []
 anim_parts = []
 cap_parts = []
 walk_parts = []
+fence_parts = []
 for o in src_rebuild.all_objects:
     if o.type != 'MESH' or o.name in EXCLUDE:
         continue
@@ -128,6 +131,11 @@ for o in src_rebuild.all_objects:
         ob.name = WALK_PARTS[o.name]
         ob.data.name = ob.name
         walk_parts.append(ob)
+    elif o.name in FENCE_PARTS:
+        ob = copy_mesh(o, True)
+        ob.name = FENCE_PARTS[o.name]
+        ob.data.name = ob.name
+        fence_parts.append(ob)
     elif o.get('hcr_group', o.name) in DETAIL:
         detail_src.append(copy_mesh(o, True))
     elif o.name in CAPS:
@@ -146,6 +154,8 @@ for ob in cap_parts:
     set_geo_tags(ob, ['noshadowcaster'])
 for ob in walk_parts:
     set_geo_tags(ob, ['detail_xl', 'forceoutline', 'platformcollision'])
+for ob in fence_parts:
+    set_geo_tags(ob, FENCE_TAGS)
 engine_parts = []
 for o in (src_engines.objects if src_engines else []):
     if o.type != 'MESH':
@@ -161,7 +171,7 @@ for o in (src_pos.objects if src_pos else []):
     ob = copy_mesh(o, False)
     set_geo_tags(ob, [t for t in (o.get('tags') or '').split() if t != 'part'])
     POS_BLINK[ob] = json.loads(o['blink'])
-for ob in [part_main, detail] + anim_parts + walk_parts + engine_parts + list(POS_BLINK):
+for ob in [part_main, detail] + anim_parts + walk_parts + fence_parts + engine_parts + list(POS_BLINK):
     add_vertex_data(ob)
 
 for idx, ratio in LODS:

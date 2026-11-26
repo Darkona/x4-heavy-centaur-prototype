@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 09:38:03 from Blender-->
+<!--Exported on 2026-11-26 10:17:35 from Blender-->
 <components>
   <component name="ship_arg_l_hcp_01" class="ship_m">
     <source geometry="extensions\heavy_centaur_prototype\assets\units\size_l\ship_arg_l_hcp_01_data" />
@@ -156,6 +156,11 @@
 </layer>
     </layers>
     <connections>
+      <connection name="con_shield_l_01" tags="large shield hcp_shield">
+        <offset>
+          <position x="0" y="-10" z="-45" />
+        </offset>
+      </connection>
       <connection name="space" tags="ship_l ship" />
       <connection name="position" tags="position" value="1" />
       <connection name="con_cockpit" tags="cockpit cockpit_visible ">
@@ -189,10 +194,10 @@
           <quaternion qx="0" qy="-0.7071066" qz="0" qw="-0.7071069" />
         </offset>
       </connection>
-      <connection name="con_dockarea_arg_s_ship_01" tags="dockarea ">
+      <connection name="con_dockarea_hcp_s_01" tags="dockarea ">
         <offset>
-          <position x="0.6300049" y="-40.47" z="-0.13" />
-          <quaternion qx="0" qy="0" qz="1" qw="-7.54979e-08" />
+          <position x="0" y="5.1436" z="4.3142" />
+          <quaternion qx="0.0143643" qy="0" qz="0" qw="-0.9998968" />
         </offset>
       </connection>
       <connection name="con_engine_01" tags="advanced engine medium ">
@@ -304,16 +309,6 @@
           <position x="0" y="28.85" z="-71" />
         </offset>
       </connection>
-      <connection name="con_shield_l_01" tags="large shield hcp_shield">
-        <offset>
-          <position x="0" y="-10" z="-45" />
-        </offset>
-      </connection>
-      <connection name="con_shipstorage_s_01" tags="dockingbay ">
-        <offset>
-          <position x="0" y="-30" z="0" />
-        </offset>
-      </connection>
       <connection name="con_shipstorage_xs_01" tags="dockingbay ">
         <offset>
           <position x="0" y="-30" z="-4" />
@@ -374,7 +369,7 @@
       </connection>
       <connection name="con_turret_vls_01" tags="nocollision part hcp_vls_hatchmount" hidden="true">
         <offset>
-          <position x="0" y="-4.765" z="10" />
+          <position x="0" y="-3.875" z="18" />
           <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
         </offset>
         <parts>
@@ -395,7 +390,7 @@
       </connection>
       <connection name="ConnectionForanim_vlshatch_01_a" tags="animation detail_xl forceoutline nocollision part " parent="anim_dummy_turrethatch_vls_01">
         <offset>
-          <position x="2" y="0.01646233" z="9.109391" />
+          <position x="2" y="0.01646423" z="9.109391" />
           <quaternion qx="-0.9984885" qy="0" qz="0" qw="-0.05496183" />
         </offset>
         <animations>
@@ -417,7 +412,7 @@
               </lod>
             </lods>
             <size>
-              <max x="0.975" y="1.97" z="0.1250005" />
+              <max x="0.975" y="1.97" z="0.125" />
               <center x="-1.005" y="0" z="0.2749996" />
             </size>
             <size_raw>
@@ -429,7 +424,7 @@
       </connection>
       <connection name="ConnectionForanim_vlshatch_01_b" tags="animation detail_xl forceoutline nocollision part " parent="anim_dummy_turrethatch_vls_01">
         <offset>
-          <position x="-2" y="0.01646233" z="9.109391" />
+          <position x="-2" y="0.01646423" z="9.109391" />
           <quaternion qx="-0.9984885" qy="0" qz="0" qw="-0.05496183" />
         </offset>
         <animations>
@@ -451,7 +446,7 @@
               </lod>
             </lods>
             <size>
-              <max x="0.975" y="1.97" z="0.1250005" />
+              <max x="0.975" y="1.97" z="0.125" />
               <center x="1.005" y="0" z="0.2749996" />
             </size>
             <size_raw>
@@ -582,7 +577,7 @@
       </connection>
       <connection name="con_weapon_vls_01" tags="medium missile weapon hcp_vls symmetry symmetry_top symmetry_left symmetry_5 ">
         <offset>
-          <position x="0" y="-4.765" z="10" />
+          <position x="0" y="-3.875" z="18" />
         </offset>
       </connection>
       <connection name="con_weapon_vls_02" tags="medium missile weapon hcp_vls symmetry symmetry_top symmetry_right symmetry_5 ">
@@ -1210,6 +1205,8 @@
                   <material id="2" ref="p2generic.gen_p2_hulltexture_01" />
                   <material id="3" ref="generic.generic_p1_fx" />
                   <material id="4" ref="p2fx.fx_p2_gradientcolour_01" />
+                  <material id="5" ref="generic.generic_p1_alphatexture" />
+                  <material id="6" ref="p1paint.paint_p1_decal_01" />
                 </materials>
               </lod>
             </lods>
@@ -1233,6 +1230,23 @@
             <size>
               <max x="8.644287" y="3.512198" z="2.991989" />
               <center x="0.01760864" y="23.36558" z="-60.70802" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="ConnectionForpart_dock_fence" tags="detail_xl forceoutline part walk_forbidden ">
+        <parts>
+          <part name="part_dock_fence">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="p2generic.gen_p2_hulltexture_01" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="18.58792" y="1.113522" z="20.47417" />
+              <center x="0" y="5.237057" z="-14.12712" />
             </size>
           </part>
         </parts>
@@ -1337,7 +1351,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main951139141166986048" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main951138804728625216" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="-0.04780692" qz="0.001863591" qw="-0.9980968" />
@@ -1359,7 +1373,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main952139141166986176" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main952138804728625344" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-5.8927" y="-7.652972" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="-0.03376869" qz="0.0007361233" qw="-0.9991921" />
@@ -1381,7 +1395,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main953139141166986304" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main953138804728625472" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="5.8927" y="-7.652973" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="0.03376869" qz="-0.0007361233" qw="-0.9991921" />
@@ -1403,7 +1417,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main954139141166986432" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main954138804728625600" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="0.04780692" qz="-0.001863591" qw="-0.9980968" />
@@ -1425,7 +1439,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main955139141166986560" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main955138804728625728" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-13.49152" y="5.840501" z="-96.35839" />
           <quaternion qx="-0.04646049" qy="-0.03891892" qz="0.001811526" qw="-0.9981601" />
@@ -1447,7 +1461,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main956139141166986688" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main956138804728625856" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="13.49146" y="5.840504" z="-96.3584" />
           <quaternion qx="-0.04646049" qy="0.03891892" qz="-0.001811526" qw="-0.9981601" />
@@ -1469,7 +1483,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main957139141166986816" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main957138804728625984" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="0" y="9.107853" z="-100.8717" />
           <quaternion qx="-0.024426" qy="0" qz="0" qw="-0.9997016" />

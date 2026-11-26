@@ -60,7 +60,7 @@ if 'con_weapon_vls_01' not in text:
     anchor = '      <connection name="con_weapon_missile_01"'
     assert text.count(anchor) == 1
     slots = ''
-    for n, side, pos in (('01', 'left', 'x="0" y="-4.765" z="10"'), ('02', 'right', 'x="0" y="-2.782" z="30"')):
+    for n, side, pos in (('01', 'left', 'x="0" y="-3.875" z="18"'), ('02', 'right', 'x="0" y="-2.782" z="30"')):
         slots += (f'      <connection name="con_weapon_vls_{n}" tags="medium missile weapon hcp_vls symmetry symmetry_top symmetry_{side} symmetry_5 ">\n'
                   f'        <offset>\n          <position {pos} />\n        </offset>\n      </connection>\n')
     text = text.replace(anchor, slots + anchor)
