@@ -18,6 +18,8 @@
         <weapon macro="weapon_gen_m_dumbfire_02_mk1_macro" path="../con_weapon_missile_01" optional="1" />
         <weapon macro="weapon_gen_m_dumbfire_02_mk1_macro" path="../con_weapon_missile_02" optional="1" />
         <shield macro="shield_arg_l_hcp_internal_01_mk1_macro" path="../con_shield_l_01" />
+        <turret macro="turret_arg_m_gatling_01_mk1_macro" path="../con_turret_01" />
+        <turret macro="turret_arg_m_gatling_01_mk1_macro" path="../con_turret_02" />
       </macros>
       <software>
         <software ware="software_dockmk2" />

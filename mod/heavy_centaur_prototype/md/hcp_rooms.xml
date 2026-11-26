@@ -1,89 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mdscript name="HcpRooms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
   <cues>
-    <cue name="CrewQuarters" instantiate="true">
+    <cue name="Watch" checkinterval="1s">
       <conditions>
-        <check_any>
-          <event_object_changed_attention group="md.NPC_Instantiation.Instantiation.$TrackedObjects" />
-          <event_object_signalled group="md.NPC_Instantiation.Instantiation.$TrackedObjects" param="'npc_instantiation__force'" />
-        </check_any>
-        <check_value value="event.object.macro == macro.ship_arg_l_hcp_01_a_macro and event.object.attention ge attention.nearby and event.object.canhavedynamicinterior and not [faction.ownerless, faction.xenon, faction.khaak].indexof.{event.object.owner}" />
-        <count_rooms object="event.object" roomtype="roomtype.crewquarters" exact="0" />
+        <check_value value="md.NPC_Instantiation.Instantiation.$TrackedObjects?" />
       </conditions>
-      <actions>
-        <set_value name="this.$Object" exact="event.object" />
-        <create_dynamic_interior object="this.$Object" corridor="macro.room_arg_corridor_01_macro" door="'con_room_01'" room="macro.room_gen_common_01_macro" name="'{20007,1251}'" interiorname="this.$Interior" corridorname="this.$Corridor" roomname="this.$Room" roomtype="roomtype.crewquarters" />
-        <do_if value="this.$Interior and this.$Corridor and this.$Room">
-          <signal_objects object="this.$Object" param="'interior_created'" param2="this.$Room" param3="this.$Interior" />
-          <create_position name="$RoomPos" space="this.$Object" object="this.$Room" />
-          <create_position name="$CorridorPos" space="this.$Object" object="this.$Corridor" />
-          <debug_text text="'hcp-rooms: crew quarters room at ' + $RoomPos + ', corridor at ' + $CorridorPos" filter="error" />
-        </do_if>
-        <do_else>
-          <debug_text text="'hcp-rooms: crew quarters not created on ' + this.$Object.knownname" filter="error" />
-        </do_else>
-      </actions>
+      <actions />
       <cues>
-        <cue name="CrewQuarters_Remove">
-          <conditions>
-            <check_any>
-              <event_object_interiors_despawning object="parent.$Object" />
-              <event_object_destroyed object="parent.$Object" />
-              <check_all>
-                <event_object_signalled object="parent.$Object" param="'request_remove_interiors'" />
-                <check_value value="not player.entity.hascontext.{parent.$Interior}" />
-              </check_all>
-            </check_any>
-          </conditions>
+        <cue name="Kick">
+          <delay exact="3s" />
           <actions>
-            <do_if value="parent.$Interior?">
-              <remove_dynamic_interior object="parent.$Object" interior="parent.$Interior" />
-            </do_if>
-            <cancel_cue cue="parent" />
+            <signal_cue cue="Refresh" />
           </actions>
         </cue>
-      </cues>
-    </cue>
-    <cue name="CaptainsOffice" instantiate="true">
-      <conditions>
-        <check_any>
-          <event_object_changed_attention group="md.NPC_Instantiation.Instantiation.$TrackedObjects" />
-          <event_object_signalled group="md.NPC_Instantiation.Instantiation.$TrackedObjects" param="'npc_instantiation__force'" />
-        </check_any>
-        <check_value value="event.object.macro == macro.ship_arg_l_hcp_01_a_macro and event.object.attention ge attention.nearby and event.object.canhavedynamicinterior and not [faction.ownerless, faction.xenon, faction.khaak].indexof.{event.object.owner}" />
-        <count_rooms object="event.object" roomtype="roomtype.playeroffice" exact="0" />
-      </conditions>
-      <actions>
-        <set_value name="this.$Object" exact="event.object" />
-        <create_dynamic_interior object="this.$Object" corridor="macro.room_arg_corridor_01_macro" door="'con_room_01'" room="macro.room_gen_playeroffice_01_macro" name="'{1931170,301}'" interiorname="this.$Interior" corridorname="this.$Corridor" roomname="this.$Room" roomtype="roomtype.playeroffice" />
-        <do_if value="this.$Interior and this.$Corridor and this.$Room">
-          <signal_objects object="this.$Object" param="'interior_created'" param2="this.$Room" param3="this.$Interior" />
-          <create_position name="$RoomPos" space="this.$Object" object="this.$Room" />
-          <create_position name="$CorridorPos" space="this.$Object" object="this.$Corridor" />
-          <debug_text text="'hcp-rooms: captain office room at ' + $RoomPos + ', corridor at ' + $CorridorPos" filter="error" />
-        </do_if>
-        <do_else>
-          <debug_text text="'hcp-rooms: captain office not created on ' + this.$Object.knownname" filter="error" />
-        </do_else>
-      </actions>
-      <cues>
-        <cue name="CaptainsOffice_Remove">
+        <cue name="Refresh" instantiate="true">
           <conditions>
             <check_any>
-              <event_object_interiors_despawning object="parent.$Object" />
-              <event_object_destroyed object="parent.$Object" />
-              <check_all>
-                <event_object_signalled object="parent.$Object" param="'request_remove_interiors'" />
-                <check_value value="not player.entity.hascontext.{parent.$Interior}" />
-              </check_all>
+              <event_cue_signalled />
+              <event_game_loaded />
             </check_any>
           </conditions>
+          <delay exact="3s" />
           <actions>
-            <do_if value="parent.$Interior?">
-              <remove_dynamic_interior object="parent.$Object" interior="parent.$Interior" />
-            </do_if>
-            <cancel_cue cue="parent" />
+            <do_all exact="md.NPC_Instantiation.Instantiation.$TrackedObjects.count" counter="$i">
+              <do_if value="md.NPC_Instantiation.Instantiation.$TrackedObjects.{$i}.macro == macro.ship_arg_l_hcp_01_a_macro">
+                <signal_objects object="md.NPC_Instantiation.Instantiation.$TrackedObjects.{$i}" param="'hcp_rooms__check'" />
+              </do_if>
+            </do_all>
           </actions>
+        </cue>
+        <cue name="CrewQuarters" instantiate="true">
+          <conditions>
+            <check_any>
+              <event_object_changed_attention group="md.NPC_Instantiation.Instantiation.$TrackedObjects" />
+              <event_object_signalled group="md.NPC_Instantiation.Instantiation.$TrackedObjects" param="'npc_instantiation__force'" />
+              <event_object_signalled group="md.NPC_Instantiation.Instantiation.$TrackedObjects" param="'hcp_rooms__check'" />
+            </check_any>
+            <check_value value="event.object.macro == macro.ship_arg_l_hcp_01_a_macro and event.object.attention ge attention.nearby and event.object.canhavedynamicinterior and not [faction.ownerless, faction.xenon, faction.khaak].indexof.{event.object.owner}" />
+            <count_rooms object="event.object" roomtype="roomtype.crewquarters" exact="0" />
+          </conditions>
+          <actions>
+            <set_value name="this.$Object" exact="event.object" />
+            <create_dynamic_interior object="this.$Object" corridor="macro.room_arg_corridor_01_macro" door="'con_room_01'" room="macro.room_gen_common_01_macro" name="'{20007,1251}'" interiorname="this.$Interior" corridorname="this.$Corridor" roomname="this.$Room" roomtype="roomtype.crewquarters" />
+            <do_if value="this.$Interior and this.$Corridor and this.$Room">
+              <signal_objects object="this.$Object" param="'interior_created'" param2="this.$Room" param3="this.$Interior" />
+              <create_position name="$RoomPos" space="this.$Object" object="this.$Room" />
+              <create_position name="$CorridorPos" space="this.$Object" object="this.$Corridor" />
+              <debug_text text="'hcp-rooms: crew quarters room at ' + $RoomPos + ', corridor at ' + $CorridorPos" filter="error" />
+            </do_if>
+            <do_else>
+              <debug_text text="'hcp-rooms: crew quarters not created on ' + this.$Object.knownname" filter="error" />
+            </do_else>
+          </actions>
+          <cues>
+            <cue name="CrewQuarters_Remove">
+              <conditions>
+                <check_any>
+                  <event_object_interiors_despawning object="parent.$Object" />
+                  <event_object_destroyed object="parent.$Object" />
+                  <check_all>
+                    <event_object_signalled object="parent.$Object" param="'request_remove_interiors'" />
+                    <check_value value="not player.entity.hascontext.{parent.$Interior}" />
+                  </check_all>
+                </check_any>
+              </conditions>
+              <actions>
+                <do_if value="parent.$Interior?">
+                  <remove_dynamic_interior object="parent.$Object" interior="parent.$Interior" />
+                </do_if>
+                <cancel_cue cue="parent" />
+              </actions>
+            </cue>
+          </cues>
+        </cue>
+        <cue name="CaptainsOffice" instantiate="true">
+          <conditions>
+            <check_any>
+              <event_object_changed_attention group="md.NPC_Instantiation.Instantiation.$TrackedObjects" />
+              <event_object_signalled group="md.NPC_Instantiation.Instantiation.$TrackedObjects" param="'npc_instantiation__force'" />
+              <event_object_signalled group="md.NPC_Instantiation.Instantiation.$TrackedObjects" param="'hcp_rooms__check'" />
+            </check_any>
+            <check_value value="event.object.macro == macro.ship_arg_l_hcp_01_a_macro and event.object.attention ge attention.nearby and event.object.canhavedynamicinterior and not [faction.ownerless, faction.xenon, faction.khaak].indexof.{event.object.owner}" />
+            <count_rooms object="event.object" roomtype="roomtype.playeroffice" exact="0" />
+          </conditions>
+          <actions>
+            <set_value name="this.$Object" exact="event.object" />
+            <create_dynamic_interior object="this.$Object" corridor="macro.room_arg_corridor_01_macro" door="'con_room_01'" room="macro.room_gen_playeroffice_01_macro" name="'{1931170,301}'" interiorname="this.$Interior" corridorname="this.$Corridor" roomname="this.$Room" roomtype="roomtype.playeroffice" />
+            <do_if value="this.$Interior and this.$Corridor and this.$Room">
+              <signal_objects object="this.$Object" param="'interior_created'" param2="this.$Room" param3="this.$Interior" />
+              <create_position name="$RoomPos" space="this.$Object" object="this.$Room" />
+              <create_position name="$CorridorPos" space="this.$Object" object="this.$Corridor" />
+              <debug_text text="'hcp-rooms: captain office room at ' + $RoomPos + ', corridor at ' + $CorridorPos" filter="error" />
+            </do_if>
+            <do_else>
+              <debug_text text="'hcp-rooms: captain office not created on ' + this.$Object.knownname" filter="error" />
+            </do_else>
+          </actions>
+          <cues>
+            <cue name="CaptainsOffice_Remove">
+              <conditions>
+                <check_any>
+                  <event_object_interiors_despawning object="parent.$Object" />
+                  <event_object_destroyed object="parent.$Object" />
+                  <check_all>
+                    <event_object_signalled object="parent.$Object" param="'request_remove_interiors'" />
+                    <check_value value="not player.entity.hascontext.{parent.$Interior}" />
+                  </check_all>
+                </check_any>
+              </conditions>
+              <actions>
+                <do_if value="parent.$Interior?">
+                  <remove_dynamic_interior object="parent.$Object" interior="parent.$Interior" />
+                </do_if>
+                <cancel_cue cue="parent" />
+              </actions>
+            </cue>
+          </cues>
         </cue>
       </cues>
     </cue>
