@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 09:23:29 from Blender-->
+<!--Exported on 2026-11-26 09:34:22 from Blender-->
 <components>
   <component name="turret_arg_m_hcp_arc_01_mk1" class="turret">
     <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_arc_01_mk1_data" />
@@ -54,11 +54,14 @@
         </parts>
       </connection>
       <connection name="ConnectionForpart_gun" tags="forceoutline iklink nocollision part " parent="part_rotator">
+        <offset>
+          <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
+        </offset>
         <restrictions>
           <restriction type="rotation_x">
             <limits>
-              <min value="5" />
-              <max value="90.00000250447816" />
+              <min value="-85" />
+              <max value="0" />
             </limits>
           </restriction>
         </restrictions>
@@ -68,9 +71,10 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hulltexture" />
-                  <material id="2" ref="p2boron.bor_p2_hulltexture_01" />
-                  <material id="3" ref="p2boron.bor_p2_hullpattern_03_a" />
-                  <material id="4" ref="p2boron.bor_p2_fx_01" />
+                  <material id="2" ref="p2generic.gen_p2_hulltexture_01" />
+                  <material id="3" ref="p2boron.bor_p2_hulltexture_01" />
+                  <material id="4" ref="p2boron.bor_p2_hullpattern_03_a" />
+                  <material id="5" ref="p2boron.bor_p2_fx_01" />
                 </materials>
               </lod>
             </lods>
@@ -84,19 +88,19 @@
       <connection name="con_laser_01" tags="laser " parent="part_gun">
         <offset>
           <position x="0.6625619" y="-0.2370761" z="5.555793" />
-          <quaternion qx="3.619314e-09" qy="-1.397162e-09" qz="2.254728e-08" qw="-1" />
+          <quaternion qx="3.619313e-09" qy="-1.397162e-09" qz="2.254728e-08" qw="-1" />
         </offset>
       </connection>
       <connection name="con_laser_02" tags="laser " parent="part_gun">
         <offset>
           <position x="-0.6626416" y="-0.2370761" z="5.555792" />
-          <quaternion qx="3.619314e-09" qy="-1.397162e-09" qz="2.254728e-08" qw="-1" />
+          <quaternion qx="3.619313e-09" qy="-1.397162e-09" qz="2.254728e-08" qw="-1" />
         </offset>
       </connection>
       <connection name="ConnectionForpart_detail_rotator_01" tags="detail_l forceoutline fx iklink nocollision part " parent="part_gun">
         <offset>
           <position x="-3.922209e-05" y="-0.06451338" z="2.664751" />
-          <quaternion qx="3.419313e-09" qy="-1.397162e-09" qz="2.254728e-08" qw="-1" />
+          <quaternion qx="-5.960464e-08" qy="-1.397162e-09" qz="2.254728e-08" qw="-1" />
         </offset>
         <parts>
           <part name="part_detail_rotator_01">

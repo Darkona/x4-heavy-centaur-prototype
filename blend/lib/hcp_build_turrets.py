@@ -15,6 +15,8 @@ SPEC = json.load(open(ARGS[0]))
 UV_PER_M = 20.0 / 2048.0
 MOUNT = ('con_turret', 'turret medium hittable component combat hcp_turret')
 SPHERE_RADIUS = 3.65
+BALL_MATERIALS = ('generic.generic_p1_hulltexture', 'p2generic.gen_p2_hulltexture_01')
+BALL_UV_PER_M = 0.0067
 SWAP = Matrix(((1, 0, 0, 0), (0, 0, 1, 0), (0, 1, 0, 0), (0, 0, 0, 1)))
 MATERIALS = {
     'argon_armor': 'generic.generic_p1_hullpattern',
@@ -128,7 +130,7 @@ def build_mesh(name, data, obj, swap):
     return ob
 
 
-def box_uv(me):
+def box_uv(me, per_m=UV_PER_M):
     if not me.uv_layers:
         me.uv_layers.new(name='uv1')
     uvl = me.uv_layers[0]
@@ -138,7 +140,7 @@ def box_uv(me):
         a, b = [i for i in range(3) if i != ax]
         for li in p.loop_indices:
             co = me.vertices[me.loops[li].vertex_index].co
-            uvl.data[li].uv = (co[a] * UV_PER_M + 0.5, co[b] * UV_PER_M + 0.5)
+            uvl.data[li].uv = (co[a] * per_m + 0.5, co[b] * per_m + 0.5)
 
 
 def load_pieces(paths):
@@ -259,6 +261,17 @@ def hidden_part(name, shape, size):
     return ob
 
 
+def hull_material(me):
+    me.materials.clear()
+    for name in BALL_MATERIALS:
+        me.materials.append(material(name))
+    for p in me.polygons:
+        p.material_index = len(BALL_MATERIALS) - 1
+    for uv in list(me.uv_layers):
+        me.uv_layers.remove(uv)
+    box_uv(me, BALL_UV_PER_M)
+
+
 def x4_matrix(rows):
     return SWAP @ Matrix(rows) @ SWAP
 
@@ -286,6 +299,7 @@ def build(t):
     base = hidden_part('part_base', 'sphere', SPHERE_RADIUS - 0.1)
     rotator = hidden_part('part_rotator', 'cube', 0.17)
     ball = join_copies(ball_src, 'ball_tmp', Matrix.Identity(4), ORIGIN)
+    hull_material(ball.data)
     merged = [part_mesh(q) for q in t['parts'] if q['merged']]
     gun = join([ball] + merged, 'part_gun', ORIGIN)
     rotator.parent = base
@@ -294,8 +308,9 @@ def build(t):
     gun.parent = rotator
     gun.matrix_parent_inverse = Matrix.Identity(4)
     gun.location = ORIGIN
+    gun.rotation_euler = (math.radians(90.0), 0.0, 0.0)
     limit(rotator, x=(0, 0), y=(0, 0), z=None)
-    limit(gun, x=(-1, SPEC['elevation'][1]), y=(0, 0), z=(0, 0))
+    limit(gun, x=(-1, 91), y=(0, 0), z=(0, 0))
     objects = {'part_gun': gun}
     pending = [q for q in t['parts'] if not q['merged']]
     while pending:

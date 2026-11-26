@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 09:23:13 from Blender-->
+<!--Exported on 2026-11-26 09:34:06 from Blender-->
 <components>
   <component name="turret_arg_m_hcp_borlaser_01_mk1" class="turret">
     <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_borlaser_01_mk1_data" />
@@ -54,11 +54,14 @@
         </parts>
       </connection>
       <connection name="ConnectionForpart_gun" tags="forceoutline iklink nocollision part " parent="part_rotator">
+        <offset>
+          <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
+        </offset>
         <restrictions>
           <restriction type="rotation_x">
             <limits>
-              <min value="5" />
-              <max value="90.00000250447816" />
+              <min value="-85" />
+              <max value="0" />
             </limits>
           </restriction>
         </restrictions>
@@ -68,9 +71,10 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hulltexture" />
-                  <material id="2" ref="p2boron.bor_p2_hulltexture_01" />
-                  <material id="3" ref="p2boron.bor_p2_hullpattern_03_a" />
-                  <material id="4" ref="p2boron.bor_p2_fx_01" />
+                  <material id="2" ref="p2generic.gen_p2_hulltexture_01" />
+                  <material id="3" ref="p2boron.bor_p2_hulltexture_01" />
+                  <material id="4" ref="p2boron.bor_p2_hullpattern_03_a" />
+                  <material id="5" ref="p2boron.bor_p2_fx_01" />
                 </materials>
               </lod>
             </lods>
@@ -84,7 +88,7 @@
       <connection name="ConnectionForpart_barrel" tags="animation forceoutline iklink nocollision part " parent="part_gun">
         <offset>
           <position x="-3.36104e-05" y="-0.2233032" z="2.013111" />
-          <quaternion qx="0" qy="0" qz="0" qw="-1" />
+          <quaternion qx="-5.960464e-08" qy="0" qz="0" qw="-1" />
         </offset>
         <parts>
           <part name="part_barrel">
@@ -115,8 +119,8 @@
       </connection>
       <connection name="ConnectionForpart_barrel_01" tags="animation forceoutline iklink nocollision part " parent="part_barrel">
         <offset>
-          <position x="0" y="1.192093e-07" z="1.67495" />
-          <quaternion qx="-0.001029707" qy="4.976e-07" qz="-5.000001e-10" qw="-0.9999995" />
+          <position x="0" y="1.341105e-07" z="1.67495" />
+          <quaternion qx="-0.00102967" qy="4.976e-07" qz="-5.000047e-10" qw="-0.9999995" />
         </offset>
         <parts>
           <part name="part_barrel_01">
@@ -137,7 +141,7 @@
       <connection name="ConnectionForpart_detail_gun" tags="detail_l forceoutline fx iklink nocollision part " parent="part_gun">
         <offset>
           <position x="-3.52071e-05" y="-0.0613792" z="2.666599" />
-          <quaternion qx="0" qy="0" qz="0" qw="-1" />
+          <quaternion qx="-5.960464e-08" qy="0" qz="0" qw="-1" />
         </offset>
         <parts>
           <part name="part_detail_gun">
@@ -158,7 +162,7 @@
       <connection name="ConnectionForpart_detail_rotator" tags="detail_l forceoutline fx iklink nocollision part " parent="part_gun">
         <offset>
           <position x="-3.90625e-05" y="-0.2003115" z="2.402644" />
-          <quaternion qx="8.181607e-09" qy="0" qz="0" qw="-1" />
+          <quaternion qx="-5.960464e-08" qy="0" qz="0" qw="-1" />
         </offset>
         <parts>
           <part name="part_detail_rotator">

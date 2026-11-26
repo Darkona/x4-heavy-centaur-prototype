@@ -45,7 +45,7 @@ TURRETS = {
 BALL = 'flak_ball.obj'
 GUNS = 'guns.json'
 MERGED = {'part_gun'}
-ELEVATION = (5, 90)
+ELEVATION = (-85, 0)
 VANILLA = {
     'laser': ('base', 'turret_arg_m_laser_02_mk1', 'Laser', 'láser'),
     'gatling': ('base', 'turret_arg_m_gatling_02_mk1', 'Bolt Repeater', 'repetidora'),
@@ -316,7 +316,7 @@ def prepare(kinds, source_dir=SOURCE_DIR):
     ball = source_dir / BALL
     if not ball.is_file():
         sys.exit(f'hcp_turrets: no {BALL} in {source_dir}')
-    spec = {'ball': str(ball), 'out_dir': str(ASSETS / SUB), 'elevation': ELEVATION, 'turrets': [gun_spec(kind, source_dir, xmf) for kind in kinds]}
+    spec = {'ball': str(ball), 'out_dir': str(ASSETS / SUB), 'turrets': [gun_spec(kind, source_dir, xmf) for kind in kinds]}
     for t in spec['turrets']:
         (WORK / f"spec_{t['kind']}.json").write_text(json.dumps(t, indent=1))
     path = WORK / 'spec.json'
@@ -399,8 +399,8 @@ def convert(timeout=600):
 
 def patch_component(xml_path, states):
     text = xml_path.read_text()
-    text, k = re.subn(r'(<restriction type="rotation_x">\s*<limits>\s*<min value=")-0\.99\d*(")', rf'\g<1>{ELEVATION[0]}\g<2>', text)
-    assert k == 1 or f'<min value="{ELEVATION[0]}"' in text, xml_path
+    text, k = re.subn(r'(<restriction type="rotation_x">\s*<limits>\s*<min value=")[^"]*("\s*/>\s*<max value=")[^"]*(")', rf'\g<1>{ELEVATION[0]}\g<2>{ELEVATION[1]}\g<3>', text)
+    assert k == 1, xml_path
     if states and '<animations>' not in text:
         block = ''.join(f'          <animation name="{n}" start="{a}" end="{b}" />\n' for n, a, b in states)
         text, k = re.subn(r'(<connection name="ConnectionForpart_base" tags=")([^"]*)("[^>]*>\n)', lambda m: m.group(1) + 'animation ' + m.group(2) + m.group(3) + '        <animations>\n' + block + '        </animations>\n', text, count=1)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 09:22:59 from Blender-->
+<!--Exported on 2026-11-26 09:33:52 from Blender-->
 <components>
   <component name="turret_arg_m_hcp_shotgun_01_mk1" class="turret">
     <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_shotgun_01_mk1_data" />
@@ -55,11 +55,14 @@
         </parts>
       </connection>
       <connection name="ConnectionForpart_gun" tags="forceoutline iklink nocollision part " parent="part_rotator">
+        <offset>
+          <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
+        </offset>
         <restrictions>
           <restriction type="rotation_x">
             <limits>
-              <min value="5" />
-              <max value="90.00000250447816" />
+              <min value="-85" />
+              <max value="0" />
             </limits>
           </restriction>
         </restrictions>
@@ -69,6 +72,7 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hulltexture" />
+                  <material id="2" ref="p2generic.gen_p2_hulltexture_01" />
                 </materials>
               </lod>
             </lods>
@@ -82,7 +86,7 @@
       <connection name="ConnectionForpart_barrel" tags="forceoutline iklink nocollision part " parent="part_gun">
         <offset>
           <position x="1.249342e-06" y="0.5920998" z="3.179001" />
-          <quaternion qx="-1.972775e-07" qy="1.724025e-07" qz="2.421997e-09" qw="-1" />
+          <quaternion qx="-1.788139e-07" qy="1.724025e-07" qz="2.422008e-09" qw="-1" />
         </offset>
         <parts>
           <part name="part_barrel">
@@ -103,7 +107,7 @@
       </connection>
       <connection name="con_standard_01" tags="laser " parent="part_barrel">
         <offset>
-          <position x="-8.158385e-07" y="0.02231644" z="2.980561" />
+          <position x="-8.158387e-07" y="0.0223164" z="2.980561" />
           <quaternion qx="2.8213e-07" qy="4.331258e-07" qz="1" qw="-4.371151e-08" />
         </offset>
       </connection>

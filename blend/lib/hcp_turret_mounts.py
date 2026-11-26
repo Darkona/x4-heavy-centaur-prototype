@@ -26,6 +26,10 @@ MATERIALS = {
     'visor_cyan': 'p2generic.gen_p2_cockpitglassoutside_01',
     'visor_glass': 'p2generic.gen_p2_cockpitglassoutside_01',
 }
+HULL_LOOK = {
+    'socket': (('generic.generic_p1_hullpattern', 'p2generic.gen_p2_hullpattern_01'), 0.0095),
+    'shell': (('generic.generic_p1_hulltexture', 'p2generic.gen_p2_hulltexture_01'), 0.0067),
+}
 PREFIX = 'hcr_turret_mount_'
 
 
@@ -107,7 +111,7 @@ def signed_volume(me):
     return total
 
 
-def bake(me, local, outward, name, mats):
+def bake(me, local, outward, name, mats, look=None):
     data = me.copy()
     data.name = name
     data.transform(Matrix(local.tolist()))
@@ -118,17 +122,25 @@ def bake(me, local, outward, name, mats):
         bm.to_mesh(data)
         bm.free()
     data.materials.clear()
+    if look:
+        mats = look[0]
     for m in mats:
         base = re.sub(r'\.\d{3}$', '', m)
         mat = bpy.data.materials.get(MATERIALS.get(base, base))
         assert mat is not None, m
         data.materials.append(mat)
-    if not data.uv_layers:
+    if look:
+        for p in data.polygons:
+            p.material_index = len(mats) - 1
+        for uv in list(data.uv_layers):
+            data.uv_layers.remove(uv)
+        box_uv(data, look[1])
+    elif not data.uv_layers:
         box_uv(data)
     return data
 
 
-def box_uv(me):
+def box_uv(me, per_m=UV_PER_M):
     uvl = me.uv_layers.new(name='UVMap')
     for p in me.polygons:
         n = p.normal
@@ -136,7 +148,7 @@ def box_uv(me):
         a, b = [i for i in range(3) if i != ax]
         for li in p.loop_indices:
             co = me.vertices[me.loops[li].vertex_index].co
-            uvl.data[li].uv = (co[a] * UV_PER_M + 0.5, co[b] * UV_PER_M + 0.5)
+            uvl.data[li].uv = (co[a] * per_m + 0.5, co[b] * per_m + 0.5)
 
 
 def x4(v, point=False):
@@ -173,14 +185,14 @@ def main():
             ob = pieces[key]
             local = to_local @ np.array(ob.matrix_world)
             name = f'{PREFIX}{n}_{key}'
-            data = bake(ob.data, local, outward[key], name, [m.name for m in ob.data.materials if m])
+            data = bake(ob.data, local, outward[key], name, [m.name for m in ob.data.materials if m], HULL_LOOK.get(key))
             new = bpy.data.objects.new(name, data)
             rebuild.objects.link(new)
             new.matrix_world = Matrix(to_world.tolist())
         local = np.eye(4)
         local[:3, :3] = flip
         name = f'{PREFIX}{n}_shell'
-        data = bake(shell, local, outward['shell'], name, ['argon_armor'])
+        data = bake(shell, local, outward['shell'], name, [], HULL_LOOK['shell'])
         new = bpy.data.objects.new(name, data)
         rebuild.objects.link(new)
         new.matrix_world = Matrix(to_world.tolist())

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 09:22:44 from Blender-->
+<!--Exported on 2026-11-26 09:33:37 from Blender-->
 <components>
   <component name="turret_arg_m_hcp_plasma_01_mk1" class="turret">
     <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_plasma_01_mk1_data" />
@@ -55,11 +55,14 @@
         </parts>
       </connection>
       <connection name="ConnectionForpart_gun" tags="forceoutline iklink nocollision part " parent="part_rotator">
+        <offset>
+          <quaternion qx="0.7071068" qy="0" qz="0" qw="-0.7071068" />
+        </offset>
         <restrictions>
           <restriction type="rotation_x">
             <limits>
-              <min value="5" />
-              <max value="90.00000250447816" />
+              <min value="-85" />
+              <max value="0" />
             </limits>
           </restriction>
         </restrictions>
@@ -69,6 +72,7 @@
               <lod index="0">
                 <materials>
                   <material id="1" ref="generic.generic_p1_hulltexture" />
+                  <material id="2" ref="p2generic.gen_p2_hulltexture_01" />
                 </materials>
               </lod>
             </lods>
@@ -82,7 +86,7 @@
       <connection name="ConnectionForpart_barrel" tags="forceoutline iklink nocollision part " parent="part_gun">
         <offset>
           <position x="0.003803634" y="-0.006550841" z="2.644502" />
-          <quaternion qx="-4.333038e-07" qy="0" qz="0" qw="-1" />
+          <quaternion qx="-3.576279e-07" qy="0" qz="0" qw="-1" />
         </offset>
         <parts>
           <part name="part_barrel">
@@ -103,12 +107,14 @@
       </connection>
       <connection name="con_standard_01" tags="laser " parent="part_barrel">
         <offset>
-          <position x="-1.285078" y="-3.46748e-07" z="1.852138" />
+          <position x="-1.285078" y="-3.469177e-07" z="1.852138" />
+          <quaternion qx="0" qy="0" qz="0" qw="-1" />
         </offset>
       </connection>
       <connection name="con_standard_02" tags="laser " parent="part_barrel">
         <offset>
-          <position x="1.311697" y="-1.388435e-06" z="1.852136" />
+          <position x="1.311697" y="-1.388602e-06" z="1.852136" />
+          <quaternion qx="0" qy="0" qz="0" qw="-1" />
         </offset>
       </connection>
       <connection name="container" tags=" contents" />
