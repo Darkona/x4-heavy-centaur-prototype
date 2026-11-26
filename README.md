@@ -1,6 +1,6 @@
 # Heavy Centaur Prototype
 
-An X4: Foundations 9.00 mod that adds the Heavy Centaur Prototype (HCP), a unique Argon experimental heavy frigate ported from X3: Farnham's Legacy. One derelict copy drifts in Black Hole Sun IV with a Teladi Kestrel in its hangar: find it, repair it and claim it. It has a vertical launch system for torpedoes and guided missiles, a built-in hull shield generator, a bridge and an interior hangar. The ship is not sold anywhere.
+An X4: Foundations 9.00 mod that adds the Heavy Centaur Prototype (HCP), a unique Argon experimental heavy frigate ported from X3: Farnham's Legacy. One derelict copy drifts in Black Hole Sun IV with a Teladi Kestrel on its landing deck: find it, repair it and claim it. It has a vertical launch system for torpedoes and guided missiles, a built-in hull shield generator, a bridge, a walkable S landing deck on its back and its own turrets, built for the ship. The ship is not sold anywhere.
 
 ![Heavy Centaur Prototype](docs/images/preview.jpg)
 
