@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 10:17:35 from Blender-->
+<!--Exported on 2026-11-26 11:21:38 from Blender-->
 <components>
   <component name="ship_arg_l_hcp_01" class="ship_m">
     <source geometry="extensions\heavy_centaur_prototype\assets\units\size_l\ship_arg_l_hcp_01_data" />
@@ -345,14 +345,14 @@
       </connection>
       <connection name="con_turret_05" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="-15.8227" y="3.6758" z="-33.5346" />
-          <quaternion qx="0.3204086" qy="-0.05375483" qz="0.1869044" qw="0.9271006" />
+          <position x="-15.8228" y="4.525" z="-49.7833" />
+          <quaternion qx="-0.1875439" qy="0.9723445" qz="-0.02827178" qw="0.1362873" />
         </offset>
       </connection>
       <connection name="con_turret_06" tags="combat hittable medium turret hcp_turret">
         <offset>
-          <position x="15.8228" y="3.6758" z="-33.5346" />
-          <quaternion qx="0.3204086" qy="0.05375483" qz="-0.1869044" qw="0.9271006" />
+          <position x="15.8228" y="4.525" z="-49.7833" />
+          <quaternion qx="0.1875439" qy="0.9723445" qz="-0.02827178" qw="-0.1362873" />
         </offset>
       </connection>
       <connection name="con_turret_07" tags="combat hittable medium turret hcp_turret">
@@ -1251,25 +1251,6 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_dock_well" tags="detail_xl forceoutline part platformcollision ">
-        <parts>
-          <part name="part_dock_well">
-            <lods>
-              <lod index="0">
-                <materials>
-                  <material id="1" ref="generic.generic_p1_hullpattern" />
-                  <material id="2" ref="generic.generic_p1_hulltexture" />
-                  <material id="3" ref="p2generic.gen_p2_hullpattern_01" />
-                </materials>
-              </lod>
-            </lods>
-            <size>
-              <max x="20.5" y="1.795" z="23" />
-              <center x="0" y="-39.765" z="0" />
-            </size>
-          </part>
-        </parts>
-      </connection>
       <connection name="ConnectionForpart_engines" tags="engineeffect forceoutline nocollision part ">
         <parts>
           <part name="part_engines">
@@ -1297,11 +1278,10 @@
                   <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                   <material id="3" ref="generic.generic_p1_hulltexture" />
                   <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
-                  <material id="5" ref="p2multimat.p2_multimat_01" />
-                  <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="5" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="6" ref="p2multimat.p2_multimat_01" />
                   <material id="7" ref="generic.generic_p1_fx" />
-                  <material id="8" ref="p2fx.fx_p2_gradientcolour_01" />
-                  <material id="9" ref="p2generic.gen_p2_cockpitglassoutside_01" />
+                  <material id="8" ref="p2generic.gen_p2_cockpitglassoutside_01" />
                 </materials>
               </lod>
               <lod index="1">
@@ -1310,11 +1290,10 @@
                   <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                   <material id="3" ref="generic.generic_p1_hulltexture" />
                   <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
-                  <material id="5" ref="p2multimat.p2_multimat_01" />
-                  <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="5" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="6" ref="p2multimat.p2_multimat_01" />
                   <material id="7" ref="generic.generic_p1_fx" />
-                  <material id="8" ref="p2fx.fx_p2_gradientcolour_01" />
-                  <material id="9" ref="p2generic.gen_p2_cockpitglassoutside_01" />
+                  <material id="8" ref="p2generic.gen_p2_cockpitglassoutside_01" />
                 </materials>
               </lod>
               <lod index="2">
@@ -1323,11 +1302,10 @@
                   <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                   <material id="3" ref="generic.generic_p1_hulltexture" />
                   <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
-                  <material id="5" ref="p2multimat.p2_multimat_01" />
-                  <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="5" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="6" ref="p2multimat.p2_multimat_01" />
                   <material id="7" ref="generic.generic_p1_fx" />
-                  <material id="8" ref="p2fx.fx_p2_gradientcolour_01" />
-                  <material id="9" ref="p2generic.gen_p2_cockpitglassoutside_01" />
+                  <material id="8" ref="p2generic.gen_p2_cockpitglassoutside_01" />
                 </materials>
               </lod>
               <lod index="3">
@@ -1336,22 +1314,21 @@
                   <material id="2" ref="p2generic.gen_p2_hullpattern_01" />
                   <material id="3" ref="generic.generic_p1_hulltexture" />
                   <material id="4" ref="p2generic.gen_p2_hulltexture_01" />
-                  <material id="5" ref="p2multimat.p2_multimat_01" />
-                  <material id="6" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="5" ref="p2generic.gen_p2_hullpattern_04" />
+                  <material id="6" ref="p2multimat.p2_multimat_01" />
                   <material id="7" ref="generic.generic_p1_fx" />
-                  <material id="8" ref="p2fx.fx_p2_gradientcolour_01" />
-                  <material id="9" ref="p2generic.gen_p2_cockpitglassoutside_01" />
+                  <material id="8" ref="p2generic.gen_p2_cockpitglassoutside_01" />
                 </materials>
               </lod>
             </lods>
             <size>
-              <max x="60.37569" y="36.943" z="131.0339" />
-              <center x="0" y="-2.507" z="-2.067963" />
+              <max x="60.37569" y="36.018" z="131.0339" />
+              <center x="0" y="-1.581999" z="-2.067963" />
             </size>
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main951138804728625216" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main951136846513009088" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="-0.04780692" qz="0.001863591" qw="-0.9980968" />
@@ -1373,7 +1350,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main952138804728625344" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main952136846513009216" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-5.8927" y="-7.652972" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="-0.03376869" qz="0.0007361233" qw="-0.9991921" />
@@ -1395,7 +1372,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main953138804728625472" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main953136846513009344" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="5.8927" y="-7.652973" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="0.03376869" qz="-0.0007361233" qw="-0.9991921" />
@@ -1417,7 +1394,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main954138804728625600" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main954136846513009472" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="0.04780692" qz="-0.001863591" qw="-0.9980968" />
@@ -1439,7 +1416,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main955138804728625728" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main955136846513009600" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-13.49152" y="5.840501" z="-96.35839" />
           <quaternion qx="-0.04646049" qy="-0.03891892" qz="0.001811526" qw="-0.9981601" />
@@ -1461,7 +1438,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main956138804728625856" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main956136846513009728" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="13.49146" y="5.840504" z="-96.3584" />
           <quaternion qx="-0.04646049" qy="0.03891892" qz="-0.001811526" qw="-0.9981601" />
@@ -1483,7 +1460,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main957138804728625984" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main957136846513009856" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="0" y="9.107853" z="-100.8717" />
           <quaternion qx="-0.024426" qy="0" qz="0" qw="-0.9997016" />
