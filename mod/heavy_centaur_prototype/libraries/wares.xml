@@ -64,6 +64,15 @@
       <component ref="turret_arg_m_hcp_laser_01_mk1_macro" />
       <restriction licence="generaluseequipment" />
       <use threshold="0" />
+      <owner faction="alliance" />
+      <owner faction="antigone" />
+      <owner faction="argon" />
+      <owner faction="boron" />
+      <owner faction="buccaneers" />
+      <owner faction="hatikvah" />
+      <owner faction="loanshark" />
+      <owner faction="scavenger" />
+      <owner faction="yaki" />
     </ware>
     <ware id="turret_arg_m_hcp_gatling_01_mk1" name="{1931170,421}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
       <price min="36623" average="40693" max="44762" />
@@ -77,6 +86,13 @@
       <component ref="turret_arg_m_hcp_gatling_01_mk1_macro" />
       <restriction licence="militaryequipment" />
       <use threshold="0" />
+      <owner faction="alliance" />
+      <owner faction="antigone" />
+      <owner faction="argon" />
+      <owner faction="boron" />
+      <owner faction="buccaneers" />
+      <owner faction="loanshark" />
+      <owner faction="scavenger" />
     </ware>
     <ware id="turret_arg_m_hcp_plasma_01_mk1" name="{1931170,431}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
       <price min="58442" average="64935" max="71429" />
@@ -90,6 +106,12 @@
       <component ref="turret_arg_m_hcp_plasma_01_mk1_macro" />
       <restriction licence="militaryequipment" />
       <use threshold="0.71" />
+      <owner faction="alliance" />
+      <owner faction="antigone" />
+      <owner faction="argon" />
+      <owner faction="buccaneers" />
+      <owner faction="loanshark" />
+      <owner faction="scavenger" />
     </ware>
     <ware id="turret_arg_m_hcp_beam_01_mk1" name="{1931170,441}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
       <price min="29131" average="32368" max="35604" />
@@ -103,6 +125,12 @@
       <component ref="turret_arg_m_hcp_beam_01_mk1_macro" />
       <restriction licence="militaryequipment" />
       <use threshold="0" />
+      <owner faction="alliance" />
+      <owner faction="antigone" />
+      <owner faction="argon" />
+      <owner faction="buccaneers" />
+      <owner faction="loanshark" />
+      <owner faction="scavenger" />
     </ware>
     <ware id="turret_arg_m_hcp_shotgun_01_mk1" name="{1931170,451}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
       <price min="44116" average="49018" max="53919" />
@@ -116,6 +144,13 @@
       <component ref="turret_arg_m_hcp_shotgun_01_mk1_macro" />
       <restriction licence="militaryequipment" />
       <use threshold="0" />
+      <owner faction="alliance" />
+      <owner faction="antigone" />
+      <owner faction="argon" />
+      <owner faction="boron" />
+      <owner faction="buccaneers" />
+      <owner faction="loanshark" />
+      <owner faction="scavenger" />
     </ware>
     <ware id="turret_arg_m_hcp_flak_01_mk1" name="{1931170,461}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
       <price min="59101" average="65668" max="72234" />
@@ -129,6 +164,9 @@
       <component ref="turret_arg_m_hcp_flak_01_mk1_macro" />
       <restriction licence="militaryequipment" />
       <use threshold="0.71" />
+      <owner faction="alliance" />
+      <owner faction="argon" />
+      <owner faction="buccaneers" />
     </ware>
     <ware id="turret_arg_m_hcp_borlaser_01_mk1" name="{1931170,471}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
       <price min="23802" average="26447" max="29092" />
@@ -142,6 +180,7 @@
       <component ref="turret_arg_m_hcp_borlaser_01_mk1_macro" />
       <restriction licence="generaluseequipment" />
       <use threshold="0" />
+      <owner faction="boron" />
     </ware>
     <ware id="turret_arg_m_hcp_railgun_01_mk1" name="{1931170,481}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
       <price min="48527" average="53919" max="59311" />
@@ -155,6 +194,7 @@
       <component ref="turret_arg_m_hcp_railgun_01_mk1_macro" />
       <restriction licence="militaryequipment" />
       <use threshold="0.71" />
+      <owner faction="boron" />
     </ware>
     <ware id="turret_arg_m_hcp_arc_01_mk1" name="{1931170,491}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
       <price min="32044" average="35604" max="39165" />
@@ -168,6 +208,7 @@
       <component ref="turret_arg_m_hcp_arc_01_mk1_macro" />
       <restriction licence="militaryequipment" />
       <use threshold="0.71" />
+      <owner faction="boron" />
     </ware>
   </add>
 </diff>
