@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/index">
+    <entry name="turret_arg_m_hcp_ma_01_mk1_macro" value="extensions\heavy_centaur_prototype_vro\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_ma_01_mk1_macro" />
+    <entry name="turret_arg_m_hcp_flechette_01_mk1_macro" value="extensions\heavy_centaur_prototype_vro\assets\props\weaponsystems\hcp\macros\turret_arg_m_hcp_flechette_01_mk1_macro" />
+  </add>
+</diff>

@@ -67,4 +67,32 @@
       <ware ware="turretcomponents" amount="21" />
     </primary>
   </replace>
+  <add sel="/wares">
+    <ware id="turret_arg_m_hcp_ma_01_mk1" name="{1931171,11}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="85286" average="89864" max="93850" />
+      <production time="10" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="advancedelectronics" amount="4" />
+          <ware ware="energycells" amount="44" />
+          <ware ware="turretcomponents" amount="22" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_ma_01_mk1_macro" />
+      <restriction licence="generaluseequipment" />
+      <use threshold="0" />
+    </ware>
+    <ware id="turret_arg_m_hcp_flechette_01_mk1" name="{1931171,21}" description="{1931170,402}" group="turrets" transport="equipment" volume="1" tags="equipment turret">
+      <price min="76573" average="82145" max="88400" />
+      <production time="10" amount="1" method="default" name="{20206,101}">
+        <primary>
+          <ware ware="advancedelectronics" amount="3" />
+          <ware ware="energycells" amount="30" />
+          <ware ware="turretcomponents" amount="14" />
+        </primary>
+      </production>
+      <component ref="turret_arg_m_hcp_flechette_01_mk1_macro" />
+      <restriction licence="generaluseequipment" />
+      <use threshold="0" />
+    </ware>
+  </add>
 </diff>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/language">
+    <page id="1931171" title="Heavy Centaur Prototype VRO" descr="Heavy Centaur Prototype VRO" voice="no">
+      <t id="11">HCP Mass Driver Turret</t>
+      <t id="13">HCP Mass Driver T</t>
+      <t id="14">HCP Mass Driver Turret</t>
+      <t id="21">HCP Flechette Turret</t>
+      <t id="23">HCP Flechette T</t>
+      <t id="24">HCP Flechette Turret</t>
+    </page>
+  </add>
+</diff>

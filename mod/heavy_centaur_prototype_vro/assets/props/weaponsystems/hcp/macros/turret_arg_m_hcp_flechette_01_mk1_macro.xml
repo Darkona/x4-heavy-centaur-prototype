@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<macros>
+  <macro name="turret_arg_m_hcp_flechette_01_mk1_macro" class="turret">
+    <component ref="turret_arg_m_hcp_shotgun_01_mk1" />
+    <properties>
+      <identification name="{1931171,21}" basename="{1931171,24}" shortname="{1931171,23}" makerrace="argon" description="{1931170,402}" mk="1" />
+      <bullet class="bullet_gen_turret_m_flechette_macro" />
+      <rotationspeed max="75" />
+      <reload rate="1" time="1" />
+      <hull max="7520" threshold="0.2" integrated="0" />
+    </properties>
+  </macro>
+</macros>
