@@ -2,4 +2,6 @@
 <diff>
   <replace sel="//loadouts/loadout[@id='hcp_full']/ammunition/ammunition[@macro='missile_gen_m_guided_01_mk1_macro']/@macro">missile_guided_heavy_mk1_macro</replace>
   <replace sel="//loadouts/loadout[@id='hcp_full']/ammunition/ammunition[@macro='missile_gen_m_dumbfire_01_mk1_macro']/@macro">missile_dumbfire_heavy_mk1_macro</replace>
+  <replace sel="//loadouts/loadout[@id='hcp_turret_test']/ammunition/ammunition[@macro='missile_gen_m_guided_01_mk1_macro']/@macro">missile_guided_heavy_mk1_macro</replace>
+  <replace sel="//loadouts/loadout[@id='hcp_turret_test']/ammunition/ammunition[@macro='missile_gen_m_dumbfire_01_mk1_macro']/@macro">missile_dumbfire_heavy_mk1_macro</replace>
 </diff>
