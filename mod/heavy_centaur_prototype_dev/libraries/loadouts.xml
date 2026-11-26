@@ -21,6 +21,14 @@
         <weapon macro="weapon_gen_m_guided_02_mk1_macro" path="../con_weapon_missile_01" />
         <weapon macro="weapon_gen_m_guided_02_mk1_macro" path="../con_weapon_missile_02" />
         <shield macro="shield_arg_l_hcp_internal_01_mk2_macro" path="../con_shield_l_01" />
+        <turret macro="turret_arg_m_flak_02_mk1_macro" path="../con_turret_08" />
+        <turret macro="turret_arg_m_flak_02_mk1_macro" path="../con_turret_07" />
+        <turret macro="turret_arg_m_flak_02_mk1_macro" path="../con_turret_03" />
+        <turret macro="turret_arg_m_flak_02_mk1_macro" path="../con_turret_04" />
+        <turret macro="turret_arg_m_flak_02_mk1_macro" path="../con_turret_01" />
+        <turret macro="turret_arg_m_flak_02_mk1_macro" path="../con_turret_02" />
+        <turret macro="turret_arg_m_flak_02_mk1_macro" path="../con_turret_05" />
+        <turret macro="turret_arg_m_flak_02_mk1_macro" path="../con_turret_06" />
       </macros>
       <groups>
         <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_back_down_left" min="1" max="1" />
@@ -30,14 +38,6 @@
         <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_front_down_mid" min="1" max="1" />
         <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_mid_up_left" min="1" max="1" />
         <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_mid_up_right" min="1" max="1" />
-        <turrets macro="turret_arg_m_flak_02_mk1_macro" path=".." group="group_back_down_left" min="1" max="1" />
-        <turrets macro="turret_arg_m_flak_02_mk1_macro" path=".." group="group_back_down_right" min="1" max="1" />
-        <turrets macro="turret_arg_m_flak_02_mk1_macro" path=".." group="group_back_top_mid" min="1" max="1" />
-        <turrets macro="turret_arg_m_flak_02_mk1_macro" path=".." group="group_front_down_mid" min="1" max="1" />
-        <turrets macro="turret_arg_m_flak_02_mk1_macro" path=".." group="group_front_mid_left" min="1" max="1" />
-        <turrets macro="turret_arg_m_flak_02_mk1_macro" path=".." group="group_front_mid_right" min="1" max="1" />
-        <turrets macro="turret_arg_m_flak_02_mk1_macro" path=".." group="group_mid_up_left" min="1" max="1" />
-        <turrets macro="turret_arg_m_flak_02_mk1_macro" path=".." group="group_mid_up_right" min="1" max="1" />
       </groups>
       <software>
         <software ware="software_dockmk2" />
