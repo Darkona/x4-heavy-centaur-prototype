@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-25 03:41:14 from Blender-->
+<!--Exported on 2026-11-25 23:27:01 from Blender-->
 <components>
   <component name="ship_arg_l_hcp_01" class="ship_m">
     <source geometry="extensions\heavy_centaur_prototype\assets\units\size_l\ship_arg_l_hcp_01_data" />
@@ -249,17 +249,14 @@
       </connection>
       <connection name="con_room_001" tags="dynamicroom window " value="-1">
         <offset>
-          <position x="17.78525" y="0" z="-40" />
+          <position x="12" y="-14" z="93" />
+          <quaternion qx="0" qy="-0.7071066" qz="0" qw="-0.7071069" />
         </offset>
       </connection>
       <connection name="con_room_002" tags="dynamicroom window " value="-1">
         <offset>
-          <position x="-17.78558" y="0" z="-40" />
-        </offset>
-      </connection>
-      <connection name="con_room_003" tags="dynamicroom window " value="-1">
-        <offset>
-          <position x="0" y="-16" z="86" />
+          <position x="8" y="-7" z="-56" />
+          <quaternion qx="0" qy="1" qz="0" qw="-7.54979e-08" />
         </offset>
       </connection>
       <connection name="con_shield_01" group="group_back_down_left " tags="hittable medium shield standard ">
@@ -1336,7 +1333,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main951138681210698176" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main951135764434351680" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="-0.04780692" qz="0.001863591" qw="-0.9980968" />
@@ -1358,7 +1355,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main952138681210698304" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main952135764434351808" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-5.8927" y="-7.652972" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="-0.03376869" qz="0.0007361233" qw="-0.9991921" />
@@ -1380,7 +1377,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main953138681210698432" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main953135764434351936" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="5.8927" y="-7.652973" z="-97.87361" />
           <quaternion qx="-0.02178138" qy="0.03376869" qz="-0.0007361233" qw="-0.9991921" />
@@ -1402,7 +1399,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main954138681210698560" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main954135764434352064" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="30.72849" y="-8.753789" z="-102.9797" />
           <quaternion qx="-0.03890741" qy="0.04780692" qz="-0.001863591" qw="-0.9980968" />
@@ -1424,7 +1421,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main955138681210698688" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main955135764434352192" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="-13.49152" y="5.840501" z="-96.35839" />
           <quaternion qx="-0.04646049" qy="-0.03891892" qz="0.001811526" qw="-0.9981601" />
@@ -1446,7 +1443,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main956138681210698816" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main956135764434352320" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="13.49146" y="5.840504" z="-96.3584" />
           <quaternion qx="-0.04646049" qy="0.03891892" qz="-0.001811526" qw="-0.9981601" />
@@ -1468,7 +1465,7 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionForpart_main957138681210698944" group=" " tags="engineeffect forceoutline nocollision part ">
+      <connection name="ConnectionForpart_main957135764434352448" group=" " tags="engineeffect forceoutline nocollision part ">
         <offset>
           <position x="0" y="9.107853" z="-100.8717" />
           <quaternion qx="-0.024426" qy="0" qz="0" qw="-0.9997016" />

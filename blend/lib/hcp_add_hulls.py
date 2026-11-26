@@ -1,5 +1,5 @@
 import bpy, glob, os
-D = '/home/darkona/development/x4/heavy-centaur/blend/lib/vhacd'
+D = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'vhacd')
 scene = bpy.context.scene
 if 'Hulls' in bpy.data.collections:
     hc = bpy.data.collections['Hulls']

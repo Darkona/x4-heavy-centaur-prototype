@@ -10,7 +10,7 @@ from hcp_vdata import add_vertex_data
 
 OUT = '/home/darkona/development/x4/p1[assets]/extensions/heavy_centaur_prototype/assets/units/size_l/ship_arg_l_hcp_01.blend'
 LIB = '/home/darkona/development/x4/heavy-centaur/blend/lib/thruster_ship_m_01.blend'
-COL_OBJ = '/home/darkona/development/x4/heavy-centaur/blend/lib/vhacd/part_main.obj'
+COL_OBJ = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'vhacd', 'part_main.obj')
 ENGINE_BODY_LIB = '/home/darkona/development/x4/heavy-centaur/blend/lib/engine_arg_m_allround_01_body.blend'
 ENGINE_BODY_TAGS = ['engineeffect', 'forceoutline', 'nocollision']
 FLAME_UV_KEYS = [(1, 0.3), (10, 3.0)]

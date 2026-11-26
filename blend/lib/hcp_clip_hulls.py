@@ -1,10 +1,11 @@
 import bpy
 import bmesh
 import json
+import os
 import itertools
 from mathutils import Vector
 
-PROTECT = '/home/darkona/development/x4/heavy-centaur/blend/lib/vhacd/protect.json'
+PROTECT = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'vhacd', 'protect.json')
 MIN_VOLUME = 0.05
 SAMPLE_STEP = 0.5
 
