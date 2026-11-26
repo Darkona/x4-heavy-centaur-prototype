@@ -335,6 +335,8 @@ for s in list(bpy.data.scenes):
     if s != bpy.context.scene:
         bpy.data.scenes.remove(s)
 scene = bpy.context.scene
+scene.render.fps = 30
+scene.render.fps_base = 1.0
 for c in list(bpy.data.collections):
     if c != out_col:
         bpy.data.collections.remove(c)
