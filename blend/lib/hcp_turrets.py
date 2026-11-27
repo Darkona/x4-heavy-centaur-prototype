@@ -35,7 +35,7 @@ TURRETS = {
     'laser': (W + 'standard/turret_arg_m_laser_02_mk1.xml', 'part_gun', (), 0.0),
     'gatling': (W + 'heavy/turret_arg_m_gatling_02_mk1.xml', 'part_gun', (), 0.0),
     'plasma': (W + 'heavy/turret_arg_m_plasma_02_mk1.xml', 'part_gun', (), 0.10),
-    'beam': (W + 'energy/turret_arg_m_beam_02_mk1.xml', 'detail_xl_gun', (), 0.0),
+    'beam': (W + 'energy/turret_arg_m_beam_02_mk1.xml', 'detail_xl_gun', ('detail_xl_rotator',), 0.0),
     'shotgun': (W + 'standard/turret_arg_m_shotgun_02_mk1.xml', 'part_gun', (), 0.0),
     'flak': (W + 'heavy/turret_arg_m_flak_02_mk1.xml', 'part_gun', (), 0.0),
     'borlaser': (B + 'turret_bor_m_laser_02_mk1.xml', 'part_gun', ('part_detail_rotator',), 0.0),
@@ -124,6 +124,7 @@ def subtree(part_conn, conns, root):
 
 def read_obj(path):
     verts = []
+    colors = []
     uvs = []
     objects = {}
     cur = None
@@ -132,14 +133,16 @@ def read_obj(path):
         if tag in ('o ', 'g '):
             cur = objects.setdefault(line.split()[1], [])
         elif tag == 'v ':
-            verts.append([float(v) for v in line.split()[1:4]])
+            vals = [float(v) for v in line.split()[1:7]]
+            verts.append(vals[:3])
+            colors.append(vals[3:6] if len(vals) == 6 else [1.0, 1.0, 1.0])
         elif line.startswith('vt '):
             uvs.append(line.split()[1:3])
         elif line.startswith('usemtl '):
             cur.append(('usemtl', line.split()[1]))
         elif tag == 'f ':
             cur.append(('f', [tuple(int(i) if i else 0 for i in (c.split('/') + ['', ''])[:2]) for c in line.split()[1:]]))
-    return np.array(verts), uvs, objects
+    return np.array(verts), uvs, objects, colors
 
 
 def kabsch(a, b):
@@ -165,7 +168,7 @@ def used_verts(items):
     return sorted({c[0] for kind, data in items if kind == 'f' for c in data})
 
 
-def write_part_obj(path, name, verts, uvs, items, transform, shift_of_face):
+def write_part_obj(path, name, verts, colors, uvs, items, transform, shift_of_face):
     idx = used_verts(items)
     out = [f'o {name}']
     remap = {}
@@ -181,7 +184,7 @@ def write_part_obj(path, name, verts, uvs, items, transform, shift_of_face):
             key = (vi, side[0])
             if key not in remap:
                 p = transform(verts[vi - 1]) + side[1]
-                lines_v.append('v %.6f %.6f %.6f' % tuple(p))
+                lines_v.append('v %.6f %.6f %.6f %.4f %.4f %.4f' % (*p, *colors[vi - 1]))
                 remap[key] = len(lines_v)
             corners.append(f'{remap[key]}/{ti}' if ti else f'{remap[key]}')
         faces.append('f ' + ' '.join(corners))
@@ -197,13 +200,13 @@ def gun_spec(kind, source_dir, xmf):
     pose = want.get('pose')
     xml_path = REFS / rel
     rest_obj = WORK / f'gun_{kind}_rest.obj'
-    subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(rest_obj)], check=True, stdout=subprocess.DEVNULL)
+    subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(rest_obj), '--colors'], check=True, stdout=subprocess.DEVNULL)
     posed_obj = rest_obj
     if pose:
         posed_obj = WORK / f'gun_{kind}_{pose}.obj'
-        subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(posed_obj), '--pose', pose], check=True, stdout=subprocess.DEVNULL)
-    rv, uvs, robjs = read_obj(rest_obj)
-    pv, _, pobjs = read_obj(posed_obj)
+        subprocess.run(['x4-xmf', 'ship', str(xml_path), '-o', str(posed_obj), '--colors', '--pose', pose], check=True, stdout=subprocess.DEVNULL)
+    rv, uvs, robjs, vcols = read_obj(rest_obj)
+    pv, _, pobjs, _ = read_obj(posed_obj)
     conns, part_conn, world = connection_frames(xml_path, xmf)
     parts = [p for p in part_conn if not SKIP_PART.search(p) and p in robjs]
     if root:
@@ -273,7 +276,7 @@ def gun_spec(kind, source_dir, xmf):
             return side, rot_back @ shifts[side]
 
         obj = WORK / f'{component_name(kind)}_{p}.obj'
-        write_part_obj(obj, p, rv, uvs, items, transform, shift_of_face)
+        write_part_obj(obj, p, rv, vcols, uvs, items, transform, shift_of_face)
         out_parts.append({'name': p, 'obj': str(obj), 'merged': p in merged, 'parent': parent, 'frame': rel_frame.tolist(), 'tags': [t for t in conns[part_conn[p]][2] if t != 'part']})
     shooters = []
     for name, (vparent, local, tags) in conns.items():

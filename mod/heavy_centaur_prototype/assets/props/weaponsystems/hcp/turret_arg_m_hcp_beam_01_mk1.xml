@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Exported on 2026-11-26 09:33:45 from Blender-->
+<!--Exported on 2026-11-26 22:34:56 from Blender-->
 <components>
   <component name="turret_arg_m_hcp_beam_01_mk1" class="turret">
     <source geometry="extensions\heavy_centaur_prototype\assets\props\weaponsystems\hcp\turret_arg_m_hcp_beam_01_mk1_data" />
@@ -83,10 +83,31 @@
           </part>
         </parts>
       </connection>
-      <connection name="ConnectionFordetail_xl_gun" tags="forceoutline iklink nocollision part " parent="part_gun">
+      <connection name="ConnectionFordetail_xl_rotator" tags="forceoutline iklink nocollision part " parent="part_gun">
         <offset>
-          <position x="-9.914683e-07" y="0.31247" z="1.513992" />
-          <quaternion qx="-2.980232e-07" qy="0" qz="0" qw="-1" />
+          <position x="0" y="-0.8353231" z="1.514277" />
+          <quaternion qx="-5.960464e-08" qy="0" qz="0" qw="-1" />
+        </offset>
+        <parts>
+          <part name="detail_xl_rotator">
+            <lods>
+              <lod index="0">
+                <materials>
+                  <material id="1" ref="generic.generic_p1_hulltexture" />
+                </materials>
+              </lod>
+            </lods>
+            <size>
+              <max x="0.464091" y="1.117061" z="0.942222" />
+              <center x="7.450581e-09" y="-0.5171455" z="-0.285975" />
+            </size>
+          </part>
+        </parts>
+      </connection>
+      <connection name="ConnectionFordetail_xl_gun" tags="forceoutline iklink nocollision part " parent="detail_xl_rotator">
+        <offset>
+          <position x="-9.914683e-07" y="-0.0531975" z="-0.0002855584" />
+          <quaternion qx="0" qy="0" qz="0" qw="-1" />
         </offset>
         <parts>
           <part name="detail_xl_gun">
@@ -106,7 +127,8 @@
       </connection>
       <connection name="ConnectionFordetail_xl_barrel" tags="forceoutline iklink nocollision part " parent="detail_xl_gun">
         <offset>
-          <position x="-1.397871e-08" y="-0.4363059" z="0.8053001" />
+          <position x="-1.397871e-08" y="-0.436306" z="0.8053001" />
+          <quaternion qx="0" qy="0" qz="0" qw="-1" />
         </offset>
         <parts>
           <part name="detail_xl_barrel">
@@ -127,12 +149,12 @@
       </connection>
       <connection name="con_beam_01" tags="laser " parent="detail_xl_barrel">
         <offset>
-          <position x="1.363469" y="0.0001242012" z="0.7202292" />
+          <position x="1.363469" y="0.0001243353" z="0.7202293" />
         </offset>
       </connection>
       <connection name="con_beam_02" tags="laser " parent="detail_xl_barrel">
         <offset>
-          <position x="-1.354795" y="0.000123933" z="0.7202287" />
+          <position x="-1.354795" y="0.0001240969" z="0.7202288" />
         </offset>
       </connection>
       <connection name="container" tags=" contents" />

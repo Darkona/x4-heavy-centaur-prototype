@@ -39,6 +39,7 @@ HIDDEN_MATERIAL = 'generic.generic_p1_hulltexture'
 
 def read_obj(path):
     verts = []
+    colors = []
     uvs = []
     norms = []
     objects = []
@@ -51,6 +52,7 @@ def read_obj(path):
             tag, *rest = line.split()
             if tag == 'v':
                 verts.append(tuple(float(v) for v in rest[:3]))
+                colors.append(tuple(float(v) for v in reversed(rest[3:6])) if len(rest) >= 6 else (1.0, 1.0, 1.0))
             elif tag == 'vt':
                 uvs.append((float(rest[0]), float(rest[1])))
             elif tag == 'vn':
@@ -72,7 +74,7 @@ def read_obj(path):
                     ni = int(idx[2]) if len(idx) > 2 and idx[2] else 0
                     corners.append((vi - 1 if vi > 0 else len(verts) + vi, ti - 1 if ti > 0 else (len(uvs) + ti if ti else -1), ni - 1 if ni > 0 else (len(norms) + ni if ni else -1)))
                 cur['faces'].append((corners, mat))
-    return verts, uvs, norms, objects
+    return verts, uvs, norms, objects, colors
 
 
 def material(name):
@@ -83,12 +85,13 @@ def material(name):
 
 
 def build_mesh(name, data, obj, swap):
-    verts, uvs, norms, _ = data
+    verts, uvs, norms, _, colors = data
     sw = (lambda p: (p[0], p[2], p[1])) if swap else (lambda p: p)
     bm = bmesh.new()
     vmap = {}
     mats = []
     uv_layer = bm.loops.layers.uv.new('uv1')
+    col_layer = bm.loops.layers.color.new('col')
     agree = 0
     total = 0
     for corners, mname in obj['faces']:
@@ -110,6 +113,8 @@ def build_mesh(name, data, obj, swap):
         for loop, (vi, ti, ni) in zip(f.loops, corners):
             if ti >= 0:
                 loop[uv_layer].uv = uvs[ti]
+        for loop, (vi, ti, ni) in zip(f.loops, corners):
+            loop[col_layer] = (*colors[vi], 1.0)
         if norms and corners[0][2] >= 0:
             f.normal_update()
             n = Vector((0.0, 0.0, 0.0))
