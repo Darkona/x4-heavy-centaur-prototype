@@ -6,7 +6,7 @@
       <identification name="{1931170,451}" basename="{1931170,454}" shortname="{1931170,453}" makerrace="argon" description="{1931170,402}" mk="1" />
       <bullet class="bullet_hcp_turret_m_shotgun_01_mk1_macro" />
       <rotationspeed max="161" />
-      <rotationacceleration max="210" />
+      <rotationacceleration max="241.5" />
       <hull max="1600" threshold="0.2" integrated="0" />
     </properties>
   </macro>
