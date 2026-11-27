@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<diff>
+  <add sel="/peopledefinitions">
+    <people id="hcp_bench_crew" name="{20208,100051}" playeronly="true">
+      <fillpercent exact="100"/>
+      <person role="service" weight="8">
+        <select faction="argon" tags="[service, elite]"/>
+      </person>
+      <person role="marine" weight="10">
+        <select faction="argon" tags="[marine, elite]"/>
+      </person>
+    </people>
+  </add>
+</diff>
