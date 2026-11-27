@@ -458,6 +458,18 @@ def replace_block(text, pattern, new, anchor):
     return text[:i] + new + text[i:]
 
 
+def vanilla_owners(ware_id):
+    owners = set()
+    for f in sorted(REFS.glob('*/libraries/wares.xml')):
+        text = f.read_text()
+        m = re.search(rf'<ware id="{ware_id}".*?</ware>', text, re.S)
+        if m:
+            owners.update(re.findall(r'<owner faction="([^"]+)"', m.group(0)))
+        for a in re.finditer(rf'<add sel="[^"]*@id=.{ware_id}.[^"]*"[^>]*>(.*?)</add>', text, re.S):
+            owners.update(re.findall(r'<owner faction="([^"]+)"', a.group(1)))
+    return sorted(owners)
+
+
 def data(kinds):
     macros_dir = MOD / 'assets/props/weaponsystems/hcp/macros'
     bullets_dir = MOD / 'assets/fx/weaponfx/macros'
@@ -497,6 +509,7 @@ def data(kinds):
         ware = ware.replace(f'id="{vanilla}"', f'id="{comp}"').replace(f'ref="{vanilla}_macro"', f'ref="{macro}"')
         ware = re.sub(r'name="\{[0-9]+,[0-9]+\}" description="\{[0-9]+,[0-9]+\}"', f'name="{{{TEXT_PAGE},{tid + 1}}}" description="{{{TEXT_PAGE},{TEXT_BASE + 2}}}"', ware, count=1)
         ware = re.sub(r'\s*<owner faction="[^"]+"\s*/>', '', ware)
+        ware = ware.replace('</ware>', ''.join(f'  <owner faction="{f}" />\n' for f in vanilla_owners(vanilla)) + '</ware>')
         ware = re.sub(r'<price min="(\d+)" average="(\d+)" max="(\d+)"', lambda m: '<price min="%d" average="%d" max="%d"' % tuple(round(int(v) * PRICE_FACTOR) for v in m.groups()), ware, count=1)
         lines = ware.split('\n')
         base_indent = len(lines[-1]) - len(lines[-1].lstrip())
