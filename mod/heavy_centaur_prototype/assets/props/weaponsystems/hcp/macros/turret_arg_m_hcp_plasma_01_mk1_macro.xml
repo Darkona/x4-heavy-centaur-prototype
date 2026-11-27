@@ -4,7 +4,7 @@
     <component ref="turret_arg_m_hcp_plasma_01_mk1" />
     <properties>
       <identification name="{1931170,431}" basename="{1931170,434}" shortname="{1931170,433}" makerrace="argon" description="{1931170,402}" mk="1" />
-      <bullet class="bullet_hcp_turret_m_plasma_01_mk1_macro" />
+      <bullet class="bullet_gen_turret_m_plasma_01_mk1_macro" />
       <rotationspeed max="46" />
       <rotationacceleration max="69" />
       <hull max="1200" threshold="0.2" integrated="0" />

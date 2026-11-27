@@ -485,11 +485,14 @@ def data(kinds):
         dlc, vanilla, en_name, es_name = VANILLA[kind]
         comp = component_name(kind)
         macro = comp + '_macro'
+        own_bullet = DAMAGE_FACTOR != 1.0
         bullet = f'bullet_hcp_turret_m_{kind}_01_mk1_macro'
         tid = TEXT_BASE + 10 * (i + 1)
         vm = find_one(vanilla + '_macro.xml', REFS / dlc / 'assets/props')
         text = vm.read_text()
         old_bullet = re.search(r'<bullet class="([^"]+)"', text).group(1)
+        if not own_bullet:
+            bullet = old_bullet
         text = re.sub(r'<!--.*?-->\s*', '', text, flags=re.S)
         text = text.replace(f'"{vanilla}_macro"', f'"{macro}"').replace(f'ref="{vanilla}"', f'ref="{comp}"').replace(f'"{old_bullet}"', f'"{bullet}"')
         ident = f'<identification name="{{{TEXT_PAGE},{tid + 1}}}" basename="{{{TEXT_PAGE},{tid + 4}}}" shortname="{{{TEXT_PAGE},{tid + 3}}}" makerrace="argon" description="{{{TEXT_PAGE},{TEXT_BASE + 2}}}" mk="1" />'
@@ -498,13 +501,15 @@ def data(kinds):
         (macros_dir / f'{macro}.xml').write_text(text)
         vb = find_one(old_bullet + '.xml', REFS / dlc / 'assets/fx')
         btext = re.sub(r'<!--.*?-->\s*', '', vb.read_text(), flags=re.S).replace(f'"{old_bullet}"', f'"{bullet}"')
-        (bullets_dir / f'{bullet}.xml').write_text(scale_damage(btext))
+        if own_bullet:
+            (bullets_dir / f'{bullet}.xml').write_text(scale_damage(btext))
         icon = REFS / dlc / f'assets/textures/ui/upgrades/{vanilla}_macro.gz'
         if icon.exists():
             shutil.copy2(icon, icons_dir / f'{macro}.gz')
         base = 'extensions\\heavy_centaur_prototype\\assets\\'
         idx_macros.append(f'    <entry name="{macro}" value="{base}props\\weaponsystems\\hcp\\macros\\{macro}" />\n')
-        idx_macros.append(f'    <entry name="{bullet}" value="{base}fx\\weaponfx\\macros\\{bullet}" />\n')
+        if own_bullet:
+            idx_macros.append(f'    <entry name="{bullet}" value="{base}fx\\weaponfx\\macros\\{bullet}" />\n')
         idx_components.append(f'    <entry name="{comp}" value="{base}props\\weaponsystems\\hcp\\{comp}" />\n')
         wfile = REFS / dlc / 'libraries/wares.xml'
         ware = re.search(rf'<ware id="{vanilla}".*?</ware>', wfile.read_text(), re.S).group(0)
