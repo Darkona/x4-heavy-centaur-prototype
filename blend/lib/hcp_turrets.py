@@ -59,6 +59,7 @@ VANILLA = {
 }
 DAMAGE_FACTOR = 1.0
 PRICE_FACTOR = 1.0
+ROTATION_FACTOR = 1.15
 TEXT_PAGE = 1931170
 TEXT_BASE = 400
 TEXTS = {
@@ -493,6 +494,7 @@ def data(kinds):
         text = text.replace(f'"{vanilla}_macro"', f'"{macro}"').replace(f'ref="{vanilla}"', f'ref="{comp}"').replace(f'"{old_bullet}"', f'"{bullet}"')
         ident = f'<identification name="{{{TEXT_PAGE},{tid + 1}}}" basename="{{{TEXT_PAGE},{tid + 4}}}" shortname="{{{TEXT_PAGE},{tid + 3}}}" makerrace="argon" description="{{{TEXT_PAGE},{TEXT_BASE + 2}}}" mk="1" />'
         text = re.sub(r'<identification [^>]*/>', ident, text)
+        text = re.sub(r'(<rotationspeed max=")([0-9.]+)(")', lambda m: f'{m.group(1)}{round(float(m.group(2)) * ROTATION_FACTOR, 1):g}{m.group(3)}', text)
         (macros_dir / f'{macro}.xml').write_text(text)
         vb = find_one(old_bullet + '.xml', REFS / dlc / 'assets/fx')
         btext = re.sub(r'<!--.*?-->\s*', '', vb.read_text(), flags=re.S).replace(f'"{old_bullet}"', f'"{bullet}"')
