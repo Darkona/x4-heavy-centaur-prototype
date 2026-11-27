@@ -45,7 +45,7 @@ TURRETS = {
 BALL = 'flak_ball.obj'
 GUNS = 'guns.json'
 MERGED = {'part_gun'}
-ELEVATION = (-85, 0)
+ELEVATION = (-93, 93)
 VANILLA = {
     'laser': ('base', 'turret_arg_m_laser_02_mk1', 'Laser', 'láser'),
     'gatling': ('base', 'turret_arg_m_gatling_02_mk1', 'Bolt Repeater', 'repetidora'),
