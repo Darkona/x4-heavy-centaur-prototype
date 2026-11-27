@@ -177,5 +177,62 @@
         <unit macro="ship_gen_xs_repairdrone_01_a_macro" exact="12" />
       </ammunition>
     </loadout>
+    <loadout id="hcp_bench_mix" macro="ship_arg_l_hcp_01_a_macro">
+      <macros>
+        <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_01" />
+        <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_02" />
+        <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_03" />
+        <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_04" />
+        <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_05" />
+        <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_06" />
+        <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_07" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_01" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_02" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_03" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_04" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_05" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_06" />
+        <weapon macro="weapon_arg_m_hcp_vls_01_mk1_macro" path="../con_weapon_vls_01" />
+        <weapon macro="weapon_arg_m_hcp_vls_01_mk1_macro" path="../con_weapon_vls_02" />
+        <weapon macro="weapon_gen_m_guided_02_mk1_macro" path="../con_weapon_missile_01" />
+        <weapon macro="weapon_gen_m_guided_02_mk1_macro" path="../con_weapon_missile_02" />
+        <shield macro="shield_arg_l_hcp_internal_01_mk2_macro" path="../con_shield_l_01" />
+        <shield macro="shield_arg_s_standard_01_mk2_macro" path="../con_shield_13" />
+        <turret macro="turret_arg_m_hcp_beam_01_mk1_macro" path="../con_turret_01" />
+        <turret macro="turret_arg_m_hcp_beam_01_mk1_macro" path="../con_turret_02" />
+        <turret macro="turret_arg_m_hcp_laser_01_mk1_macro" path="../con_turret_03" />
+        <turret macro="turret_arg_m_hcp_beam_01_mk1_macro" path="../con_turret_04" />
+        <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_05" />
+        <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_06" />
+        <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_07" />
+        <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_08" />
+      </macros>
+      <groups>
+        <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_back_down_left" exact="1" />
+        <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_front_mid_left" exact="1" />
+        <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_front_mid_right" exact="1" />
+        <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_back_down_right" exact="1" />
+        <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_front_down_mid" exact="1" />
+        <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_mid_up_left" exact="1" />
+        <shields macro="shield_arg_m_standard_02_mk2_macro" path=".." group="group_mid_up_right" exact="1" />
+      </groups>
+      <software>
+        <software ware="software_dockmk2" />
+        <software ware="software_flightassistmk1" />
+        <software ware="software_scannerlongrangemk2" />
+        <software ware="software_scannerobjectmk2" />
+        <software ware="software_targetmk2" />
+        <software ware="software_repairdronecontrol" />
+      </software>
+      <virtualmacros>
+        <thruster macro="thruster_gen_l_allround_01_mk3_macro" />
+      </virtualmacros>
+      <ammunition>
+        <ammunition macro="missile_gen_m_guided_01_mk1_macro" exact="40" />
+        <ammunition macro="missile_torpedo_light_mk1_macro" exact="20" />
+        <ammunition macro="countermeasure_flares_01_macro" exact="30" />
+        <unit macro="ship_gen_xs_repairdrone_01_a_macro" exact="12" />
+      </ammunition>
+    </loadout>
   </add>
 </diff>
