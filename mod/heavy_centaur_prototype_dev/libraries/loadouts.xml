@@ -198,10 +198,10 @@
         <weapon macro="weapon_gen_m_guided_02_mk1_macro" path="../con_weapon_missile_02" />
         <shield macro="shield_arg_l_hcp_internal_01_mk2_macro" path="../con_shield_l_01" />
         <shield macro="shield_arg_s_standard_01_mk2_macro" path="../con_shield_13" />
-        <turret macro="turret_arg_m_hcp_beam_01_mk1_macro" path="../con_turret_01" />
-        <turret macro="turret_arg_m_hcp_beam_01_mk1_macro" path="../con_turret_02" />
+        <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_01" />
+        <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_02" />
         <turret macro="turret_arg_m_hcp_laser_01_mk1_macro" path="../con_turret_03" />
-        <turret macro="turret_arg_m_hcp_beam_01_mk1_macro" path="../con_turret_04" />
+        <turret macro="turret_arg_m_hcp_gatling_01_mk1_macro" path="../con_turret_04" />
         <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_05" />
         <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_06" />
         <turret macro="turret_arg_m_hcp_flak_01_mk1_macro" path="../con_turret_07" />
