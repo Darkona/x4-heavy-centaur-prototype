@@ -72,12 +72,12 @@
         <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_05" />
         <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_06" />
         <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_07" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_01" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_02" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_03" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_04" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_05" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_06" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_01" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_02" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_03" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_04" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_05" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_06" />
         <weapon macro="weapon_arg_m_hcp_vls_01_mk1_macro" path="../con_weapon_vls_01" />
         <weapon macro="weapon_arg_m_hcp_vls_01_mk1_macro" path="../con_weapon_vls_02" />
         <weapon macro="weapon_gen_m_guided_02_mk1_macro" path="../con_weapon_missile_01" />
@@ -129,12 +129,12 @@
         <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_05" />
         <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_06" />
         <engine macro="engine_arg_m_combat_01_mk3_macro" path="../con_engine_07" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_01" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_02" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_03" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_04" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_05" />
-        <weapon macro="weapon_gen_m_plasma_01_mk2_macro" path="../con_weapon_06" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_01" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_02" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_03" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_04" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_05" />
+        <weapon macro="weapon_gen_m_laser_01_mk2_macro" path="../con_weapon_06" />
         <weapon macro="weapon_arg_m_hcp_vls_01_mk1_macro" path="../con_weapon_vls_01" />
         <weapon macro="weapon_arg_m_hcp_vls_01_mk1_macro" path="../con_weapon_vls_02" />
         <weapon macro="weapon_gen_m_guided_02_mk1_macro" path="../con_weapon_missile_01" />
