@@ -424,6 +424,7 @@ def install(kinds):
         states = []
         if info and info['parts']:
             subprocess.run(['x4-ani', 'subset', info['source'], str(ani), '--parts', ','.join(info['parts']), '--scale', str(info['scale'])], check=True, stdout=subprocess.DEVNULL)
+            subprocess.run(['x4-ani', 'static', str(ani), '--parts', 'part_base,part_rotator,part_gun'], check=True, stdout=subprocess.DEVNULL)
             states = info['states']
         patch_component(dest / f'{name}.xml', states)
         n = len(list((dest / f'{name}_data').glob('*-lod0.xmf')))
